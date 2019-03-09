@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/lmariemeehan/blocipedia-node.git"
   },
-  "author": "",
+  "author": "Laura M. Meehan",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lmariemeehan/blocipedia-node/issues"
@@ -30,6 +30,7 @@
     "express-flash": "0.0.2",
     "express-session": "^1.15.6",
     "express-validator": "^5.0.2",
+    "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "pg": "^7.4.1",
