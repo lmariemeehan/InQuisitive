@@ -5,6 +5,7 @@ const authHelper = require("../auth/helpers");
 
 module.exports = {
 	init(app){
+		
 		app.use(passport.initialize());
 		app.use(passport.session());
 

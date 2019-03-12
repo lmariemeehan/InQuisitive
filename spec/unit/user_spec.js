@@ -17,7 +17,8 @@ describe("User", () => {
 		it("should create a User object with a valid email and password", (done) => {
 			User.create({
 				email: "user@example.com",
-				password: "helloworld"
+				password: "helloworld",
+				role: 0
 			})
 			.then((user) => {
 				expect(user.email).toBe("user@example.com");
@@ -48,13 +49,15 @@ describe("User", () => {
 		it("should not create a user with an email that's already been taken", (done) => {
 			User.create({
 				email: "user@example.com",
-				password: "helloworld"
+				password: "helloworld",
+				role: 0
 			})
 			.then((user) => {
 
 				User.create({
 					email: "user@example.com",
-					password: "psssst.. this seats taken!"
+					password: "psssst.. this seats taken!",
+					role: 0
 				})
 				.then((user) => {
 					//Nothing will happen here since there's an error

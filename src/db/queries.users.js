@@ -8,7 +8,8 @@ module.exports = {
 
 		return User.create({
 			email: newUser.email,
-			password: hashedPassword
+			password: hashedPassword,
+			role: newUser.role
 		})
 		.then((user) => {
 			callback(null, user);

@@ -10,7 +10,8 @@ const User = require("../../src/db/models").User;
       sequelize.sync({force: true}).then((res) => {
         User.create({
           email: "user@example.com",
-          password: "helloworld"
+          password: "helloworld",
+          role: 0
         })
         .then((user) => {
           this.user = user; //storing the user
@@ -18,7 +19,8 @@ const User = require("../../src/db/models").User;
           Wiki.create({
             title: "Dusty the Klepto Kitty",
             body: "Meet Dusty, the cat burglar.",
-            userId: this.user.id
+            userId: this.user.id,
+            private: false,
           })
           .then((wiki) => {
             this.wiki = wiki;
@@ -38,7 +40,8 @@ const User = require("../../src/db/models").User;
         Wiki.create({
           title: "Japanese supercentenarian Kane Tanaka",
           body: "Oldest living person at 116 years old.",
-          userId: this.user.id
+          userId: this.user.id,
+          private: false
         })
         .then((wiki) => {
           expect(wiki.title).toBe("Japanese supercentenarian Kane Tanaka");
