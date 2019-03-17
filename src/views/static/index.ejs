@@ -12,7 +12,9 @@
 
       <!-- Signed in Standard user index page -->
       <% if(currentUser && currentUser.role === 0) { %>
-          <h1>Upgrade to Premium</h1>
+        <header class="jumbotron jumbotron-fluid">
+          <div class="container">
+          <h1 class="display-4">Upgrade to Premium</h1>
           <hr>
           <h3> Enjoy creating unlimited private wikis on all your devices. </h3>
           <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
@@ -27,16 +29,19 @@
           </script>
           </form>
           <p>*Terms and conditions apply</p>
+          </div>
+        </header>
 
         <!-- Signed in Premium user index page -->
       <% } else if (currentUser && currentUser.role === 1) { %>
         <header class="jumbotron jumbotron-fluid">
-            <div class="container">
+          <div class="container">
           <h1 class="display-4">Thank you for being a premium user!</h1>
+          <p>What would you like to do?</p>
           <a href="/wikis/new" class="btn btn-dark">New Private Wiki</a>
           <a href="/wikis/new" class="btn btn-success">New Public Wiki</a>
-          <p>* See <a href="/users/:id/downgrade">standard subscription</a> at any time if you wish to downgrade.</p>
-            </div>
+
+          </div>
         </header>
 
     <% } else { %>

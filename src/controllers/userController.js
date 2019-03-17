@@ -2,6 +2,7 @@ const userQueries = require("../db/queries.users.js");
 const passport = require("passport");
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const stripe = require("stripe")(process.env.STRIPE_API_KEY);
 
 module.exports = {
 	signUp(req, res, next){
@@ -72,10 +73,46 @@ module.exports = {
 	},
 
 	upgrade(req, res, next){
-		res.render("users/upgrade");
+		res.render("users/upgrade"); //This upgrades the view, below will charge for the upgrade.
+
+		// Set your secret key: remember to change this to your live secret key in production
+		// See your keys here: https://dashboard.stripe.com/account/apikeys
+		const stripe = require("stripe")("sk_test_xnxGL3QCgvKeADZVW4oP3Id1");
+		// Token is created using Checkout or Elements!
+		// Get the payment token ID submitted by the form:
+		const token = request.body.stripeToken; // Using Express
+
+		(async () => {
+		  const charge = await stripe.charges.create({
+		    amount: 1500,
+		    currency: 'usd',
+		    description: 'Example of upgrading to premium charge',
+		    source: token,
+		  });
+		})();
+		userQueries.upgradeUser(req.params.id, (err, user) => {
+				if(err && err.type === "StripeCardError"){
+						req.flash("notice", "Your payment was unsuccessful");
+						res.redirect("/users/upgrade");
+				} else{
+						req.flash("notice", "Thank you for your payment. You are now a premium user!");
+						res.redirect(`/`);
+				}
+		});
 	},
 
 	downgrade(req, res, next){
-		res.render("users/downgrade");
+		res.render("users/downgrade"); //This will update the view. Below will help downgrade user.
+
+		userQueries.downgradeUser(req.params.id, (err, user) => {
+			if(err){
+					req.flash("notice", "There was an error processing this request");
+					res.redirect("users/downgrade");
+			} else {
+					req.flash("notice", "Your account has been downgraded to standard.");
+					res.redirect("/");
+			}
+		});
 	}
+
 }

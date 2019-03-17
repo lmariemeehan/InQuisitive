@@ -11,6 +11,8 @@ const userController = require("../controllers/userController");
   router.get("/users/sign_out", userController.signOut);
   router.get("/users/:id", userController.show);
   router.get("/users/:id/upgrade", userController.upgrade);
+  router.post("/users/:id/upgrade", userController.upgrade);
   router.get("/users/:id/downgrade", userController.downgrade);
+  router.post("/users/:id/downgrade", userController.downgrade);
 
 module.exports = router;

@@ -32,6 +32,7 @@ module.exports = {
 
 					Wiki.scope({method: ["lastFiveFor", id]}).all()
 					.then((wikis) => {
+
 						result["wikis"] = wikis;
 					})
 					.catch((err) => {
@@ -39,6 +40,41 @@ module.exports = {
 					})
 				}
 		})
+	},
+
+	upgradeUser(id, callback){
+		return User.findById(id)
+		.then((user) => {
+				if(!user){
+						return callback("User not found");
+
+				} else {
+						User.update({role: 0}, {where: {id}})
+				.then(() => {
+						callback(null, user);
+				})
+				.catch((err) => {
+						callback(err);
+				})
+				}
+		});
+	},
+
+	downgradeUser(id, callback){
+		return User.findById(id)
+		.then((user) => {
+				if(!user){
+						return callback("User not found");
+				} else {
+						User.update({role: 0}, {where: {id}})
+				.then(() => {
+						callback(null, user);
+				})
+				.catch((err) => {
+						callback(err);
+				})
+				}
+		});
 	}
 
 }
