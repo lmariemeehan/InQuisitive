@@ -8,10 +8,10 @@
         <main class="container">
                 <% include ../static/partials/messages.ejs %>
 
-                <% if(currentUser.role === "premium") { %>
+                <% if(currentUser.role === 1) { %>
                     <h1>Wish to go back to Standard?</h1>
                     <hr>
-                    <p>Click downgrade button below to go back to enjoying our free standard plan at no cost.</p>
+                    <p>Click the downgrade button below to go back to enjoying our free standard plan.</p>
 
                     <form action="/users/<%=currentUser.id%>/downgrade" method="POST">
                         <button type="submit" class="btn btn-primary btn-lg">Downgrade</button>

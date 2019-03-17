@@ -118,7 +118,7 @@ describe("routes : users", () => {
 		});
 	});
 
-	describe("GET /users/upgrade", () => {
+	describe("GET /users/:id/upgrade", () => {
 		it("should render a view with an upgrade form", (done) => {
 			request.get(`${base}upgrade`, (err, res, body) => {
 				expect(err).toBeNull();
@@ -128,7 +128,7 @@ describe("routes : users", () => {
 		});
 	});
 
-	describe("GET /users/downgrade", () => {
+	describe("GET /users/:id/downgrade", () => {
 		it("should render a view with a downgrade form", (done) => {
 			request.get(`${base}downgrade`, (err, res, body) => {
 				expect(err).toBeNull();

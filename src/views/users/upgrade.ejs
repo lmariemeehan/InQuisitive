@@ -22,9 +22,9 @@
                 data-locale="auto">
               </script>
               </form>
-          <% } else if (currentUser && currentUser.role === "premium") { %>
-              <h2>You're already a premium user</h2>
-              <p>See <a href="/users/downgrade">standard subscription</a> if you wish to downgrade.</p>
+          <% } else if (currentUser && currentUser.role === 1) { %>
+              <h2>Thank you for being a premium user!</h2>
+              <p>See <a href="/users/:id/downgrade">standard subscription</a> if you wish to downgrade.</p>
         <% } %>
       </main>
        <%- include('../static/partials/baseScripts.ejs') -%>

@@ -10,7 +10,7 @@ const userController = require("../controllers/userController");
   router.post("/users/sign_in", validation.validateUsers, userController.signIn);
   router.get("/users/sign_out", userController.signOut);
   router.get("/users/:id", userController.show);
-  router.get("/users/upgrade", userController.upgrade);
-  router.get("/users/downgrade", userController.downgrade);
+  router.get("/users/:id/upgrade", userController.upgrade);
+  router.get("/users/:id/downgrade", userController.downgrade);
 
 module.exports = router;
