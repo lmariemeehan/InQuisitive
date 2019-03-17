@@ -60,7 +60,7 @@ module.exports = {
 		res.redirect("/");
 	},
 
-	show(req, rest, next){
+	show(req, res, next){
 		userQueries.getUser(req.params.id, (err, result) => {
 			if(err || result.user === undefined) {
 				req.flash("notice", "No user found with that ID.");
@@ -69,5 +69,13 @@ module.exports = {
 				res.render("users/show", {...result});
 			}
 		});
+	},
+
+	upgrade(req, res, next){
+		res.render("users/upgrade");
+	},
+
+	downgrade(req, res, next){
+		res.render("users/downgrade");
 	}
 }

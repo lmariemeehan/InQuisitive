@@ -2,6 +2,7 @@ const request = require("request");
 const server = require("../../src/server");
 const base = "http://localhost:3000/users/";
 const User = require("../../src/db/models").User;
+const Wiki = require("../../src/db/models").Wiki;
 const sequelize = require("../../src/db/models/index").sequelize;
 
 describe("routes : users", () => {
@@ -28,7 +29,6 @@ describe("routes : users", () => {
 
 	describe("POST /users", () => {
 		it("should create a new user with valid values and redirect", (done) => {
-
 			const options = {
 				url: base,
 				form: {
@@ -36,9 +36,7 @@ describe("routes : users", () => {
 					password: "helloworld"
 				}
 			}
-
 			request.post(options, (err, res, body) => {
-
 				User.findOne({where: {email: "user@example.com"}})
 				.then((user) => {
 					expect(user).not.toBeNull();
@@ -81,6 +79,60 @@ describe("routes : users", () => {
 			request.get(`${base}sign_in`, (err, res ,body) => {
 				expect(err).toBeNull();
 				expect(body).toContain("Sign in");
+				done();
+			});
+		});
+	});
+
+	describe("GET /users/:id", () => {
+		beforeEach((done) => {
+			this.user;
+			this.wiki;
+
+			User.create({
+				email: "user@example.com",
+				password: "helloworld",
+				role: 0
+			})
+			.then((res) => {
+				this.user = res;
+
+				Wiki.create({
+					title: "Dusty the Klepto Kitty",
+					body: "Meet Dusty, the cat burglar.",
+					userId: this.user.id,
+					private: false
+				})
+				.then((res) => {
+					this.wiki = res.wikis[0];
+					done();
+				})
+			})
+		});
+
+		it("should present a list of wikis a user has created", (done) => {
+			request.get(`${base}${this.user.id}`, (err, res, body) => {
+				expect(body).toContain("Meet Dusty, the cat burglar.");
+				done();
+			});
+		});
+	});
+
+	describe("GET /users/upgrade", () => {
+		it("should render a view with an upgrade form", (done) => {
+			request.get(`${base}upgrade`, (err, res, body) => {
+				expect(err).toBeNull();
+				expect(body).toContain("Upgrade");
+				done();
+			});
+		});
+	});
+
+	describe("GET /users/downgrade", () => {
+		it("should render a view with a downgrade form", (done) => {
+			request.get(`${base}downgrade`, (err, res, body) => {
+				expect(err).toBeNull();
+				expect(body).toContain("Downgrade");
 				done();
 			});
 		});

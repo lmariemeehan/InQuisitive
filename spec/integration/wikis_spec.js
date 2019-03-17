@@ -111,7 +111,9 @@ describe("routes : wikis", () => {
           url: `${base}create`,
             form: {
               title: "a",
-              body: "b"
+              body: "b",
+              userId: this.user.id,
+              private: false
             }
           };
           request.post(options, (err, res, body) => {

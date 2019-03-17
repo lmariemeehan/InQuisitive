@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../static/partials/head.ejs %>
+    </head>
+    <body>
+        <% include ../static/partials/navbar.ejs %>
+        <main class="container">
+                <% include ../static/partials/messages.ejs %>
+
+                <% if(currentUser.role === "premium") { %>
+                    <h1>Wish to go back to Standard?</h1>
+                    <hr>
+                    <p>Click downgrade button below to go back to enjoying our free standard plan at no cost.</p>
+
+                    <form action="/users/<%=currentUser.id%>/downgrade" method="POST">
+                        <button type="submit" class="btn btn-primary btn-lg">Downgrade</button>
+                    </form>
+                <% } else { %>
+                    <p>You're already a standard user.</p>
+                    <p>Create unlimited public wikis at no cost.</p>
+
+                <% } %>
+        </main>
+       <%- include('../static/partials/baseScripts.ejs') -%>
+    </body>
+</html>

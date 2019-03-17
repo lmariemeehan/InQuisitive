@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+
+    <main class="container">
+      <% include ../static/partials/messages.ejs %>
+
+      <h1><%= `${user.email}'s profile` %></h1>
+
+      <hr>
+      <h2> Your Wikis </h2>
+      <ul class="list-unstyled">
+        <% if(wikis) { %>
+            <% wikis.forEach((wiki) => { %>
+              <li>
+                <a href="/wikis/:id">
+                  <%= wiki.title %>
+                </a>
+              </li>
+            <% }) %>
+          <% } %>
+        </ul>
+        <hr>
+
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+
+  </body>
+</html>

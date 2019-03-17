@@ -16,7 +16,15 @@
 
           <% if(currentUser) { %>
             <li class="nav-item">
-              <a class="nav-link" href="/users/<%= currentUser.id %>">Profile</a>
+              <a class="nav-link" href="/users/<%= currentUser.id %>/show">Profile</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Subscriptions</a>
+
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/users/upgrade">Go Premium</a>
+                <a class="dropdown-item" href="/users/downgrade">Go Standard</a>
             </li>
 
             <li class="nav-item">
