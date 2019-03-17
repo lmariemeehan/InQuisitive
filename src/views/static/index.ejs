@@ -10,11 +10,45 @@
     <!-- Page Content -->
     <main class="container">
 
+      <!-- Signed in Standard user index page -->
+      <% if(currentUser && currentUser.role === 0) { %>
+          <h1>Upgrade to Premium</h1>
+          <hr>
+          <h3> Enjoy creating unlimited private wikis on all your devices. </h3>
+          <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
+            <script
+            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="pk_test_y4X6knOxUBsAt7gm4uUBUXth"
+            data-amount="1500"
+            data-name="Laura Meehan"
+            data-description="Example charge"
+            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+            data-locale="auto">
+          </script>
+          </form>
+          <p>*Terms and conditions apply</p>
+
+        <!-- Signed in Premium user index page -->
+      <% } else if (currentUser && currentUser.role === 1) { %>
+        <header class="jumbotron jumbotron-fluid">
+            <div class="container">
+          <h1 class="display-4">Thank you for being a premium user!</h1>
+          <a href="/wikis/new" class="btn btn-dark">New Private Wiki</a>
+          <a href="/wikis/new" class="btn btn-success">New Public Wiki</a>
+          <p>* See <a href="/users/:id/downgrade">standard subscription</a> at any time if you wish to downgrade.</p>
+            </div>
+        </header>
+
+    <% } else { %>
+
+      <!-- Either not a subscribed yet or signed in user index page -->
       <!-- Jumbotron Header -->
       <header class="jumbotron my-4">
+
         <h1 class="display-3">Welcome to Blocipedia</h1>
         <p class="lead">An application for users to share and store information.</p>
         <a href="/users/sign_up" class="btn btn-primary btn-lg">Sign Up</a>
+
       </header>
 
       <!-- Page Features -->
@@ -32,7 +66,7 @@
 
       </section>
       <!-- /.row -->
-
+  <% } %>
     </main>
     <!-- /.container -->
     <% include ./partials/baseScripts.ejs %>
