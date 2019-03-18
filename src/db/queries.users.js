@@ -49,7 +49,7 @@ module.exports = {
 						return callback("User not found");
 
 				} else {
-						User.update({role: 0}, {where: {id}})
+						User.update({role: 1}, {where: {id}})
 				.then(() => {
 						callback(null, user);
 				})
