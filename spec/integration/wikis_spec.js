@@ -81,7 +81,8 @@ describe("routes : wikis", () => {
     });
 
     describe("POST /wikis/create", () => {
-      it("should create a new wiki and redirect", (done) => {
+      //Admin user creating a PUBLIC wiki
+      it("should create a new public wiki and redirect", (done) => {
       const options = {
         url: `${base}create`,
         form: {
@@ -89,6 +90,32 @@ describe("routes : wikis", () => {
           body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
           userId: this.user.id,
           private: false
+        }
+      };
+
+        request.post(options, (err, res, body) => {
+          Wiki.findOne({where: {title: "Mill Ends Park - the smallest park in Oregon"}})
+          .then((wiki) => {
+            expect(wiki.title).toBe("Mill Ends Park - the smallest park in Oregon");
+            expect(wiki.body).toBe("Once contained a miniature ferris wheel that was delivered by a full size crane.");
+            done();
+          })
+          .catch((err) => {
+            console.log(err);
+            done();
+          });
+        });
+      });
+
+      //Admin user creating a PRIVATE wiki
+      it("should create a new private wiki and redirect", (done) => {
+      const options = {
+        url: `${base}create`,
+        form: {
+          title: "Mill Ends Park - the smallest park in Oregon",
+          body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
+          userId: this.user.id,
+          private: true
         }
       };
 
@@ -237,6 +264,7 @@ describe("routes : wikis", () => {
       });
     });
 
+    //Premium user creating a PUBLIC wiki
     describe("POST /wikis/create", () => {
       it("should create a new wiki and redirect", (done) => {
       const options = {
@@ -262,6 +290,31 @@ describe("routes : wikis", () => {
         });
       });
 
+      //Premium user creating a PRIVATE wiki
+      it("should create a new private wiki and redirect", (done) => {
+      const options = {
+        url: `${base}create`,
+        form: {
+          title: "Mill Ends Park - the smallest park in Oregon",
+          body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
+          userId: this.user.id,
+          private: true
+        }
+      };
+
+        request.post(options, (err, res, body) => {
+          Wiki.findOne({where: {title: "Mill Ends Park - the smallest park in Oregon"}})
+          .then((wiki) => {
+            expect(wiki.title).toBe("Mill Ends Park - the smallest park in Oregon");
+            expect(wiki.body).toBe("Once contained a miniature ferris wheel that was delivered by a full size crane.");
+            done();
+          })
+          .catch((err) => {
+            console.log(err);
+            done();
+          });
+        });
+      });
       it("should not create a new wiki that fails validations", (done) => {
         const options = {
           url: `${base}create`,
@@ -391,7 +444,8 @@ describe("routes : wikis", () => {
     });
 
     describe("POST /wikis/create", () => {
-      it("should not create a new wiki", (done) => {
+      //Standard user creating a PUBLIC wiki
+      it("should create a new public wiki and redirect", (done) => {
       const options = {
         url: `${base}create`,
         form: {
@@ -399,6 +453,31 @@ describe("routes : wikis", () => {
           body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
           userId: this.user.id,
           private: false
+        }
+      };
+
+        request.post(options, (err, res, body) => {
+          Wiki.findOne({where: {title: "Mill Ends Park - the smallest park in Oregon"}})
+          .then((wiki) => {
+            expect(wiki.title).toBe("Mill Ends Park - the smallest park in Oregon");
+            expect(wiki.body).toBe("Once contained a miniature ferris wheel that was delivered by a full size crane.");
+            done();
+          })
+          .catch((err) => {
+            console.log(err);
+            done();
+          });
+        });
+      });
+
+      it("should not be able to create a private wiki", (done) => {
+      const options = {
+        url: `${base}create`,
+        form: {
+          title: "Mill Ends Park - the smallest park in Oregon",
+          body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
+          userId: this.user.id,
+          private: true
         }
       };
 

@@ -33,7 +33,7 @@ module.exports = {
       title: req.body.title,
       body: req.body.body,
       userId: req.user.id,
-      private: false
+      private: req.body.private
     };
     wikiQueries.addWiki(newWiki, (err, wiki) => {
       if(err){
