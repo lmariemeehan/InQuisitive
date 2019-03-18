@@ -72,22 +72,24 @@ module.exports = {
 		});
 	},
 
-	upgrade(req, res, next){
+	upgradeForm(req, res, next){
 		res.render("users/upgrade"); //This upgrades the view, below will charge for the upgrade.
+	},
 
+	upgrade(req, res, next){
 		// Set your secret key: remember to change this to your live secret key in production
 		// See your keys here: https://dashboard.stripe.com/account/apikeys
 		const stripe = require("stripe")("sk_test_xnxGL3QCgvKeADZVW4oP3Id1");
 		// Token is created using Checkout or Elements!
 		// Get the payment token ID submitted by the form:
-		const token = request.body.stripeToken; // Using Express
+		const token = req.body.stripeToken; // Using Express
 
 		(async () => {
 		  const charge = await stripe.charges.create({
 		    amount: 1500,
 		    currency: 'usd',
 		    description: 'Example of upgrading to premium charge',
-		    source: token,
+		    source: token
 		  });
 		})();
 		userQueries.upgradeUser(req.params.id, (err, user) => {
@@ -96,14 +98,16 @@ module.exports = {
 						res.redirect("/users/upgrade");
 				} else{
 						req.flash("notice", "Thank you for your payment. You are now a premium user!");
-						res.redirect(`/`);
+						res.redirect("/");
 				}
 		});
 	},
 
-	downgrade(req, res, next){
+	downgradeForm(req, res, next){
 		res.render("users/downgrade"); //This will update the view. Below will help downgrade user.
+	},
 
+	downgrade(req, res, next){
 		userQueries.downgradeUser(req.params.id, (err, user) => {
 			if(err){
 					req.flash("notice", "There was an error processing this request");
