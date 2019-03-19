@@ -67,7 +67,7 @@ module.exports = {
 				req.flash("notice", "No user found with that ID.");
 				res.redirect("/");
 			} else {
-				res.render("users/show", {...result});
+				res.render("users/show", {result});
 			}
 		});
 	},

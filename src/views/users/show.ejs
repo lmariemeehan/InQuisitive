@@ -8,10 +8,10 @@
 
     <main class="container">
       <% include ../static/partials/messages.ejs %>
-
+        <hr>
       <h1><%= `${user.email}'s profile` %></h1>
 
-      <hr>
+
       <h2> Your Wikis </h2>
       <ul class="list-unstyled">
         <% if(wikis) { %>
@@ -24,7 +24,7 @@
             <% }) %>
           <% } %>
         </ul>
-        <hr>
+
 
     </main>
 
