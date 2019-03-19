@@ -4,7 +4,7 @@
         <% include ../static/partials/head.ejs %>
     </head>
     <body>
-      <% include ../static/partials/navbar.ejs %>
+        <% include ../static/partials/navbar.ejs %>
       <main class="container">
           <% include ../static/partials/messages.ejs %>
 
@@ -28,7 +28,7 @@
               </form>
 
               <!-- Signed in Premium user subscription page -->
-          <% } else (currentUser && currentUser.role === 1) { %>
+          <% } else if (currentUser && currentUser.role === 1) { %>
             <h1>Blocipedia Premium</h1>
             <p>You're currently subscribed with the Blocipedia premium plan. As a premium subscriber you have the freedom to create both unlimited private and public wikis. </p>
             <p>At any time, see <a href="/users/:id/downgrade">standard subscription</a> if you wish to downgrade.</p>
