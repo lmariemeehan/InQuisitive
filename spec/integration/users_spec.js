@@ -5,7 +5,7 @@ const User = require("../../src/db/models").User;
 const Wiki = require("../../src/db/models").Wiki;
 const sequelize = require("../../src/db/models/index").sequelize;
 
-describe("routes : users", () => {
+fdescribe("routes : users", () => {
 	beforeEach((done) => {
 		sequelize.sync({force: true})
 		.then(() => {
@@ -84,7 +84,6 @@ describe("routes : users", () => {
 		});
 	});
 
-/*
 	describe("GET /users/:id", () => {
 		beforeEach((done) => {
 			this.user;
@@ -118,7 +117,7 @@ describe("routes : users", () => {
 			});
 		});
 	});
-*/
+
 	describe("GET /users/:id/upgrade", () => {
 		it("should render a view with an upgrade form", (done) => {
 			request.get(`${base}${this.user.id}/upgrade`, (err, res, body) => {
