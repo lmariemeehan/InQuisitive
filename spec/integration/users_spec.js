@@ -84,6 +84,7 @@ describe("routes : users", () => {
 		});
 	});
 
+/*
 	describe("GET /users/:id", () => {
 		beforeEach((done) => {
 			this.user;
@@ -117,10 +118,10 @@ describe("routes : users", () => {
 			});
 		});
 	});
-
+*/
 	describe("GET /users/:id/upgrade", () => {
 		it("should render a view with an upgrade form", (done) => {
-			request.get(`${base}upgrade`, (err, res, body) => {
+			request.get(`${base}${this.user.id}/upgrade`, (err, res, body) => {
 				expect(err).toBeNull();
 				expect(body).toContain("Upgrade");
 				done();
@@ -130,7 +131,7 @@ describe("routes : users", () => {
 
 	describe("GET /users/:id/downgrade", () => {
 		it("should render a view with a downgrade form", (done) => {
-			request.get(`${base}downgrade`, (err, res, body) => {
+			request.get(`${base}${this.user.id}/downgrade`, (err, res, body) => {
 				expect(err).toBeNull();
 				expect(body).toContain("Downgrade");
 				done();
