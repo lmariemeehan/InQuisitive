@@ -1,5 +1,4 @@
 const wikiQueries = require("../db/queries.wikis.js");
-const User = require("../db/models").User;
 const Authorizer = require("../policies/wiki");
 
 module.exports = {
@@ -62,7 +61,7 @@ module.exports = {
   destroy(req, res, next){
     wikiQueries.deleteWiki(req.params.id, (err, wiki) => {
       if(err){
-        res.redirect( typeof err === "number" ? err: 500, `/wikis/${req.params.id}`);
+        res.redirect(500, `/wikis/${req.params.id}`);
       } else {
         res.redirect(303, "/wikis")
       }

@@ -12,7 +12,7 @@
                 <% if(currentUser.role === 1) { %>
                     <h1>Wish to go back to Standard?</h1>
                     <hr>
-                    <p>Please be aware that upon reverting back to Blocipedia Standard, all wikis created under the private label will lose this status and will become open to the public. If you wish to proceed, click the downgrade button below to switch to Blocipedia's free standard plan. </p>
+                    <p>Please be aware that upon reverting back to Blocipedia Standard, all wikis created under the private label will lose this status and will therefore become open to the public. If you wish to proceed, click the downgrade button below to switch to Blocipedia's free standard plan. </p>
 
                     <form action="/users/<%=currentUser.id%>/downgrade" method="POST">
                         <button type="submit" class="btn btn-primary btn-lg">Downgrade</button>

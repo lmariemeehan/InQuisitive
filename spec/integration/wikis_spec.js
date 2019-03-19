@@ -60,7 +60,7 @@ describe("routes : wikis", () => {
     });
 
     describe("GET /wikis", () => {
-      it("should respond with all wikis", (done) => {
+      it("should respond with all public wikis", (done) => {
         request.get(base, (err, res, body) => {
           expect(err).toBeNull();
           expect(body).toContain("Wikis");
@@ -161,7 +161,7 @@ describe("routes : wikis", () => {
       it("should render a view with the selected wiki", (done) => {
         request.get(`${base}${this.wiki.id}`, (err, res, body) => {
           expect(err).toBeNull();
-          expect(body).toContain("Meet Dusty, the cat burglar.");
+          expect(body).toContain("Dusty the Klepto Kitty");
           done();
         });
       });
@@ -169,13 +169,13 @@ describe("routes : wikis", () => {
 
     describe("POST /wikis/:id/destroy", () => {
       it("should delete the wiki with the associated ID", (done) => {
-        Wiki.all()
+        Wiki.findAll()
         .then((wikis) => {
           const wikiCountBeforeDelete = wikis.length;
           expect(wikiCountBeforeDelete).toBe(1);
 
           request.post(`${base}${this.wiki.id}/destroy`, (err, res, body) => {
-            Wiki.all()
+            Wiki.findAll()
             .then((wikis) => {
               expect(err).toBeNull();
               expect(wikis.length).toBe(wikiCountBeforeDelete -1);
@@ -349,13 +349,13 @@ describe("routes : wikis", () => {
 
     describe("POST /wikis/:id/destroy", () => {
       it("should delete the wiki with the associated ID", (done) => {
-        Wiki.all()
+        Wiki.findAll()
         .then((wikis) => {
           const wikiCountBeforeDelete = wikis.length;
           expect(wikiCountBeforeDelete).toBe(1);
 
           request.post(`${base}${this.wiki.id}/destroy`, (err, res, body) => {
-            Wiki.all()
+            Wiki.findAll()
             .then((wikis) => {
               expect(err).toBeNull();
               expect(wikis.length).toBe(wikiCountBeforeDelete -1);
@@ -507,13 +507,13 @@ describe("routes : wikis", () => {
 
     describe("POST /wikis/:id/destroy", () => {
       it("should not delete the wiki with the associated ID", (done) => {
-        Wiki.all()
+        Wiki.findAll()
         .then((wikis) => {
           const wikiCountBeforeDelete = wikis.length;
           expect(wikiCountBeforeDelete).toBe(1);
 
           request.post(`${base}${this.wiki.id}/destroy`, (err, res, body) => {
-            Wiki.all()
+            Wiki.findAll()
             .then((wikis) => {
               expect(err).toBeNull();
               expect(wikis.length).toBe(wikiCountBeforeDelete);

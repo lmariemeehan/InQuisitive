@@ -93,13 +93,13 @@ module.exports = {
 		  });
 		})();
 		userQueries.upgradeUser(req.params.id, (err, user) => {
-				if(err && err.type === "StripeCardError"){
-						req.flash("notice", "Your payment was unsuccessful");
-						res.redirect("/users/upgrade");
-				} else{
-						req.flash("notice", "Thank you for your payment. You are now a premium user!");
-						res.redirect("/");
-				}
+			if(err && err.type === "StripeCardError"){
+					req.flash("notice", "Your payment was unsuccessful");
+					res.redirect("/users/upgrade");
+			} else{
+					req.flash("notice", "Thank you for your payment. You are now a premium user!");
+					res.redirect("/");
+			}
 		});
 	},
 

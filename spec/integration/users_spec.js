@@ -91,8 +91,7 @@ describe("routes : users", () => {
 
 			User.create({
 				email: "user@example.com",
-				password: "helloworld",
-				role: 0
+				password: "helloworld"
 			})
 			.then((res) => {
 				this.user = res;
@@ -112,7 +111,7 @@ describe("routes : users", () => {
 
 		it("should present a list of wikis a user has created", (done) => {
 			request.get(`${base}${this.user.id}`, (err, res, body) => {
-				expect(body).toContain("Meet Dusty, the cat burglar.");
+				expect(body).toContain("Dusty the Klepto Kitty");
 				done();
 			});
 		});
@@ -120,7 +119,7 @@ describe("routes : users", () => {
 
 	describe("GET /users/:id/upgrade", () => {
 		it("should render a view with an upgrade form", (done) => {
-			request.get(`${base}upgrade`, (err, res, body) => {
+			request.get(`${base}${this.user.id}/upgrade`, (err, res, body) => {
 				expect(err).toBeNull();
 				expect(body).toContain("Upgrade");
 				done();
@@ -130,7 +129,7 @@ describe("routes : users", () => {
 
 	describe("GET /users/:id/downgrade", () => {
 		it("should render a view with a downgrade form", (done) => {
-			request.get(`${base}downgrade`, (err, res, body) => {
+			request.get(`${base}${this.user.id}/downgrade`, (err, res, body) => {
 				expect(err).toBeNull();
 				expect(body).toContain("Downgrade");
 				done();
