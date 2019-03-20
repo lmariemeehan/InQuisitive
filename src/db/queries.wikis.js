@@ -59,15 +59,13 @@ module.exports = {
     });
   },
 
-  updateWiki(req, updatedWiki, callback){
-    return Wiki.findById(req.params.id)
+  updateWiki(id, updatedWiki, callback){
+    return Wiki.findById(id)
     .then((wiki) => {
       if(!wiki){
         return callback("Wiki not found");
       }
 
-      const authorized = new Authorizer(req.user, wiki).update();
-      if(authorized){
       wiki.update(updatedWiki, {
         fields: Object.keys(updatedWiki)
       })
@@ -77,10 +75,6 @@ module.exports = {
       .catch((err) => {
         callback(err);
       });
-    } else {
-      req.flash("notice", "You are not authorized to do that.")
-      callback("Forbidden");
-      }
     });
   }
 
