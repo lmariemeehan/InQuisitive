@@ -23,14 +23,14 @@ module.exports = {
 		  text: 'and easy to do anywhere, even with Node.js',
 		  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
 		};
-		sgMail.send(msg);
+
+		//sgMail.send(msg);
 
 		userQueries.createUser(newUser, (err, user) => {
 			if(err){
 				req.flash("error", err);
 				res.redirect("/users/sign_up");
 			} else {
-
 				passport.authenticate("local")(req, res, () => {
 					req.flash("notice", "You've successfully signed in!");
 					res.redirect("/");

@@ -9,7 +9,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    private: DataTypes.BOOLEAN,
+    private: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false
@@ -31,6 +34,6 @@ module.exports = (sequelize, DataTypes) => {
       order: [["createdAt", "DESC"]]
     }
   });
-  
+
   return Wiki;
 };

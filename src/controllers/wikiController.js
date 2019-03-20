@@ -26,8 +26,6 @@ module.exports = {
   },
 
   create(req, res, next){
-    const authorized = new Authorizer(req.user).create();
-    if (authorized){
     let newWiki = {
       title: req.body.title,
       body: req.body.body,
@@ -42,10 +40,6 @@ module.exports = {
         res.redirect(303, `/wikis/${wiki.id}`);
       }
     });
-  } else {
-    req.flash("notice", "You are not authorized to do that.");
-    res.redirect("/wikis");
-    }
   },
 
   show(req, res, next){
@@ -63,7 +57,7 @@ module.exports = {
       if(err){
         res.redirect(500, `/wikis/${req.params.id}`);
       } else {
-        res.redirect(303, "/wikis")
+        res.redirect(303, "/wikis");
       }
     });
   },
