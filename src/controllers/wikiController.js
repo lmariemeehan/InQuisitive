@@ -35,8 +35,9 @@ module.exports = {
         wikiQueries.addWiki(newWiki, (err, wiki) => {
           if(err){
             console.log(err);
-            res.redirect(500, "wikis/new");
+            res.redirect(500, "/wikis/new");
           } else {
+            console.log(wiki);
             res.redirect(303, `/wikis/${wiki.id}`);
           }
         });
@@ -48,7 +49,7 @@ module.exports = {
 
   show(req, res, next){
     wikiQueries.getWiki(req.params.id, (err, wiki) => {
-      if(err || wiki === null){
+      if(err || wiki == null){
         res.redirect(404, "/");
       } else {
         res.render("wikis/show", {wiki});
@@ -95,10 +96,11 @@ module.exports = {
           userId: req.user.id,
           private: true
         }
+        console.log(authorized);
         wikiQueries.addPrivateWiki(newWiki, (err, wiki) => {
           if(err){
             console.log(err);
-            res.redirect(500, "wikis/new");
+            res.redirect(500, "/wikis/new");
           } else {
             res.redirect(303, `/wikis/${wiki.id}`);
           }

@@ -50,6 +50,25 @@ module.exports = {
     })
   },
 
+  updateWiki(id, updatedWiki, callback){
+    return Wiki.findById(id)
+    .then((wiki) => {
+      if(!wiki){
+        return callback("Wiki not found");
+      }
+
+      wiki.update(updatedWiki, {
+        fields: Object.keys(updatedWiki)
+      })
+      .then(() => {
+        callback(null, wiki);
+      })
+      .catch((err) => {
+        callback(err);
+      });
+    });
+  },
+
   addPrivateWiki(newWiki, callback){
     return Wiki.private({
       title: newWiki.title,

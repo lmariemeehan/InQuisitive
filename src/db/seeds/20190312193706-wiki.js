@@ -8,7 +8,7 @@ for(let i = 1; i <= 20; i++) {
     title: faker.hacker.noun(),
     body: faker.hacker.phrase(),
     private: faker.random.boolean(),
-    userId: 5,
+    userId: 1,
     createdAt: new Date(),
     updatedAt: new Date()
   })
