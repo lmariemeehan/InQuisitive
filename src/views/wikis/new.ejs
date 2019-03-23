@@ -9,9 +9,9 @@
 
       <h1>New Wiki</h1>
 
-    <% if(currentUser && currentUser.role == 1 || currentUser.role == 2) { %>
+  <% if(currentUser && currentUser.role === 1 || currentUser.role === 2) { %>
 
-      <form action="/wikis/create" method="post">
+      <form>
         <div class="form-group">
           <label for="title">Wiki title</label>
           <input type="text" class="form-control" name="title" aria-describedby="titleHelp" placeholder="Enter Title" form="create">
@@ -20,12 +20,14 @@
           <label for="body">Body</label>
           <textarea rows="4" class="form-control" name="body" placeholder="Enter Information" form="create"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary" form="create">Create Public Wiki</button>
+        <p>Choose between creating a:</p>
+
+        <button type="submit" class="btn btn-primary" formaction="/wikis/create" method="post">Create Public Wiki</button>
+
+        <button type="submit" class="btn btn-info" formaction="/wikis/private" method="post">Create Private Wiki</button>
+
       </form>
 
-      <form action="/wikis/private" method="post">
-        <button type="submit" class="btn btn-info" form="create">Create Private Wiki</button>
-      </form>
 
     <% } else if (currentUser && currentUser.role === 0) { %>
 

@@ -49,39 +49,20 @@ module.exports = {
       callback(err);
     })
   },
-/*
-  privateWiki(id, updatedWiki, callback){
-    return Wiki.findById(id)
-    .then((wiki) => {
-      if(!wiki){
-        return callback("Wiki not found");
-      } else {
-        wiki.update({private: true}, {where: {id}})
-      .then(() => {
-        callback(null, wiki);
-      })
-      .catch((err) => {
-        callback(err);
-      });
-      }
-    });
-  },
 
-  publicWiki(id, updatedWiki, callback){
-    return Wiki.findById(id)
+  addPrivateWiki(newWiki, callback){
+    return Wiki.private({
+      title: newWiki.title,
+      body: newWiki.body,
+      userId: newWiki.userId,
+      private: newWiki.private
+    })
     .then((wiki) => {
-      if(!wiki){
-        return callback("Wiki not found");
-      } else {
-        wiki.update({private: false}, {where: {id}})
-      .then(() => {
-        callback(null, wiki);
-      })
-      .catch((err) => {
-        callback(err);
-      });
-      }
-    });
+      callback(null, wiki);
+    })
+    .catch((err) => {
+      callback(err);
+    })
   }
-*/
+
 }

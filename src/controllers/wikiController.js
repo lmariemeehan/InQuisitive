@@ -95,7 +95,7 @@ module.exports = {
           userId: req.user.id,
           private: true
         }
-        wikiQueries.addWiki(newWiki, (err, wiki) => {
+        wikiQueries.addPrivateWiki(newWiki, (err, wiki) => {
           if(err){
             console.log(err);
             res.redirect(500, "wikis/new");
@@ -108,22 +108,5 @@ module.exports = {
         res.redirect("/wikis");
       }
   },
-
-  /*
-  public(id, callback){
-    const authorized = new Authorizer(req.user).private();
-    if(authorized) {
-      wikiQueries.publicWiki(req.params.id, (err, wiki) => {
-        if(err){
-          console.log(err);
-          req.flash("notice", "You are not authorized to do that.");
-          res.redirect(500, "wikis/new");
-        } else {
-          res.redirect(303, `/wikis/${wiki.id}`);
-        }
-      });
-    }
-  }
-  */
 
 }
