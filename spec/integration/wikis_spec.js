@@ -294,7 +294,7 @@ fdescribe("routes : wikis", () => {
       //Premium user creating a PRIVATE wiki
       it("should create a new private wiki and redirect", (done) => {
       const options = {
-        url: `${base}create`,
+        url: `${base}private`,
         form: {
           title: "Mill Ends Park - the smallest park in Oregon",
           body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
@@ -439,7 +439,7 @@ fdescribe("routes : wikis", () => {
       it("should redirect to wikis view", (done) => {
         request.get(`${base}new`, (err, res, body) => {
           expect(err).toBeNull();
-          expect(body).toContain("Wikis");
+          expect(body).toContain("New Wiki");
           done();
         });
       });
