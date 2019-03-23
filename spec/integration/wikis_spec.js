@@ -81,7 +81,6 @@ fdescribe("routes : wikis", () => {
     });
 
     describe("POST /wikis/create", () => {
-      //Admin user creating a PUBLIC wiki
       it("should create a new public wiki and redirect", (done) => {
       const options = {
         url: `${base}create`,
@@ -90,32 +89,6 @@ fdescribe("routes : wikis", () => {
           body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
           userId: this.user.id,
           private: false
-        }
-      };
-
-        request.post(options, (err, res, body) => {
-          Wiki.findOne({where: {title: "Mill Ends Park - the smallest park in Oregon"}})
-          .then((wiki) => {
-            expect(wiki.title).toBe("Mill Ends Park - the smallest park in Oregon");
-            expect(wiki.body).toBe("Once contained a miniature ferris wheel that was delivered by a full size crane.");
-            done();
-          })
-          .catch((err) => {
-            console.log(err);
-            done();
-          });
-        });
-      });
-
-      //Admin user creating a PRIVATE wiki
-      it("should create a new private wiki and redirect", (done) => {
-      const options = {
-        url: `${base}create`,
-        form: {
-          title: "Mill Ends Park - the smallest park in Oregon",
-          body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
-          userId: this.user.id,
-          private: true
         }
       };
 
@@ -156,6 +129,34 @@ fdescribe("routes : wikis", () => {
         })
       })
     });
+
+  describe("POST /wikis/private", () => {
+    //Admin/Premium user creating a PRIVATE wiki
+    it("should create a new private wiki and redirect", (done) => {
+    const options = {
+      url: `${base}private`,
+      form: {
+        title: "Mill Ends Park - the smallest park in Oregon",
+        body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
+        userId: this.user.id,
+        private: true
+      }
+    };
+
+      request.post(options, (err, res, body) => {
+        Wiki.findOne({where: {title: "Mill Ends Park - the smallest park in Oregon"}})
+        .then((wiki) => {
+          expect(wiki.title).toBe("Mill Ends Park - the smallest park in Oregon");
+          expect(wiki.body).toBe("Once contained a miniature ferris wheel that was delivered by a full size crane.");
+          done();
+        })
+        .catch((err) => {
+          console.log(err);
+          done();
+        });
+      });
+    });
+  });
 
     describe("GET /wikis/:id", () => {
       it("should render a view with the selected wiki", (done) => {
@@ -473,7 +474,7 @@ fdescribe("routes : wikis", () => {
 
       it("should not be able to create a private wiki", (done) => {
       const options = {
-        url: `${base}create`,
+        url: `${base}private`,
         form: {
           title: "Mill Ends Park - the smallest park in Oregon",
           body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
@@ -507,7 +508,7 @@ fdescribe("routes : wikis", () => {
     });
 
     describe("POST /wikis/:id/destroy", () => {
-      it("should not delete the wiki with the associated ID", (done) => {
+      it("should delete the wiki with the associated ID", (done) => {
         Wiki.findAll()
         .then((wikis) => {
           const wikiCountBeforeDelete = wikis.length;
@@ -517,7 +518,7 @@ fdescribe("routes : wikis", () => {
             Wiki.findAll()
             .then((wikis) => {
               expect(err).toBeNull();
-              expect(wikis.length).toBe(wikiCountBeforeDelete);
+              expect(wikis.length).toBe(wikiCountBeforeDelete -1);
               done();
             })
           });

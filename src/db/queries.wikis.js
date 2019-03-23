@@ -49,7 +49,7 @@ module.exports = {
       callback(err);
     })
   },
-
+/*
   privateWiki(id, updatedWiki, callback){
     return Wiki.findById(id)
     .then((wiki) => {
@@ -83,5 +83,5 @@ module.exports = {
       }
     });
   }
-
+*/
 }
