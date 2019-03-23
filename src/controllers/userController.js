@@ -30,7 +30,6 @@ module.exports = {
 				req.flash("error", err);
 				res.redirect("/users/sign_up");
 			} else {
-
 				passport.authenticate("local")(req, res, () => {
 					req.flash("notice", "You've successfully signed in!");
 					res.redirect("/");
@@ -83,7 +82,7 @@ module.exports = {
 		// Token is created using Checkout or Elements!
 		// Get the payment token ID submitted by the form:
 		const token = req.body.stripeToken; // Using Express
-
+		try {
 		(async () => {
 		  const charge = await stripe.charges.create({
 		    amount: 1500,
@@ -92,6 +91,9 @@ module.exports = {
 		    source: token
 		  });
 		})();
+	} catch (e) {
+		console.log(e);
+	}
 		userQueries.upgradeUser(req.params.id, (err, user) => {
 			if(err && err.type === "StripeCardError"){
 					req.flash("notice", "Your payment was unsuccessful");
