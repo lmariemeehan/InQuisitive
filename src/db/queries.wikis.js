@@ -68,21 +68,20 @@ module.exports = {
         callback(err);
       });
     });
-  }
-/*
-  addPrivateWiki(newWiki, callback){
-    return Wiki.private({
-      title: newWiki.title,
-      body: newWiki.body,
-      userId: newWiki.userId,
-      private: newWiki.private
-    })
+  },
+
+  changeToPublic(id){
+    return Wiki.findAll()
     .then((wiki) => {
-      callback(null, wiki);
+      Wikis.forEach(wiki => {
+        if(wiki.userId === id && wiki.private == true) {
+          wiki.update({ private: false });
+        }
+      })
     })
     .catch((err) => {
-      callback(err);
+        callback(err);
     })
   }
-*/
-}
+
+};

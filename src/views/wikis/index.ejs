@@ -23,7 +23,7 @@
           <% }) %>
         </ul>
 
-      <% } else if (currentUser.role !== 0) { %>
+      <% } else if (currentUser && currentUser.role !== 0) { %>
 
       <a href="/wikis/new" class="btn btn-success">Create New Wiki</a>
 

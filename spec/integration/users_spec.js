@@ -33,7 +33,8 @@ describe("routes : users", () => {
 				url: base,
 				form: {
 					email: "user@example.com",
-					password: "helloworld"
+					password: "helloworld",
+					name: "Lola Meehan"
 				}
 			}
 			request.post(options, (err, res, body) => {
@@ -56,7 +57,8 @@ describe("routes : users", () => {
 			  url: base,
 			  form: {
 				  email: "no",
-				  password: "helloworld"
+				  password: "helloworld",
+					name: "Lola Meehan"
 			  }
 			},
 			(err, res, body) => {
@@ -91,7 +93,8 @@ describe("routes : users", () => {
 
 			User.create({
 				email: "user@example.com",
-				password: "helloworld"
+				password: "helloworld",
+				name: "Lola Meehan"
 			})
 			.then((res) => {
 				this.user = res;

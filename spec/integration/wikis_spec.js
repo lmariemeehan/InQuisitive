@@ -14,6 +14,7 @@ fdescribe("routes : wikis", () => {
       User.create({
         email: "user@example.com",
         password: "helloworld",
+        name: "Lola Meehan",
         role: 0
       })
       .then((user) => {
@@ -43,6 +44,7 @@ fdescribe("routes : wikis", () => {
       User.create({
         email: "admin@example.com",
         password: "adminpassword",
+        name: "Lola Meehan",
         role: 2
       })
       .then((user) => {
@@ -51,7 +53,8 @@ fdescribe("routes : wikis", () => {
           form: {
             role: user.role,
             userId: user.id,
-            email: user.email
+            email: user.email,
+            name: user.name
           }
         }, (err, res, body) => {
           done();
@@ -228,7 +231,8 @@ fdescribe("routes : wikis", () => {
       User.create({
         email: "premiumuser@example.com",
         password: "premiumpassword",
-        role: 1
+        role: 1,
+        name: "Lola Meehan"
       })
       .then((user) => {
         request.get({
@@ -236,7 +240,8 @@ fdescribe("routes : wikis", () => {
           form: {
             role: user.role,
             userId: user.id,
-            email: user.email
+            email: user.email,
+            name: user.name
           }
         }, (err, res, body) => {
           done();
@@ -408,7 +413,8 @@ fdescribe("routes : wikis", () => {
       User.create({
         email: "standarduser@example.com",
         password: "standarduserpassword",
-        role: 0
+        role: 0,
+        name: "Lola Meehan"
       })
       .then((user) => {
         request.get({
