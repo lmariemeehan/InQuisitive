@@ -14,6 +14,7 @@ fdescribe("routes : wikis", () => {
       User.create({
         email: "user@example.com",
         password: "helloworld",
+        name: "Lola Meehan",
         role: 0
       })
       .then((user) => {
@@ -43,6 +44,7 @@ fdescribe("routes : wikis", () => {
       User.create({
         email: "admin@example.com",
         password: "adminpassword",
+        name: "Lola Meehan",
         role: 2
       })
       .then((user) => {
@@ -51,7 +53,8 @@ fdescribe("routes : wikis", () => {
           form: {
             role: user.role,
             userId: user.id,
-            email: user.email
+            email: user.email,
+            name: user.name
           }
         }, (err, res, body) => {
           done();
@@ -81,7 +84,6 @@ fdescribe("routes : wikis", () => {
     });
 
     describe("POST /wikis/create", () => {
-      //Admin user creating a PUBLIC wiki
       it("should create a new public wiki and redirect", (done) => {
       const options = {
         url: `${base}create`,
@@ -90,32 +92,6 @@ fdescribe("routes : wikis", () => {
           body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
           userId: this.user.id,
           private: false
-        }
-      };
-
-        request.post(options, (err, res, body) => {
-          Wiki.findOne({where: {title: "Mill Ends Park - the smallest park in Oregon"}})
-          .then((wiki) => {
-            expect(wiki.title).toBe("Mill Ends Park - the smallest park in Oregon");
-            expect(wiki.body).toBe("Once contained a miniature ferris wheel that was delivered by a full size crane.");
-            done();
-          })
-          .catch((err) => {
-            console.log(err);
-            done();
-          });
-        });
-      });
-
-      //Admin user creating a PRIVATE wiki
-      it("should create a new private wiki and redirect", (done) => {
-      const options = {
-        url: `${base}create`,
-        form: {
-          title: "Mill Ends Park - the smallest park in Oregon",
-          body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
-          userId: this.user.id,
-          private: true
         }
       };
 
@@ -156,6 +132,34 @@ fdescribe("routes : wikis", () => {
         })
       })
     });
+
+  describe("POST /wikis/private", () => {
+    //Admin/Premium user creating a PRIVATE wiki
+    it("should create a new private wiki and redirect", (done) => {
+    const options = {
+      url: `${base}private`,
+      form: {
+        title: "Mill Ends Park - the smallest park in Oregon",
+        body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
+        userId: this.user.id,
+        private: true
+      }
+    };
+
+      request.post(options, (err, res, body) => {
+        Wiki.findOne({where: {title: "Mill Ends Park - the smallest park in Oregon"}})
+        .then((wiki) => {
+          expect(wiki.title).toBe("Mill Ends Park - the smallest park in Oregon");
+          expect(wiki.body).toBe("Once contained a miniature ferris wheel that was delivered by a full size crane.");
+          done();
+        })
+        .catch((err) => {
+          console.log(err);
+          done();
+        });
+      });
+    });
+  });
 
     describe("GET /wikis/:id", () => {
       it("should render a view with the selected wiki", (done) => {
@@ -227,7 +231,8 @@ fdescribe("routes : wikis", () => {
       User.create({
         email: "premiumuser@example.com",
         password: "premiumpassword",
-        role: 1
+        role: 1,
+        name: "Lola Meehan"
       })
       .then((user) => {
         request.get({
@@ -235,7 +240,8 @@ fdescribe("routes : wikis", () => {
           form: {
             role: user.role,
             userId: user.id,
-            email: user.email
+            email: user.email,
+            name: user.name
           }
         }, (err, res, body) => {
           done();
@@ -293,7 +299,7 @@ fdescribe("routes : wikis", () => {
       //Premium user creating a PRIVATE wiki
       it("should create a new private wiki and redirect", (done) => {
       const options = {
-        url: `${base}create`,
+        url: `${base}private`,
         form: {
           title: "Mill Ends Park - the smallest park in Oregon",
           body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
@@ -407,7 +413,8 @@ fdescribe("routes : wikis", () => {
       User.create({
         email: "standarduser@example.com",
         password: "standarduserpassword",
-        role: 0
+        role: 0,
+        name: "Lola Meehan"
       })
       .then((user) => {
         request.get({
@@ -438,7 +445,7 @@ fdescribe("routes : wikis", () => {
       it("should redirect to wikis view", (done) => {
         request.get(`${base}new`, (err, res, body) => {
           expect(err).toBeNull();
-          expect(body).toContain("Wikis");
+          expect(body).toContain("New Wiki");
           done();
         });
       });
@@ -473,7 +480,7 @@ fdescribe("routes : wikis", () => {
 
       it("should not be able to create a private wiki", (done) => {
       const options = {
-        url: `${base}create`,
+        url: `${base}private`,
         form: {
           title: "Mill Ends Park - the smallest park in Oregon",
           body: "Once contained a miniature ferris wheel that was delivered by a full size crane.",
@@ -507,7 +514,7 @@ fdescribe("routes : wikis", () => {
     });
 
     describe("POST /wikis/:id/destroy", () => {
-      it("should not delete the wiki with the associated ID", (done) => {
+      it("should delete the wiki with the associated ID", (done) => {
         Wiki.findAll()
         .then((wikis) => {
           const wikiCountBeforeDelete = wikis.length;
@@ -517,7 +524,7 @@ fdescribe("routes : wikis", () => {
             Wiki.findAll()
             .then((wikis) => {
               expect(err).toBeNull();
-              expect(wikis.length).toBe(wikiCountBeforeDelete);
+              expect(wikis.length).toBe(wikiCountBeforeDelete -1);
               done();
             })
           });

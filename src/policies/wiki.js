@@ -11,6 +11,10 @@ module.exports = class WikiPolicy extends ApplicationPolicy {
    return this.new();
  }
 
+ show() {
+   return true;
+ }
+
  edit() {
    return true;
  }
@@ -21,6 +25,10 @@ module.exports = class WikiPolicy extends ApplicationPolicy {
 
  destroy() {
    return this.record && (this._isOwner() || this._isAdmin());
+ }
+
+ private() {
+   return this.record && (this._isPremium() || this._isAdmin());
  }
 
 }

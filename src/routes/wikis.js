@@ -6,7 +6,7 @@ const helper = require("../auth/helpers");
 
   router.get("/wikis", wikiController.index);
   router.get("/wikis/new", wikiController.new);
-  router.post("/wikis/create",    
+  router.post("/wikis/create",
     helper.ensureAuthenticated,
     validation.validateWikis,
     wikiController.create);
@@ -14,5 +14,9 @@ const helper = require("../auth/helpers");
   router.post("/wikis/:id/destroy", wikiController.destroy);
   router.get("/wikis/:id/edit", wikiController.edit);
   router.post("/wikis/:id/update", wikiController.update);
+  //router.post("/wikis/private",
+    //helper.ensureAuthenticated,
+    //validation.validateWikis,
+    //wikiController.private);
 
 module.exports = router;

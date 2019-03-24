@@ -11,7 +11,8 @@ const User = require("../../src/db/models").User;
         User.create({
           email: "user@example.com",
           password: "helloworld",
-          role: 0
+          role: 0,
+          name: "Lola Meehan"
         })
         .then((user) => {
           this.user = user; //storing the user
@@ -74,7 +75,8 @@ const User = require("../../src/db/models").User;
       it("should associate a wiki and a user together", (done) => {
         User.create({
           email: "lola@wikiexample.com",
-          password: "password"
+          password: "password",
+          name: "Lola Meehan"
         })
         .then((newUser) => {
           expect(this.wiki.userId).toBe(this.user.id);

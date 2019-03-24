@@ -18,7 +18,8 @@ describe("User", () => {
 			User.create({
 				email: "user@example.com",
 				password: "helloworld",
-				role: 0
+				role: 0,
+				name: "Lola Meehan"
 			})
 			.then((user) => {
 				expect(user.email).toBe("user@example.com");
@@ -34,7 +35,8 @@ describe("User", () => {
 		it("should not create a user with an invalid email or password", (done) => {
 			User.create({
 				email: "Wownowbrowncow",
-				password: "helloworld"
+				password: "helloworld",
+				name: "Lola Meehan"
 			})
 			.then((user) => {
 				//Nothing will happen here since the email is invalid so will skip and the catchblock below will handle the request
@@ -50,14 +52,16 @@ describe("User", () => {
 			User.create({
 				email: "user@example.com",
 				password: "helloworld",
-				role: 0
+				role: 0,
+				name: "Lola Meehan"
 			})
 			.then((user) => {
 
 				User.create({
 					email: "user@example.com",
 					password: "psssst.. this seats taken!",
-					role: 0
+					role: 0,
+					name: "Lola Meehan"
 				})
 				.then((user) => {
 					//Nothing will happen here since there's an error
