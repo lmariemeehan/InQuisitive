@@ -16,7 +16,7 @@
 
       <% if(currentUser) { %>
         <li class="nav-item">
-          <a class="nav-link" href="/users/<%= currentUser.id %>">Profile</a>
+          <a class="nav-link" href="/users/<%= currentUser.id %>"><%= currentUser.email %></a>
         </li>
 
           <li class="nav-item dropdown">

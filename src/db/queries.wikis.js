@@ -68,8 +68,8 @@ module.exports = {
         callback(err);
       });
     });
-  },
-
+  }
+/*
   addPrivateWiki(newWiki, callback){
     return Wiki.private({
       title: newWiki.title,
@@ -84,5 +84,5 @@ module.exports = {
       callback(err);
     })
   }
-
+*/
 }
