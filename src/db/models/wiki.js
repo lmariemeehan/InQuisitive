@@ -25,6 +25,8 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: "CASCADE"
     });
 
+    
+
   };
 
   Wiki.addScope ("lastFiveFor", (userId) => {

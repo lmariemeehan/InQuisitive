@@ -2,6 +2,7 @@ const wikiQueries = require("../db/queries.wikis.js");
 const User = require("../db/models").User;
 const Authorizer = require("../policies/wiki");
 const Sequelize = require("sequelize");
+const markdown = require("markdown").markdown;
 
 module.exports = {
 
