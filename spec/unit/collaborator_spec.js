@@ -1,6 +1,7 @@
 const sequelize = require("../../src/db/models/index").sequelize;
 const User = require("../../src/db/models").User;
 const Wiki = require("../../src/db/models").Wiki;
+const Collaborator = require("../../src/db/models").Collaborator;
 
 describe("Collaborator", () => {
   beforeEach((done) => {
@@ -10,6 +11,7 @@ describe("Collaborator", () => {
     sequelize.sync({force: true}).then((res) => {
 
       User.create({
+        name: "Lola Meehan"
         email: "user@example.com",
         password: "helloworld"
       })
@@ -26,6 +28,7 @@ describe("Collaborator", () => {
       })
 
       Collaborator.create({
+        name: this.user.name,
         userId: this.user.id,
         wikiId: this.wiki.id
       })
@@ -37,16 +40,14 @@ describe("Collaborator", () => {
         console.log(err);
         done();
       });
-      .catch((err) => {
-        console.log(err);
-        done();
-      });
+
     });
   });
 
   describe("#create", () => {
     it("should create a Collaborator object with an assigned wiki and user", (done) => {
       Collaborator.create({
+        name: this.user.name,
         wikiId: this.wiki.id,
         userId: this.user.id
       })
@@ -63,6 +64,7 @@ describe("Collaborator", () => {
 
     it("should not create a collaborator object with missing assigned user or wiki", (done) => {
       Collaborator.create({
+        name: this.user.name,
         wikiId: this.wiki.id
       })
       .then((collaborator) => {
@@ -79,6 +81,7 @@ describe("Collaborator", () => {
   describe("#setUser()", () => {
     it("should associate a collaborator and a user together", (done) => {
       Collaborator.create({
+        name: this.user.name,
         wikiId: this.wiki.id,
         userId: this.user.id
       })
@@ -108,6 +111,7 @@ describe("Collaborator", () => {
   describe("#getUser()", () => {
     it("should return the associated user", (done) => {
       Collaborator.create({
+        name: this.user.name,
         wikiId: this.wiki.id,
         userId: this.user.id
       })
@@ -128,6 +132,7 @@ describe("Collaborator", () => {
   describe("#setWiki()", () => {
     it("should associate a wiki and a collaborator together", (done) => {
       Collaborator.create({
+        name: this.user.name,
         wikiId: this.wiki.id,
         userId: this.user.id
       })
@@ -159,6 +164,7 @@ describe("Collaborator", () => {
   describe("#getWiki()", () => {
     it("should return the associated wiki", (done) => {
       Collaborator.create({
+        name: this.user.name,
         wikiId: this.wiki.id,
         userId: this.user.id
       })

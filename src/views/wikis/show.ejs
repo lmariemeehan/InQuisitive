@@ -11,6 +11,20 @@
       <h1><%- wiki.title %></h1>
       <h3><%- wiki.body %></h3>
 
+      <section id="collaborator-form">
+        <% if(currentUser && currentUser.role == 0) { %>
+          <% include ../collaborators/new.ejs %>
+        <% } %>
+      </section>
+
+      <section id="collaborator-list">
+        <%if(wiki.collaborators) {%>
+          <% wiki.collaborators.forEach((collaborator) => { %>
+            <%- include("../collaborators/show.ejs", {collaborator}) %>
+          <% }) %>
+        <% } %>
+      </section>
+
       <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-warning">Edit</a>
 
       <form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">

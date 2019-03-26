@@ -25,10 +25,13 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: "CASCADE"
     });
 
-    
+    Wiki.hasMany(models.Collaborator, {
+      foreignKey: "wikiId",
+      as: "collaborators"
+    })
 
   };
-
+/*
   Wiki.addScope ("lastFiveFor", (userId) => {
     return {
       where: {userId: userId},
@@ -36,6 +39,6 @@ module.exports = (sequelize, DataTypes) => {
       order: [["createdAt", "DESC"]]
     }
   });
-
+*/
   return Wiki;
 };
