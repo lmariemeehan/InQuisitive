@@ -8,9 +8,9 @@
 
     <main class="container">
 
-      <h1><%= wiki.title %></h1>
-      <h3><%= wiki.body %></h3>
-      
+      <h1><%- wiki.title %></h1>
+      <h3><%- wiki.body %></h3>
+
       <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-warning">Edit</a>
 
       <form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
