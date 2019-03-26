@@ -67,6 +67,8 @@ module.exports = {
       if(err || wiki == null){
         res.redirect(404, "/");
       } else {
+        wiki.title = markdown.toHTML(wiki.title);
+        wiki.body = markdown.toHTML(wiki.body);
         res.render("wikis/show", {wiki});
       }
     });
@@ -102,28 +104,4 @@ module.exports = {
     });
   }
 
-/*
-  private(req, res, next){
-    const authorized = new Authorizer(req.user).private();
-      if(authorized) {
-        let newWiki = {
-          title: req.body.title,
-          body: req.body.body,
-          userId: req.user.id,
-          private: true
-        }
-        wikiQueries.addPrivateWiki(newWiki, (err, wiki) => {
-          if(err){
-            console.log(err);
-            res.redirect(500, "/wikis/new");
-          } else {
-            res.redirect(303, `/wikis/${wiki.id}`);
-          }
-        });
-      } else {
-        req.flash("notice", "You are not authorized to do that.");
-        res.redirect("/wikis");
-      }
-  },
-*/
 }
