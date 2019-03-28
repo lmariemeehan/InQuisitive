@@ -5,7 +5,7 @@ const User = require("../../src/db/models").User;
 const Wiki = require("../../src/db/models").Wiki;
 const sequelize = require("../../src/db/models/index").sequelize;
 
-fdescribe("routes : users", () => {
+describe("routes : users", () => {
 	beforeEach((done) => {
 		sequelize.sync({force: true})
 		.then(() => {

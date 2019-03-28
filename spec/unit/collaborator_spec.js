@@ -3,7 +3,7 @@ const User = require("../../src/db/models").User;
 const Wiki = require("../../src/db/models").Wiki;
 const Collaborator = require("../../src/db/models").Collaborator;
 
-describe("Collaborator", () => {
+fdescribe("Collaborator", () => {
   beforeEach((done) => {
     this.user;
     this.wiki;
@@ -11,7 +11,7 @@ describe("Collaborator", () => {
     sequelize.sync({force: true}).then((res) => {
 
       User.create({
-        name: "Lola Meehan"
+        name: "Lola Meehan",
         email: "user@example.com",
         password: "helloworld"
       })
@@ -21,26 +21,26 @@ describe("Collaborator", () => {
 
       Wiki.create({
         title: "Collaboration test",
-        body: "Buckle up buttercup."
-      })
+        body: "Buckle up buttercup.",
+        collaborators: [{
+          name: "Fiona Starbucks",
+          userId: this.user.id,
+          wikiId: this.wiki.id
+        }]
+        }, {include: {
+          model: Collaborator,
+          as: "collaborators"
+        }}
+      )
       .then((wiki) => {
         this.wiki = wiki;
-      })
-
-      Collaborator.create({
-        name: this.user.name,
-        userId: this.user.id,
-        wikiId: this.wiki.id
-      })
-      .then((collaborator) => {
-        this.collaborator = collaborator;
+        this.collaborator = wiki.collaborators[0];
         done();
       })
       .catch((err) => {
         console.log(err);
         done();
       });
-
     });
   });
 
@@ -52,6 +52,7 @@ describe("Collaborator", () => {
         userId: this.user.id
       })
       .then((collaborator) => {
+        expect(collaborator.name).toBe(this.user.name);
         expect(collaborator.wikiId).toBe(this.wiki.id);
         expect(collaborator.userId).toBe(this.user.id);
         done();
@@ -62,16 +63,16 @@ describe("Collaborator", () => {
       })
     })
 
-    it("should not create a collaborator object with missing assigned user or wiki", (done) => {
+    it("should not create a collaborator object with a missing name", (done) => {
       Collaborator.create({
-        name: this.user.name,
         wikiId: this.wiki.id
       })
       .then((collaborator) => {
-        //missing userId so catch will handle this error
+        //missing name/userId so catch will handle this error
         done();
       })
       .catch((err) => {
+        expect(err.message).toContain("Collaborator.name cannot be null");
         expect(err.message).toContain("Collaborator.userId cannot be null");
         done();
       })

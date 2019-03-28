@@ -7,7 +7,11 @@ const Authorizer = require("../policies/collaborator");
 module.exports = {
 
   createCollaborator(newCollaborator, callback){
-    return Collaborator.create(newCollaborator)
+    return Collaborator.create({
+      name: newCollaborator.name,
+      wikiId: newCollaborator.wikiId,
+      userId: newCollaborator.userId
+    })
     .then((collaborator) => {
       callback(null, collaborator);
     })
@@ -30,5 +34,5 @@ module.exports = {
       }
     })
   }
-  
+
 }

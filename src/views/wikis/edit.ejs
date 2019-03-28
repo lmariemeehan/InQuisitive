@@ -9,6 +9,7 @@
 
       <h1>Edit Wiki</h1>
 
+              <!--Edit wiki form -->
       <form action="/wikis/<%= wiki.id %>/update" method="post">
 
         <div class="form-group">
@@ -21,19 +22,36 @@
           <textarea rows="4" class="form-control" name="body" placeholder="Enter Body"><%= wiki.body %></textarea>
         </div>
 
-        <% if(currentUser.role !== 0){ %>
-          
-              <div class="form-group">
-                <label for="private">Would you like to make this wiki public or private?</label>
-                <select class="form-control" name="private">
-                  <option value="false">Public</option>
-                  <option value="true">Private</option>
-                </select>
-              </div>
-        <% } %>
+      <% if(currentUser.role !== 0){ %>
+        <div class="form-group">
+          <label for="private">Would you like to make this wiki public or private?</label>
+          <select class="form-control" name="private">
+            <option value="false">Public</option>
+            <option value="true">Private</option>
+          </select>
+        </div>
+      <% } %>
 
         <button type="submit" class="btn btn-primary">Update</button>
       </form>
+
+                <!--Collaborators -->
+      <div class="card">
+        <h5 class="card-header">Collaborators</h5>
+        <div class="card-body">
+          <h5 class="card-title"><%= wiki.title %>'s Collaborators</h5>
+          <% collaborators.forEach((collaborator) => { %>
+            <ul>
+              <li class="list-group-item">
+                <a href="/wikis/<%= wiki.id %>/destroy>"> <%= wiki.title %> </a>
+              </li>
+            <% }) %>
+            </ul>
+          <a href="/wikis/<%= wiki.id %>/newCollaborator" class="btn btn-success">Add collaborator</a>
+          <a href="/wikis/<%= wiki.id %>/removeCollaborator"  class="btn btn-danger">Remove collaborator</a>
+        </div>
+      </div>
+    <a href="/wikis/<%= wiki.id %>">
 
     </main>
     <% include ../static/partials/baseScripts.ejs %>

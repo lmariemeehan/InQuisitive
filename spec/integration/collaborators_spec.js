@@ -7,7 +7,7 @@ const Wiki = require("../../src/db/models").Wiki;
 const User = require("../../src/db/models").User;
 const Collaborator = require("../../src/db/models").Collaborator;
 
-describe("routes : collaborators", () => {
+fdescribe("routes : collaborators", () => {
   beforeEach((done) => {
     this.user;
     this.wiki;
@@ -18,14 +18,17 @@ describe("routes : collaborators", () => {
       User.create({
         name: "Lola Meehan",
         email: "user@example.com",
-        password: "helloworld"
+        password: "helloworld",
+        role: 1
       })
       .then((user) => {
         this.user = user; //store user
 
         Wiki.create({
           title: "Collaboration test",
-          body: "Buckle up buttercup."
+          body: "Buckle up buttercup.",
+          userId: this.user.id,
+          private: false
         })
         .then((wiki) => {
           this.wiki = wiki; //store wiki
@@ -44,10 +47,6 @@ describe("routes : collaborators", () => {
           console.log(err);
           done();
         });
-      });
-      .catch((err) => {
-        console.log(err);
-        done();
       });
     });
   });
@@ -115,5 +114,5 @@ describe("routes : collaborators", () => {
     });
   }); //end context for standard user
 
-  
+
 });

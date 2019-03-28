@@ -12,9 +12,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      role: {
-        type: Sequelize.INTEGER
-      },
       wikiId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",

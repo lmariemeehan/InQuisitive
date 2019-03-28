@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../static/partials/head.ejs %>
+    </head>
+    <body>
+        <% include ../static/partials/navbar.ejs %>
+        <main class="container">
+          <% include ../static/partials/messages.ejs %>
+
+          <!-- Signed in Premium user subscription page -->
+          <% if(currentUser.role === 1 || currentUser.role === 2) { %>
+            <h1>Remove a collaborator</h1>
+            <hr>
+            <p>Pick a name to remove this user as a collaborator</p>
+            <ul>
+              <li>Stevie Papenthien</li>
+              <li>Becky Willis</li>
+            </ul>
+
+            <form action="/wikis/<%= wiki.id %>/destroy" method="POST">
+                <button type="submit" class="btn btn-primary btn-lg">Remove</button>
+            </form>
+
+        </main>
+       <%- include('../static/partials/baseScripts.ejs') -%>
+    </body>
+</html>
