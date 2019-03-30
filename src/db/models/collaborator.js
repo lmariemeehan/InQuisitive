@@ -5,10 +5,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },  
-    role: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
     wikiId: {
       type: DataTypes.INTEGER,
       allowNull: false

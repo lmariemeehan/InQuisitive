@@ -11,6 +11,14 @@
       <h1><%- wiki.title %></h1>
       <h3><%- wiki.body %></h3>
 
+      <ul class="list-group">
+        <% wiki.collaborators.forEach((collaborator) => { %>
+          <li class="list-group-item">
+            <a href="/wikis/<% wiki.id %>/collaborators/<%= collaborator.id %>"> <%= collaborator.name%> </a>
+          </li>
+        <% }) %>
+      </ul>
+
       <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-warning">Edit</a>
 
       <form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">

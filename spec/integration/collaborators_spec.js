@@ -28,16 +28,16 @@ fdescribe("routes : collaborators", () => {
           title: "Collaboration test",
           body: "Buckle up buttercup.",
           userId: this.user.id,
-          private: false
+          private: true
         })
         .then((wiki) => {
           this.wiki = wiki; //store wiki
         })
 
         Collaborator.create({
-          name: this.user.name,
+          name: "Katie Meehan",
           wikiId: this.wiki.id,
-          userId: this.user.id
+          userId: this.collaborator.userId
         })
         .then((collaborator) => {
           this.collaborator = collaborator; //store collaborator
@@ -64,6 +64,18 @@ fdescribe("routes : collaborators", () => {
         done();
       }
     )
+  });
+
+  describe("GET /wikis/:wikiId/collaborators/new", () => {
+
+    it("should render a new collaborator form", (done) => {
+      request.get(`${base}/${this.wiki.id}/collaborators/new`, (err, res, body) => {
+        expect(err).toBeNull();
+        expect(body).toContain("New Collaborator");
+        done();
+      });
+    });
+
   });
 
     describe("POST /wikis/:wikiId/collaborators/create", () => {

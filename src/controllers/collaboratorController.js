@@ -3,6 +3,10 @@ const Authorizer = require("../policies/collaborator.js");
 
 module.exports = {
 
+  new(req, res, next){
+    res.render("collaborators/new", {wikiId: req.params.wikiId});
+  },
+
   create(req, res, next) {
   const authorized = new Authorizer(req.user).create();
   if(authorized){

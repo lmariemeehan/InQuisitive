@@ -1,3 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+
+    <main class="container">
+      <h1>New Collaborator</h1>
+
+      <form action="/wikis/<%= wikiId %>/collaborators/create" method="post">
+        <div class="form-group">
+          <label for="name">Collaborator name</label>
+          <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter Name">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+
+  </body>
+</html>
+
+<div class="row">
+  <div class="col-md-8">
+    <form method="POST" action="/users">
+      <div class="form-group">
+        <label>Name:</label>
+        <input type="text" name="name" placeholder="Enter Name" class="form-control"/>
+      </div>
+
+
 <form style="width:50%" action="/wikis/<%= wiki.id %>/collaborators/create" method="post">
   <div class="form-group">
     <label for="body">New Collaborator</label>

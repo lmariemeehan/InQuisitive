@@ -1,4 +1,5 @@
-<!-- #1 -->
+<!--
+
 <% if(collaborator) { %>
  <div style="width: 50%">
    <hr>
@@ -6,11 +7,11 @@
      <%= collaborator.body %>
    </p>
    <small class="card-subtitle mb-2 text-muted">
-<!-- #2 -->
+
      sent by <%= collaborator.User.email %> on <%= collaborator.createdAt %>
    </small>
 
-<!-- #3 -->
+
    <% if(currentUser && currentUser.id === collaborator.userId || currentUser.role == 2) { %>
      <form style="display:initial"
            action="/wikis/<%= wiki.id %>/collaborators/<%= collaborator.id %>/destroy"
@@ -21,3 +22,4 @@
    <hr>
  </div>
 <% } %>
+-->

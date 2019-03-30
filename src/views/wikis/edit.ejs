@@ -30,28 +30,24 @@
             <option value="true">Private</option>
           </select>
         </div>
+
+        <!--Collaborators -->
+      <div class="card">
+      <h5 class="card-header">Collaborators</h5>
+      <div class="card-body">
+        <h5 class="card-title">Add or remove a collaborator for: <%= wiki.title %>  ?</h5> 
+        <a href="/wikis/<%= wiki.id %>/newCollaborator" class="btn btn-success">Add collaborator</a>
+        <a href="/wikis/<%= wiki.id %>/removeCollaborator"  class="btn btn-danger">Remove collaborator</a>
+      </div>
+      </div>
+
       <% } %>
+
+        <br>
 
         <button type="submit" class="btn btn-primary">Update</button>
       </form>
 
-                <!--Collaborators -->
-      <div class="card">
-        <h5 class="card-header">Collaborators</h5>
-        <div class="card-body">
-          <h5 class="card-title"><%= wiki.title %>'s Collaborators</h5>
-          <% collaborators.forEach((collaborator) => { %>
-            <ul>
-              <li class="list-group-item">
-                <a href="/wikis/<%= wiki.id %>/destroy>"> <%= wiki.title %> </a>
-              </li>
-            <% }) %>
-            </ul>
-          <a href="/wikis/<%= wiki.id %>/newCollaborator" class="btn btn-success">Add collaborator</a>
-          <a href="/wikis/<%= wiki.id %>/removeCollaborator"  class="btn btn-danger">Remove collaborator</a>
-        </div>
-      </div>
-    <a href="/wikis/<%= wiki.id %>">
 
     </main>
     <% include ../static/partials/baseScripts.ejs %>

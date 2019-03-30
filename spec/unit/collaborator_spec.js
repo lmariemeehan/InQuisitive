@@ -7,6 +7,7 @@ fdescribe("Collaborator", () => {
   beforeEach((done) => {
     this.user;
     this.wiki;
+    this.collaborator;
 
     sequelize.sync({force: true}).then((res) => {
 
@@ -22,6 +23,7 @@ fdescribe("Collaborator", () => {
       Wiki.create({
         title: "Collaboration test",
         body: "Buckle up buttercup.",
+        private: true,
         collaborators: [{
           name: "Fiona Starbucks",
           userId: this.user.id,
@@ -45,14 +47,14 @@ fdescribe("Collaborator", () => {
   });
 
   describe("#create", () => {
-    it("should create a Collaborator object with an assigned wiki and user", (done) => {
+    it("should create a Collaborator object with a name and an assigned wiki and user id's", (done) => {
       Collaborator.create({
-        name: this.user.name,
+        name: "Katie Meehan",
         wikiId: this.wiki.id,
         userId: this.user.id
       })
       .then((collaborator) => {
-        expect(collaborator.name).toBe(this.user.name);
+        expect(collaborator.name).toBe("Katie Meehan");
         expect(collaborator.wikiId).toBe(this.wiki.id);
         expect(collaborator.userId).toBe(this.user.id);
         done();
@@ -78,7 +80,7 @@ fdescribe("Collaborator", () => {
       })
     })
   })
-
+/*
   describe("#setUser()", () => {
     it("should associate a collaborator and a user together", (done) => {
       Collaborator.create({
@@ -129,17 +131,9 @@ fdescribe("Collaborator", () => {
       });
     });
   });
-
+*/
   describe("#setWiki()", () => {
     it("should associate a wiki and a collaborator together", (done) => {
-      Collaborator.create({
-        name: this.user.name,
-        wikiId: this.wiki.id,
-        userId: this.user.id
-      })
-      .then((collaborator) => {
-        this.collaborator = collaborator; // storing the collaborator
-
         Wiki.create({
           title: "Planning seester birthday partay",
           body: "Cake or no cake?",
@@ -160,7 +154,6 @@ fdescribe("Collaborator", () => {
         });
       });
     });
-  });
 
   describe("#getWiki()", () => {
     it("should return the associated wiki", (done) => {
