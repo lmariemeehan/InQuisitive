@@ -7,6 +7,11 @@
   <% include ../static/partials/navbar.ejs %>
   <main class="container">
     <h1><%= collaborator.name %></h1>
+    <a href="/wikis/<%= collaborator.wikiId %>/collaborators/<%= collaborator.id %>/edit" class="btn btn-warning">Edit</a>
+
+    <form style="display:initial" action="/wikis/<%=collaborator.wikiId%>/collaborators/<%= collaborator.id%>/destroy" method="post">
+      <button type="submit" class="btn btn-danger">Remove Collaborator</button>
+    </form>
   </main>
   <% include ../static/partials/baseScripts.ejs %>
 </body>

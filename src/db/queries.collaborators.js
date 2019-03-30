@@ -26,19 +26,18 @@ module.exports = {
     })
   },
 
-  deleteCollaborator(req, callback){
-    return Collaborator.findById(req.params.id)
-    .then((collaborator) => {
-      const authorized = new Authorizer(req.user, collaborator).destroy();
-
-      if(authorized){
-        collaborator.destroy();
-        callback(null, collaborator)
-      } else {
-        req.flash("notice", "You are not authorized to do that.")
-        callback(401)
-      }
+  deleteCollaborator(id, callback){
+    return Collaborator.destroy({
+      where: { id }
+    })
+    .then((deletedRecordsCount) => {
+      callback(null, deletedRecordsCount);
+    })
+    .catch((err) => {
+      callback(err);
     })
   }
+
+
 
 }

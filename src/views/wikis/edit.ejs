@@ -9,7 +9,7 @@
 
       <h1>Edit Wiki</h1>
 
-              <!--Edit wiki form -->
+        <!--Edit wiki form -->
       <form action="/wikis/<%= wiki.id %>/update" method="post">
 
         <div class="form-group">
@@ -33,11 +33,11 @@
 
         <!--Collaborators -->
       <div class="card">
-      <h5 class="card-header">Collaborators</h5>
+      <h5 class="card-header"> Collaborators </h5>
       <div class="card-body">
-        <h5 class="card-title">Add or remove a collaborator for: <%= wiki.title %>  ?</h5> 
-        <a href="/wikis/<%= wiki.id %>/newCollaborator" class="btn btn-success">Add collaborator</a>
-        <a href="/wikis/<%= wiki.id %>/removeCollaborator"  class="btn btn-danger">Remove collaborator</a>
+        <h5 class="card-title"> Add or remove a collaborator for: <%= wiki.title %> </h5>
+        <a href="/wikis/<%= wiki.id %>/collaborators/new" class="btn btn-success">Add collaborator</a>
+        <a href="/wikis/<%= wiki.id %>/collaborators/destroy"  class="btn btn-danger">Remove collaborator</a>
       </div>
       </div>
 

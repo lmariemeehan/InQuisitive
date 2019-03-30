@@ -12,7 +12,7 @@ router.post("/wikis/:wikiId/collaborators/create",
 
 router.get("/wikis/:wikiId/collaborators/:id", collaboratorController.show);
 
-router.post("wikis/:wikiId/removeCollaborators",
-  collaboratorController.destroy);
+router.post("wikis/:wikiId/collaborators/destroy", collaboratorController.destroy);
+router.get("/wikis/:wikiId/collaborators/:id/edit", collaboratorController.edit);
 
 module.exports = router;

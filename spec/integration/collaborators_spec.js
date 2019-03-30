@@ -129,8 +129,18 @@ fdescribe("routes : collaborators", () => {
           )
         })
       })
+
+    describe("GET /wikis/:wikiId/collaborators/:id/edit", () => {
+      it("should render a view with an edit collaborator form", (done) => {
+        request.get(`${base}/${this.wiki.id}/collaborators/${this.collaborator.id}/edit`, (err, res, body) => {
+          expect(err).toBeNull();
+          expect(body).toContain("Katie Meehan");
+          done();
+        });
+      });
     });
-  }); //end context for standard user
 
+    
+    });//end context for standard user
 
-});
+  });
