@@ -83,14 +83,16 @@ fdescribe("routes : collaborators", () => {
         const options = {
           url: `${base}${this.wiki.id}/collaborators/create`,
           form: {
-            body: "Katie Meehan"
+            name: "Katie Meehan"
           }
         };
         request.post(options, (err, res, body) => {
-          Collaborator.findOne({where: {body: "Katie Meehan"}})
+          Collaborator.findOne({where: {name: "Katie Meehan"}})
           .then((collaborator) => {
             expect(collaborator).not.toBeNull();
-            expect(collaborator.body).toBe("Katie Meehan")
+            expect(collaborator.name).toBe("Katie Meehan");
+            expect(collaborator.wikiId).not.toBeNull();
+            expect(collaborator.userId).not.toBeNull();
             done();
           })
           .catch((err) => {
@@ -101,22 +103,26 @@ fdescribe("routes : collaborators", () => {
       });
     });
 
+    describe("GET /wikis/:wikiId/collaborators/:id", () => {
+      it("should render a view with the selected collaborator", (done) => {
+        request.get(`${base}/${this.wiki.id}/collaborators/${this.collaborator.id}`, (err, res, body) => {
+          expect(err).toBeNull();
+          expect(name).toContain("Katie Meehan");
+        });
+      });
+    });
+
     describe("POST /wikis/:wikiId/collaborators/:id/destroy", () => {
       it("should delete the collaborator with the associated ID", (done) => {
-        Collaborator.all()
-        .then((collaborators) => {
-          const collaboratorCountBeforeDelete = collaborators.length;
-
-          expect(collaboratorCountBeforeDelete).toBe(1);
-
+        expect(collaborator.id).toBe(1)
           request.post(
             `${base}${this.wiki.id}/collaborators/${this.collaborator.id}/destroy`,
             (err, res, body) => {
-              expect(res.statusCode).toBe(302);
-              Collaborator.all()
-              .then((collaborators) => {
+
+              Collaborator.findById(1)
+              .then((collaborator) => {
                 expect(err).toBeNull();
-                expect(collaborators.length).toBe(collaboratorCountBeforeDelete-1);
+                expect(collaborator).toBeNull();
                 done();
               })
             }

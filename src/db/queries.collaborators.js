@@ -6,18 +6,24 @@ const Authorizer = require("../policies/collaborator");
 
 module.exports = {
 
-  createCollaborator(newCollaborator, callback){
-    return Collaborator.create({
-      name: newCollaborator.name,
-      wikiId: newCollaborator.wikiId,
-      userId: newCollaborator.userId
-    })
+  addCollaborator(newCollaborator, callback){
+    return Collaborator.create(newCollaborator)
     .then((collaborator) => {
       callback(null, collaborator);
     })
     .catch((err) => {
       callback(err);
-    });
+    })
+  },
+
+  getCollaborator(id, callback){
+    return Collaborator.findById(id)
+    .then((collaborator) => {
+      callback(null, collaborator);
+    })
+    .catch((err) => {
+      callback(err);
+    })
   },
 
   deleteCollaborator(req, callback){
