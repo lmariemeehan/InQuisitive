@@ -48,7 +48,6 @@ module.exports = {
 		.then((user) => {
 				if(!user){
 						return callback("User not found");
-
 				} else {
 						user.update({role: 1}, {where: {id}})
 				.then(() => {

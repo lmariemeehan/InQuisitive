@@ -1,5 +1,7 @@
 const collaboratorQueries = require("../db/queries.collaborators.js");
 const Authorizer = require("../policies/collaborator.js");
+const userQueries = require("../db/queries.users.js");
+const User = require("../db/models").User;
 
 module.exports = {
 
@@ -8,24 +10,30 @@ module.exports = {
   },
 
   create(req, res, next) {
-    const authorized = new Authorizer(req.user).create();
-    if(authorized){
+    User.findAll({where: {id: req.body.userId}}).then((users) => {
+      users.forEach((user) => {
+      const authorized = new Authorizer(user).create();
+        if(authorized){
 
-      let newCollaborator = {
-        name: req.body.body,
-        wikiId: req.params.wikiId,
-        userId: req.body.collaborator.id
-      };
+        let newCollaborator = {
+          name: req.body.name,
+          wikiId: req.params.wikiId,
+          userId: req.body.userId
+        };
 
-      collaboratorQueries.addCollaborator(newCollaborator, (err, collaborator) => {
-        if(err) {
-          res.redirect(500, "/collaborators/new");
-        } else {
-          req.flash("notice", "You must be signed in to do that.")
-          req.redirect(303, `/wikis/${newCollaborator.wikiId}/collaborators/${collaborator.id}`);
+        collaboratorQueries.addCollaborator(newCollaborator, (err, collaborator) => {
+          if(err) {
+            console.log("ERROR", err);
+            req.flash("error", err);
+            res.redirect(typeof err == "number" ? err: 500, req.headers.referer);
+          } else {
+            req.redirect(303, `/wikis/${newCollaborator.wikiId}/collaborators/${collaborator.id}`);
+          }
+        })
+
         }
       })
-    }
+    })
   },
 
   show(req, res, next) {
@@ -56,7 +64,16 @@ module.exports = {
         res.render("wikis/edit", {collaborator});
       }
     });
-  }
+  },
 
+  update(req, res, next) {
+    collaboratorQueries.updateCollaborator(req.params.id, req.body, (err, collaborator) => {
+      if(err || collaborator == null) {
+        res.redirect(404, `/wikis/${req.params.wikiId}/collaborators/${req.params.id}/edit`);
+      } else {
+        res.redirect(`/wikis/${req.params.wikiId}/collaborators/${req.params.id}`);
+      }
+    });
+  }
 
 }

@@ -36,8 +36,22 @@ module.exports = {
     .catch((err) => {
       callback(err);
     })
+  },
+
+  updateCollaborator(id, updatedCollaborator, callback){
+    return Collaborator.findById(id)
+    .then((collaborator) => {
+      if(!collaborator){
+        return callback("Collaborator not found");
+      }
+
+      collaborator.update(updatedCollaborator, {
+        fields: Object.keys(updatedCollaborator)
+      })
+      .then(() => {
+        callback(err);
+      });
+    });
   }
-
-
 
 }
