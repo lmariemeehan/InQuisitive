@@ -3,7 +3,7 @@ const User = require("../../src/db/models").User;
 const Wiki = require("../../src/db/models").Wiki;
 const Collaborator = require("../../src/db/models").Collaborator;
 
-fdescribe("Collaborator", () => {
+describe("Collaborator", () => {
   beforeEach((done) => {
     this.user;
     this.wiki;
@@ -24,9 +24,10 @@ fdescribe("Collaborator", () => {
         title: "Collaboration test",
         body: "Buckle up buttercup.",
         private: true,
+        userId: this.user.id,
         collaborators: [{
           name: "Fiona Starbucks",
-          userId: this.user.id,
+          userId: this.collaborator.userId,
           wikiId: this.wiki.id
         }]
         }, {include: {
@@ -160,7 +161,7 @@ fdescribe("Collaborator", () => {
       Collaborator.create({
         name: this.user.name,
         wikiId: this.wiki.id,
-        userId: this.user.id
+        userId: this.collaborator.userId
       })
       .then((collaborator) => {
         this.collaborator.getWiki()

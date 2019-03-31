@@ -9,8 +9,8 @@ router.post("/wikis/:wikiId/collaborators/create",
   validation.validateCollaborators,
   collaboratorController.create);
 router.get("/wikis/:wikiId/collaborators/:id", collaboratorController.show);
-router.post("wikis/:wikiId/collaborators/:id/destroy", collaboratorController.destroy);
-router.get("/wikis/:wikiId/collaborators/:id/edit", collaboratorController.edit);
-router.post("/wikis/:wikiId/collaborators/:id/update", collaboratorController.update);
+router.post("wikis/:wikiId/collaborators/:id/remove", collaboratorController.remove);
+//router.get("/wikis/:wikiId/collaborators/:id/edit", collaboratorController.edit);
+//router.post("/wikis/:wikiId/collaborators/:id/update", collaboratorController.update);
 
 module.exports = router;

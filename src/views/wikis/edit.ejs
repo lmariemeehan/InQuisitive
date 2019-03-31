@@ -24,32 +24,30 @@
 
       <% if(currentUser.role !== 0){ %>
         <div class="form-group">
-          <label for="private">Would you like to make this wiki public or private?</label>
+          <label for="private">Would you like this to be public or private?</label>
           <select class="form-control" name="private">
             <option value="false">Public</option>
             <option value="true">Private</option>
           </select>
         </div>
 
-        <!--Collaborators -->
-      <div class="card">
-      <h5 class="card-header"> Collaborators </h5>
-      <div class="card-body">
-        <h5 class="card-title"> Add or remove a collaborator for: <%= wiki.title %> </h5>
-        <a href="/wikis/<%= wiki.id %>/collaborators/new" class="btn btn-success">Add collaborator</a>
-        <a href="/wikis/<%= wiki.id %>/collaborators/destroy"  class="btn btn-danger">Remove collaborator</a>
-      </div>
-      </div>
-
       <% } %>
 
-        <br>
-
         <button type="submit" class="btn btn-primary">Update</button>
+
       </form>
 
+      <br>
+
+      <% include ../collaborators/new.ejs %>
+      
+      <br>
+
+      <% include ../collaborators/remove.ejs %>
 
     </main>
+
     <% include ../static/partials/baseScripts.ejs %>
+
   </body>
 </html>

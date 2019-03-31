@@ -1,0 +1,15 @@
+<form action="/wikis/<%= wiki.id %>/collaborators/remove" method="post">
+  <div class="form-group">
+  <label for="exampleFormControlSelect1">Would you like to remove a collaborator?</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+
+      <% wiki.collaborators.forEach((collaborator) => { %>
+
+      <option><%= collaborator.name%></option>
+
+        <% }) %>
+
+    </select>
+  </div>
+  <button type="submit" class="btn btn-danger">Remove Collaborator</button>
+</form>

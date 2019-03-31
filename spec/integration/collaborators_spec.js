@@ -27,7 +27,7 @@ const Collaborator = require("../../src/db/models").Collaborator;
             title: "Collaboration test",
             body: "Buckle up buttercup.",
             userId: this.user.id,
-            private: true
+            private: true,
             collaborators: [{
               name: "Katie Meehan",
               wikiId: this.wiki.id,
@@ -52,9 +52,9 @@ const Collaborator = require("../../src/db/models").Collaborator;
       });
     });
 
-    describe("GET /wikis/:wikiId/collaborators/new", () => {
+    describe("GET /wikis/:wikiId/edit/collaborators/new", () => {
       it("should render a new collaborator form", (done) => {
-        request.get(`${base}/${this.wiki.id}/collaborators/new`, (err, res, body) => {
+        request.get(`${base}/${this.wiki.id}/edit/collaborators/new`, (err, res, body) => {
           expect(err).toBeNull();
           expect(body).toContain("New Collaborator");
           done();
@@ -132,7 +132,7 @@ const Collaborator = require("../../src/db/models").Collaborator;
             name: "Michelle Meehan"
           }
         }, (err, res, body) => {
-          expect.(res.statusCode).toBe(302);
+          expect(res.statusCode).toBe(302);
           done();
         })
       })

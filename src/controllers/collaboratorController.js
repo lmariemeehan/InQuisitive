@@ -46,7 +46,7 @@ module.exports = {
     })
   },
 
-  destroy(req, res, next){
+  remove(req, res, next){
     collaboratorQueries.deleteCollaborator(req.params.id, (err, deletedRecordsCount) => {
       if(err){
         res.redirect(500, `/wikis/${req.params.wikiId}/collaborators/${req.params.id}`);
@@ -56,6 +56,7 @@ module.exports = {
     });
   },
 
+/*
   edit(req, res, next){
     collaboratorQueries.getCollaborator(req.params.id, (err, collaborator) => {
       if(err || collaborator == null) {
@@ -75,5 +76,5 @@ module.exports = {
       }
     });
   }
-
+*/
 }

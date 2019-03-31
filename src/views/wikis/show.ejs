@@ -10,7 +10,9 @@
 
       <h1><%- wiki.title %></h1>
       <h3><%- wiki.body %></h3>
+      <br>
 
+      <h5>Collaborators List:</h5>
       <ul class="list-group">
         <% wiki.collaborators.forEach((collaborator) => { %>
           <li class="list-group-item">
@@ -19,8 +21,10 @@
         <% }) %>
       </ul>
 
+      <br>
+      
       <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-warning">Edit</a>
-  
+
       <form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
         <button type="submit" class="btn btn-danger">Delete</button>
       </form>
