@@ -65,6 +65,7 @@ module.exports = {
   show(req, res, next){
     wikiQueries.getWiki(req.params.id, (err, wiki) => {
       if(err || wiki == null){
+        console.log(err);
         res.redirect(404, "/");
       } else {
         wiki.title = markdown.toHTML(wiki.title);

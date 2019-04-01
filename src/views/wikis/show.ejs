@@ -8,27 +8,24 @@
 
     <main class="container">
 
-      <h1><%- wiki.title %></h1>
-      <h3><%- wiki.body %></h3>
-      <br>
+      <div class="card text-center">
+        <h3 class="card-header">
+          <%- wiki.title %>
+        </h3>
+        <div class="card-body">
+          <p><%- wiki.body %></p>
+          <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-warning">Edit</a>
 
-      <h5>Collaborators List:</h5>
-      <ul class="list-group">
-        <% wiki.collaborators.forEach((collaborator) => { %>
-          <li class="list-group-item">
-            <a href="/wikis/<% wiki.id %>/collaborators/<%= collaborator.id %>"> <%= collaborator.name%> </a>
-          </li>
-        <% }) %>
-      </ul>
+          <form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+        <div class="card-footer text-muted">
+          <%- currentUser.name %>
+        </div>
+      </div>
 
-      <br>
-      
-      <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-warning">Edit</a>
-
-      <form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
-        <button type="submit" class="btn btn-danger">Delete</button>
-      </form>
-
+      <% include ../collaborators/show.ejs %>
 
     </main>
 

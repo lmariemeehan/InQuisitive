@@ -1,10 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Collaborator = sequelize.define('Collaborator', {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },  
+  var Collaborator = sequelize.define('Collaborator', { 
     wikiId: {
       type: DataTypes.INTEGER,
       allowNull: false

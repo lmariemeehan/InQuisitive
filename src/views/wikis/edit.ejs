@@ -9,7 +9,6 @@
 
       <h1>Edit Wiki</h1>
 
-        <!--Edit wiki form -->
       <form action="/wikis/<%= wiki.id %>/update" method="post">
 
         <div class="form-group">
@@ -38,12 +37,15 @@
       </form>
 
       <br>
-
-      <% include ../collaborators/new.ejs %>
       
+      <% include ../collaborators/show.ejs %>
+      <% include ../collaborators/new.ejs %>
+
       <br>
 
+      <% if (wiki.collaborators) { %>
       <% include ../collaborators/remove.ejs %>
+      <% } %>
 
     </main>
 

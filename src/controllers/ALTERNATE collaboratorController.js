@@ -1,3 +1,7 @@
+/*
+
+ALTERNATE collaboratorController
+
 const collaboratorQueries = require("../db/queries.collaborators.js");
 const Authorizer = require("../policies/collaborator.js");
 const userQueries = require("../db/queries.users.js");
@@ -10,13 +14,29 @@ module.exports = {
   },
 
   create(req, res, next) {
-    collaboratorQueries.addCollaborator(req.params.id, (err, collaborator) => {
-      if(err) {
-        req.flash("error", err);
+    User.findOne({where: {email: req.body.email}}).then((user) => {
+
+      if(user){
+
+      let newCollaborator = {
+        wikiId: req.params.wikiId,
+        userId: req.user.id
+      };
+
+      collaboratorQueries.addCollaborator(newCollaborator, (err, collaborator) => {
+        if(err) {
+          console.log("ERROR", err);
+          req.flash("error", err);
+          res.redirect(typeof err == "number" ? err: 500, req.headers.referer);
+        } else {
+          req.redirect(303, `/wikis/${newCollaborator.wikiId}/collaborators/${collaborator.id}`);
+        }
+      })
       } else {
-        res.redirect(303, `/wikis/${req.params.wikiId}/collaborators`);
+        req.flash("notice", "User not found");
+        res.redirect("/wikis");
       }
-    });
+    })
   },
 
   show(req, res, next) {
@@ -40,3 +60,5 @@ module.exports = {
   }
 
 }
+
+*?

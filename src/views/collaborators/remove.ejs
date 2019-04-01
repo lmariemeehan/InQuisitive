@@ -1,6 +1,6 @@
 <form action="/wikis/<%= wiki.id %>/collaborators/remove" method="post">
   <div class="form-group">
-  <label for="exampleFormControlSelect1">Would you like to remove a collaborator?</label>
+  <label for="exampleFormControlSelect1"> Need to remove a collaborator? Select one: </label>
     <select class="form-control" id="exampleFormControlSelect1">
 
       <% wiki.collaborators.forEach((collaborator) => { %>

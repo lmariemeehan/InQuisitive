@@ -7,12 +7,35 @@ const Authorizer = require("../policies/collaborator");
 module.exports = {
 
   addCollaborator(newCollaborator, callback){
-    return Collaborator.create(newCollaborator)
-    .then((collaborator) => {
-      callback(null, collaborator);
-    })
-    .catch((err) => {
-      callback(err);
+    User.findOne({where: {email: req.body.email}}).then((user) => {
+      if(!user){
+        callback("User not found");
+      }
+
+        Collaborator.findAll({
+          where: {
+            wikiId: req.params.wikiId,
+            userId: user.id
+          }
+        })
+        .then((collaborators)=> {
+          if(collaborators.length != 0){
+            callback("Collaborator has already been added")
+          }
+
+        let newCollaborator = {
+          wikiId: req.params.wikiId,
+          userId: user.id
+        }
+
+        return Collaborator.create(newCollaborator)
+        .then((collaborator) => {
+          callback(null, collaborator);
+        })
+        .catch((err) => {
+          callback(err);
+        })
+      })
     })
   },
 
@@ -36,24 +59,6 @@ module.exports = {
     .catch((err) => {
       callback(err);
     })
-  },
-
-/*
-  updateCollaborator(id, updatedCollaborator, callback){
-    return Collaborator.findById(id)
-    .then((collaborator) => {
-      if(!collaborator){
-        return callback("Collaborator not found");
-      }
-
-      collaborator.update(updatedCollaborator, {
-        fields: Object.keys(updatedCollaborator)
-      })
-      .then(() => {
-        callback(err);
-      });
-    });
   }
-*/
 
 }
