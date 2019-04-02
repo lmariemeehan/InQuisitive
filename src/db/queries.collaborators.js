@@ -10,7 +10,7 @@ module.exports = {
       if(!user){
         callback("User not found");
       }
-
+      console.log(user);
         Collaborator.findAll({
           where: {
             wikiId: req.params.wikiId,
@@ -26,7 +26,7 @@ module.exports = {
           wikiId: req.params.wikiId,
           userId: user.id
         }
-
+      console.log("newCollaborator");
         return Collaborator.create({
           wikiId: newCollaborator.wikiId,
           userId: newCollaborator.userId

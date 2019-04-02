@@ -14,13 +14,13 @@ module.exports = {
   create(req, res, next) {
     //const authorized = new Authorizer(req.user, req. wiki, req. collaborator, collaborator).create();
 
-    collaboratorQueries.addCollaborator(req.params.id, (err, collaborator) => {
+    collaboratorQueries.addCollaborator(newCollaborator, (err, collaborator) => {
       if(err) {
-        console.log(err);
+        res.redirect(404, "/");
         req.flash("error", err);
       } else {
-        console.log("Successfully created a collaborator");
-        res.redirect(`/wikis/${req.params.wikiId}/collaborators/${collaborator.id}`);
+        console.log(newCollaborator);
+        res.redirect(`/wikis/${req.params.wikiId}/collaborators`);
       }
     });
   },
