@@ -26,13 +26,25 @@ module.exports = {
   },
 
   show(req, res, next) {
-    collaboratorQueries.getCollaborator(req.params.id, (err, collaborator) => {
-      if(err || collaborator == null){
-        res.redirect(404, "/");
-      } else {
-        res.render("collaborators/show", {collaborator});
-      }
-    })
+    wikiQueries.getWikis(req.params.wikiId, (err, result) => {
+        wiki = result["wiki"];
+        collaborators = result["collaborators"];
+
+        if (err || result.wiki == null) {
+            res.redirect(404, "/");
+        } else {
+            const authorized = new Authorizer(req.user, wiki, collaborators).show();
+            if (authorized) {
+                res.render("collaborators/show", {
+                    wiki,
+                    collaborators
+                });
+            } else {
+                req.flash("notice", "You are not authorized to do that");
+                res.redirect(`/wikis/${req.params.wikiId}`)
+            }
+        }
+    });
   },
 
   remove(req, res, next){
