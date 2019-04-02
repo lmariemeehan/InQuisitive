@@ -28,7 +28,7 @@ module.exports = class WikiPolicy extends ApplicationPolicy {
  }
 
  private() {
-   return this.record && (this._isPremium() || this._isAdmin());
+   return this.record && (this._isOwner() || this._isPremium() || this._isAdmin());
  }
 
 }

@@ -13,11 +13,11 @@
 
         <ul class="list-group">
           <% wikis.forEach((wiki) => { %>
-
+         <% if(wiki.private == false) { %>
             <li class="list-group-item">
               <a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a>
             </li>
-
+         <% } %>   
           <% }) %>
         </ul>
 
