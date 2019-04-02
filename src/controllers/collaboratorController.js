@@ -12,7 +12,7 @@ module.exports = {
   },
 
   create(req, res, next) {
-    const authorized = new Authorizer(req.user, req. wiki, req. collaborator, collaborator).create();
+    //const authorized = new Authorizer(req.user, req. wiki, req. collaborator, collaborator).create();
 
     collaboratorQueries.addCollaborator(req.params.id, (err, collaborator) => {
       if(err) {
@@ -20,7 +20,7 @@ module.exports = {
         req.flash("error", err);
       } else {
         console.log("Successfully created a collaborator");
-        res.redirect(`/wikis/${req.params.wikiId}`);
+        res.redirect(`/wikis/${req.params.wikiId}/collaborators/${collaborator.id}`);
       }
     });
   },

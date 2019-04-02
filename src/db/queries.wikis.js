@@ -7,9 +7,9 @@ module.exports = {
 
   getAllWikis(callback){
     return Wiki.all()
-      include: [{model: Collaborator, as: "collaborators",
-      include: [{model: User, as: "users"}]
-      }]
+    //  include: [{model: Collaborator, as: "collaborators",
+    //  include: [{model: User, as: "users"}]
+    //  }]
     .then((wikis) => {
       callback(null, wikis);
     })
