@@ -26,7 +26,7 @@ module.exports = {
   },
 
   show(req, res, next) {
-    wikiQueries.getWikis(req.params.wikiId, (err, result) => {
+    wikiQueries.getAllWikis(req.params.wikiId, (err, result) => {
         wiki = result["wiki"];
         collaborators = result["collaborators"];
 
