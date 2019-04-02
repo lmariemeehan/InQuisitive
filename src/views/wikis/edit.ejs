@@ -5,6 +5,7 @@
   </head>
   <body>
     <% include ../static/partials/navbar.ejs %>
+
     <main class="container">
 
       <h1>Edit Wiki</h1>
@@ -22,6 +23,7 @@
         </div>
 
       <% if(currentUser.role !== 0){ %>
+
         <div class="form-group">
           <label for="private">Would you like this to be public or private?</label>
           <select class="form-control" name="private">
@@ -37,16 +39,14 @@
       </form>
 
       <br>
-      
+
       <% include ../collaborators/show.ejs %>
       <% include ../collaborators/new.ejs %>
 
       <br>
 
-      <% if (wiki.collaborators) { %>
       <% include ../collaborators/remove.ejs %>
-      <% } %>
-
+    
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>

@@ -11,8 +11,6 @@
 
       <% if(currentUser && currentUser.role == 0) { %>
 
-        <a href="/wikis/new" class="btn btn-success">Create New Wiki</a>
-
         <ul class="list-group">
           <% wikis.forEach((wiki) => { %>
             <% if(wiki.private == false) { %>
@@ -23,9 +21,11 @@
           <% }) %>
         </ul>
 
-      <% } else if (currentUser && currentUser.role !== 0) { %>
+        <br>
 
-      <a href="/wikis/new" class="btn btn-success">Create New Premium Wiki</a>
+        <a href="/wikis/new" class="btn btn-success">Create New Wiki</a>
+
+      <% } else if (currentUser && currentUser.role !== 0) { %>
 
       <br>
 
@@ -36,6 +36,10 @@
             </li>
           <% }) %>
         </ul>
+
+        <br>
+
+        <a href="/wikis/new" class="btn btn-success">Create New Premium Wiki</a>
 
       <% } %>
 

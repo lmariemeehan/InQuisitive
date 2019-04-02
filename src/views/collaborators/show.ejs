@@ -1,11 +1,19 @@
-<% if(wiki.collaborators) { %>
 
-<h3>Collaborators:</h3>
+<% if(wiki.collaborators) { %>
 <br>
-  <ul class="list-group">
+
+  <div class="card">
+    <div class="card-body text-center">
+      <h5>Collaborators:</h5>
+    </div>
+  </div>
+
+<br>
+
+  <ul class="list-group list-group-flush">
     <% wiki.collaborators.forEach((collaborator) => { %>
       <li class="list-group-item">
-        <a href="/wikis/<% wiki.id %>/collaborators/<%= collaborator.id %>"> <%= collaborator.User.name%> </a>
+         <%= collaborator.User.name%> see if this shows up in wiki/show.ejs
       </li>
     <% }) %>
   </ul>
