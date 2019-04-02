@@ -1,8 +1,9 @@
-<form action="/wikis/<%= wiki.id %>/collaborators/create" method="post">
-    <div class="form-group">
-      <label for="email">Add a collaborator?</label>
-      <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-      <small class="text-muted" id="emailHelp">email address must be a valid address</small>
-    </div>
-  <button type="submit" class="btn btn-success">Add collaborator</button>
-</form>
+
+  <form action="/wikis/<%= wiki.id %>/collaborators/create" method="post">
+      <div class="form-group">
+        <label for="email">Add a collaborator?</label>
+        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+        <small class="text-muted" id="emailHelp">email address must be a valid address</small>
+      </div>
+    <button type="submit" class="btn btn-success">Add collaborator</button>
+  </form>

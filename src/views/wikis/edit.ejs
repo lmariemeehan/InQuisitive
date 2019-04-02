@@ -40,13 +40,20 @@
 
       <br>
 
-      <% include ../collaborators/show.ejs %>
+        <div class="card">
+          <div class="card-body text-center">
+            <h5>Collaborators:</h5>
+          </div>
+        </div>
+
+      <br>
+      
       <% include ../collaborators/new.ejs %>
 
       <br>
 
       <% include ../collaborators/remove.ejs %>
-    
+
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>

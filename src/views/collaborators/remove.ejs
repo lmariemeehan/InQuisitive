@@ -1,35 +1,20 @@
 <% if(wiki.private == true)  { %>
-  <h2> Collaborators </h2>
+
   <% if(wiki.collaborators) { %>
-    <p>
-    <ul class ="list-group">
-      <% wiki.collaborators.forEach((collaborator) => {  %>
+
+      <ul class ="list-group">
+        <% wiki.collaborators.forEach((collaborator) => { %>
           <li class="list-group-item">
-                <%= collaborator.User.name %>
-                <% if(currentUser && (currentUser.role === "premium" || currentUser.role === "admin")) { %>
-                  <form action="/wikis/<%= wiki.id %>/collaborators/delete" method="post">
-                    <button type="submit" class="btn btn-danger">Remove</button>
-                    <input type="hidden" value="<%= collaborator.User.id %>" class="form-control" name="collaborator" >
-                  </form>
-              <% } %>
-         </li>
-      <% }) %>
-    </ul>
-  </p>
-  <% } %>
+            <%= collaborator.User.name %>
+              <% if(currentUser && currentUser.role !== 0) { %>
+                <form action="/wikis/<%= wiki.id %>/collaborators/remove" method="post">
+                  <button type="submit" class="btn btn-danger">Remove Collaborator</button>
+              <input type="hidden" value="<%= collaborator.User.id %>" class="form-control" name="collaborator">
+            </form>
+          </li>
+        <% } %>
+      </ul>
 
-<form action="/wikis/<%= wiki.id %>/collaborators/remove" method="post">
-  <div class="form-group">
-  <label for="exampleFormControlSelect1"> Need to remove a collaborator? Select one: </label>
-    <select class="form-control" id="exampleFormControlSelect1">
-
-      <% wiki.collaborators.forEach((collaborator) => { %>
-
-      <option><%= collaborator.name%></option>
-
-        <% }) %>
-
-    </select>
-  </div>
-  <button type="submit" class="btn btn-danger">Remove Collaborator</button>
-</form>
+  <% }) %>
+<% } %>
+<% } %>

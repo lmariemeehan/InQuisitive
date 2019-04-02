@@ -12,6 +12,8 @@ module.exports = {
   },
 
   create(req, res, next) {
+    const authorized = new Authorizer(req.user, req. wiki, req. collaborator, collaborator).create();
+
     collaboratorQueries.addCollaborator(req.params.id, (err, collaborator) => {
       if(err) {
         console.log(err);

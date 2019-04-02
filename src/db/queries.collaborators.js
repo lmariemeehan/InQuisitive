@@ -5,7 +5,6 @@ const User = require("./models").User;
 const Authorizer = require("../policies/collaborator");
 
 module.exports = {
-
   addCollaborator(newCollaborator, callback){
     User.findOne({where: {email: req.body.email}}).then((user) => {
       if(!user){
@@ -28,7 +27,10 @@ module.exports = {
           userId: user.id
         }
 
-        return Collaborator.create(newCollaborator)
+        return Collaborator.create({
+          wikiId: newCollaborator.wikiId,
+          userId: newCollaborator.userId
+        })
         .then((collaborator) => {
           callback(null, collaborator);
         })

@@ -7,7 +7,7 @@ module.exports = class CollaboratorPolicy extends ApplicationPolicy {
  }
 
  create() {
-   return this.record && (this._isPremium() || this._isAdmin());
+   return this._isPremium() || this._isAdmin() || this._isCollaborator();
  }
 
  show() {
