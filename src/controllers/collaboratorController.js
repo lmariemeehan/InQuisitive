@@ -3,6 +3,7 @@ const Authorizer = require("../policies/collaborator.js");
 const userQueries = require("../db/queries.users.js");
 const User = require("../db/models").User;
 const Wiki = require("../db/models").Wiki;
+const Collaborator = require("../db/models").User;
 const wikiQueries = require("../db/queries.wikis.js");
 
 module.exports = {
@@ -12,14 +13,36 @@ module.exports = {
   },
 
   create(req, res, next) {
-    collaboratorQueries.addCollaborator(req, (err, collaborator) => {
+    User.findOne({where: {email: req.body.email}}).then((user) => {
+      if(!user){
+        callback("User not found");
+      }
+      console.log("user:", user);
+        Collaborator.findAll({
+          where: {
+            wikiId: req.params.wikiId,
+            userId: user.id
+          }
+        })
+        .then((collaborators)=> {
+          if(collaborators.length != 0){
+            callback("Collaborator has already been added")
+          }
+        let newCollaborator = {
+          wikiId: req.params.wikiId,
+          userId: user.id
+        }
+      });
+
+    collaboratorQueries.addCollaborator(newCollaborator, (err, collaborator) => {
       if(err) {
+        console.log(err)
         req.flash("error", err);
         res.redirect(404, "/");
       } else {
-        console.log(newCollaborator);
         res.redirect(`/wikis/${req.params.wikiId}/collaborators`);
       }
+      });
     });
   },
 
