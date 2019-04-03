@@ -12,26 +12,14 @@ module.exports = {
   },
 
   create(req, res, next) {
-    //const authorized = new Authorizer(req.user, req. wiki, req. collaborator, collaborator).create();
-    User.findOne({where: {email: req.body.email}}).then((user) => {
-      if(!user){
-        req.flash("User not found");
-      }
-    let newCollaborator = {
-      email: req.body.email,
-      wikiId: req.params.wikiId,
-      userId: user.id
-    };
-
-    collaboratorQueries.addCollaborator(newCollaborator, (err, collaborator) => {
+    collaboratorQueries.addCollaborator(req, (err, collaborator) => {
       if(err) {
-        res.redirect(404, "/");
         req.flash("error", err);
+        res.redirect(404, "/");
       } else {
         console.log(newCollaborator);
         res.redirect(`/wikis/${req.params.wikiId}/collaborators`);
       }
-    });
     });
   },
 

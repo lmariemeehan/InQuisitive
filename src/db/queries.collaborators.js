@@ -5,16 +5,14 @@ const User = require("./models").User;
 const Authorizer = require("../policies/collaborator");
 
 module.exports = {
-  addCollaborator(newCollaborator, req, callback){
-    console.log(newCollaborator);
-    User.findOne({where: {email: newCollaborator.email}}).then((user) => {
+  addCollaborator(req, callback){
+    console.log(req.body.email);
+    User.findOne({where: {email: req.body.email}}).then((user) => {
       if(!user){
         callback("User not found");
       }
-
         Collaborator.findAll({
           where: {
-            email: req.body.email,
             wikiId: req.params.wikiId,
             userId: user.id
           }
@@ -23,17 +21,12 @@ module.exports = {
           if(collaborators.length != 0){
             callback("Collaborator has already been added")
           }
-
         let newCollaborator = {
           email: req.body.email,
           wikiId: req.params.wikiId,
           userId: user.id
         }
-        return Collaborator.create({
-          email: newCollaborator.email,
-          wikiId: newCollaborator.wikiId,
-          userId: newCollaborator.userId
-        })
+        return Collaborator.create({newCollaborator})
         .then((collaborator) => {
           callback(null, collaborator);
         })
