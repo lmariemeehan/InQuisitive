@@ -15,7 +15,7 @@ module.exports = {
   create(req, res, next) {
     User.findOne({where: {email: req.body.email}}).then((user) => {
       if(!user){
-        callback("User not found");
+        req.flash("notice", "User not found");
       }
       console.log("user:", user);
 
@@ -27,7 +27,7 @@ module.exports = {
         })
         .then((collaborators)=> {
           if(collaborators.length != 0){
-            callback("Collaborator has already been added")
+            req.flash("notice", "Collaborator has already been added")
           }
 
         let newCollaborator = {
@@ -42,7 +42,7 @@ module.exports = {
         req.flash("error", err);
         res.redirect(404, "/");
       } else {
-        res.redirect(`/wikis/${req.params.wikiId}/collaborators`);
+        res.redirect(`/wikis/${req.params.wikiId}/collaborators/${collaborator.id}`);
       }
       });
       });
