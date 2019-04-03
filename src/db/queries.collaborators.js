@@ -1,17 +1,13 @@
 const Collaborator = require("./models").Collaborator;
 const Wiki = require("./models").Wiki;
 const User = require("./models").User;
-
 const Authorizer = require("../policies/collaborator");
 
+
 module.exports = {
-  
-  addCollaborator(req, callback){
-    let newCollaborator = {
-      wikiId: req.params.wikiId,
-      userId: user.id
-    }
-    return Collaborator.create({newCollaborator})
+
+  addCollaborator(newCollaborator, callback){
+    return Collaborator.create(newCollaborator)
     .then((collaborator) => {
       callback(null, collaborator);
     })

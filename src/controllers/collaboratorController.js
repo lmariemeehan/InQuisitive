@@ -18,6 +18,7 @@ module.exports = {
         callback("User not found");
       }
       console.log("user:", user);
+
         Collaborator.findAll({
           where: {
             wikiId: req.params.wikiId,
@@ -28,11 +29,12 @@ module.exports = {
           if(collaborators.length != 0){
             callback("Collaborator has already been added")
           }
+
         let newCollaborator = {
           wikiId: req.params.wikiId,
           userId: user.id
         }
-      });
+      console.log(newCollaborator)
 
     collaboratorQueries.addCollaborator(newCollaborator, (err, collaborator) => {
       if(err) {
@@ -42,6 +44,7 @@ module.exports = {
       } else {
         res.redirect(`/wikis/${req.params.wikiId}/collaborators`);
       }
+      });
       });
     });
   },
