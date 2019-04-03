@@ -5,14 +5,16 @@ const User = require("./models").User;
 const Authorizer = require("../policies/collaborator");
 
 module.exports = {
-  addCollaborator(newCollaborator, callback){
-    User.findOne({where: {email: req.body.email}}).then((user) => {
+  addCollaborator(newCollaborator, req, callback){
+    console.log(newCollaborator);
+    User.findOne({where: {email: newCollaborator.email}}).then((user) => {
       if(!user){
         callback("User not found");
       }
-      console.log(user);
+
         Collaborator.findAll({
           where: {
+            email: req.body.email,
             wikiId: req.params.wikiId,
             userId: user.id
           }
@@ -23,11 +25,12 @@ module.exports = {
           }
 
         let newCollaborator = {
+          email: req.body.email,
           wikiId: req.params.wikiId,
           userId: user.id
         }
-      console.log("newCollaborator");
         return Collaborator.create({
+          email: newCollaborator.email,
           wikiId: newCollaborator.wikiId,
           userId: newCollaborator.userId
         })
