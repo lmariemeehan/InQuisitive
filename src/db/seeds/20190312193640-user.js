@@ -1,42 +1,41 @@
 'use strict';
 
 const faker = require("faker");
-let users = [];
-
-for(let i =1; i <= 15; i++) {
-  users.push({
-    name: faker.internet.userName(),
-    email: faker.internet.email(),
-    password: faker.internet.password(),
-    role: 0,
-    createdAt: new Date(),
-    updatedAt: new Date()
-  });
-}
+const User = require("../models").User;
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
+  up: async (queryInterface) => {
+    await queryInterface.bulkInsert('Users', [{
+      name: faker.internet.userName(),
+      email: faker.internet.email(),
+      password: faker.internet.password(),
+      role: faker.random.number(1),
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      id: faker.random.number({min:1, max:20})
+    }], {});
 
-      Example:
-      return queryInterface.bulkInsert('Person', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
-    return queryInterface.bulkInsert("Users", users, {});
+    const Users = await queryInterface.sequelize.query(`SELECT id from Users;`);
+
+    let wikis = [];
+
+    return await queryInterface.bulkInsert('Wikis', [
+      for(let i = 1; i <= 20; i++){
+        wikis.push({
+          title: faker.lorem.sentence(),
+          body: faker.lorem.sentences(),
+          private: faker.random.boolean(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          userId: user.id
+        });
+      }
+    ], {});
+
   },
 
-  down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('Person', null, {});
-    */
-    return queryInterface.bulkDelete("Users", null, {});
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.bulkDelete('Wikis', null, {});
+    await queryInterface.bulkDelete('Users', null, {});
   }
 };

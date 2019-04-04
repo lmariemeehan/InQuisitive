@@ -2,3 +2,4 @@
 .DS_Store
 +.env
 sendgrid.env
+ignore20190312193706-wiki.js
