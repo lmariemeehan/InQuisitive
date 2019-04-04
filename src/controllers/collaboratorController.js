@@ -3,7 +3,7 @@ const Authorizer = require("../policies/collaborator.js");
 const userQueries = require("../db/queries.users.js");
 const User = require("../db/models").User;
 const Wiki = require("../db/models").Wiki;
-const Collaborator = require("../db/models").User;
+const Collaborator = require("../db/models").Collaborator;
 const wikiQueries = require("../db/queries.wikis.js");
 
 module.exports = {
