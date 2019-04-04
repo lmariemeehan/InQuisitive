@@ -1,5 +1,5 @@
 
-<% if(collaborators) { %>
+<% if(wiki.collaborators) { %>
 <br>
 
   <div class="card">
@@ -11,9 +11,9 @@
 <br>
 
   <ul class="list-group list-group-flush">
-    <% collaborators.forEach((collaborator) => { %>
+    <% wiki.collaborators.forEach((collaborator) => { %>
       <li class="list-group-item">
-         <%- collaborator.User.name%> see if this shows up in wiki/show.ejs
+         <%- collaborator.name%> see if this shows up in wiki/show.ejs
       </li>
     <% }) %>
   </ul>

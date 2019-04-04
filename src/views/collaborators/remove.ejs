@@ -1,19 +1,18 @@
 <!-- <% if(wiki.private == true)  { %>   -->
 <!--  <% if(wiki.collaborators) { %>   -->
 
-      <ul class ="list-group">
-        <% wiki.collaborators.forEach((collaborator) => { %>
-          <li class="list-group-item">
-            <%= collaborator.User.name %>
-              <% if(currentUser && currentUser.role !== 0) { %>
-                <form action="/wikis/<%= wiki.id %>/collaborators/remove" method="post">
-                  <button type="submit" class="btn btn-danger">Remove Collaborator</button>
-              <input type="hidden" value="<%= collaborator.User.id %>" class="form-control" name="collaborator">
+  <ul class ="list-group">
+    <% wiki.collaborators.forEach((collaborator) => { %>
+      <li class="list-group-item">
+        <%= collaborator.User.name %>
+
+            <form action="/wikis/<%= wiki.id %>/collaborators/<%= collaborator.id %>/destroy" method="post">
+              <button type="submit" class="btn btn-danger">Remove Collaborator</button>
             </form>
           </li>
-        <% } %>
+
       <% }) %>
-      </ul>
+    </ul>
 
 <!--  <% } %>   -->
 <!--  <% } %>   -->

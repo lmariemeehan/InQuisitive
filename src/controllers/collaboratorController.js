@@ -16,18 +16,20 @@ module.exports = {
     User.findOne({where: {email: req.body.email}}).then((user) => {
       if(!user){
         req.flash("notice", "User not found");
+        return res.redirect(`/wikis/${req.params.wikiId}/edit`);
       }
       console.log("user:", user);
 
-        Collaborator.findAll({
+        Collaborator.findOne({
           where: {
             wikiId: req.params.wikiId,
             userId: user.id
           }
         })
-        .then((collaborators)=> {
-          if(collaborators.length != 0){
+        .then((collaborator)=> {
+          if(collaborator){
             req.flash("notice", "Collaborator has already been added")
+            return res.redirect(`/wikis/${req.params.wikiId}/edit`);
           }
 
         let newCollaborator = {
@@ -42,36 +44,14 @@ module.exports = {
         req.flash("error", err);
         res.redirect(404, "/");
       } else {
-        res.redirect(`/wikis/${req.params.wikiId}/collaborators/${collaborator.id}`);
+        res.redirect(`/wikis/${req.params.wikiId}/edit`);
       }
       });
       });
     });
   },
 
-  show(req, res, next) {
-    wikiQueries.getAllWikis(req.params.wikiId, (err, result) => {
-        wiki = result["wiki"];
-        collaborators = result["collaborators"];
-
-        if (err || result.wiki == null) {
-            res.redirect(404, "/");
-        } else {
-            const authorized = new Authorizer(req.user, wiki, collaborators).show();
-            if (authorized) {
-                res.render("collaborators/show", {
-                    wiki,
-                    collaborators
-                });
-            } else {
-                req.flash("notice", "You are not authorized to do that");
-                res.redirect(`/wikis/${req.params.wikiId}`)
-            }
-        }
-    });
-  },
-
-  remove(req, res, next){
+  destroy(req, res, next){
     collaboratorQueries.deleteCollaborator(req.params.id, (err, deletedRecordsCount) => {
       if(err){
         res.redirect(500, `/wikis/${req.params.wikiId}/collaborators/${req.params.id}`);

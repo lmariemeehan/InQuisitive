@@ -27,7 +27,7 @@ module.exports = {
   },
 
   deleteCollaborator(id, callback){
-    return Collaborator.remove({
+    return Collaborator.destroy({
       where: { id }
     })
     .then((deletedRecordsCount) => {

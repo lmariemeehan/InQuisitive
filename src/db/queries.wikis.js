@@ -19,7 +19,10 @@ module.exports = {
     return Wiki.findById(id, {
       include: [{
         model: Collaborator,
-        as: "collaborators"
+        as: "collaborators",
+        include: [{
+          model: User
+        }]
       }]
     })
     .then((wiki) => {
