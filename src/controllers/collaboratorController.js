@@ -1,5 +1,4 @@
 const collaboratorQueries = require("../db/queries.collaborators.js");
-const Authorizer = require("../policies/collaborator.js");
 const userQueries = require("../db/queries.users.js");
 const User = require("../db/models").User;
 const Wiki = require("../db/models").Wiki;
@@ -15,7 +14,12 @@ module.exports = {
   create(req, res, next) {
     User.findOne({where: {email: req.body.email}}).then((user) => {
       if(!user){
-        req.flash("notice", "User not found");
+        req.flash("error", [{
+          location: 'body',
+          param: 'user',
+          msg: 'No user found with this email',
+          value: '003'
+        }]);
         return res.redirect(`/wikis/${req.params.wikiId}/edit`);
       }
       console.log("user:", user);
@@ -28,7 +32,12 @@ module.exports = {
         })
         .then((collaborator)=> {
           if(collaborator){
-            req.flash("notice", "Collaborator has already been added")
+            req.flash("notice", [{
+              location: 'body',
+              param: 'user',
+              msg: 'Collaborator has already been added',
+              value: '003'
+            }]);
             return res.redirect(`/wikis/${req.params.wikiId}/edit`);
           }
 

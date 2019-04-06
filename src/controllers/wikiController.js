@@ -1,4 +1,5 @@
 const wikiQueries = require("../db/queries.wikis.js");
+const Wiki = require("../db/models").Wiki;
 const User = require("../db/models").User;
 const Authorizer = require("../policies/wiki");
 const Sequelize = require("sequelize");

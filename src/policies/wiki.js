@@ -11,7 +11,7 @@ module.exports = class WikiPolicy extends ApplicationPolicy {
    return this.new();
  }
 
- show() {
+ show(){
    return true;
  }
 

@@ -42,5 +42,9 @@ module.exports = (sequelize, DataTypes) => {
       return this.role === 2;
     };
 
+    User.prototype.isCollaborator = function() {
+      return this.role === "collaborator";
+    };
+
   return User;
 };

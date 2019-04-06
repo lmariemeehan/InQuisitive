@@ -18,7 +18,7 @@ module.exports = class ApplicationPolicy {
   }
 
   _isCollaborator() {
-    return this.record && (this.record.userId == this.user.id);
+    return this.user && this.user.role == "collaborator";
   }
 
   new() {
