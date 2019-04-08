@@ -22,7 +22,9 @@
 
             <% } else if (wiki.private == true) { %>
 
-            <% if (currentUser && (currentUser.id == wiki.userId || currentUser.role == 2)) { %>
+              <% const collaborator = wiki.getCollaboratorFor(currentUser.id) %>
+
+            <% if (currentUser && (currentUser.id == wiki.userId || currentUser.role == 2 || collaborator)) { %>
 
               <li class="list-group-item">
                 <a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a>

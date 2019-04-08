@@ -31,6 +31,10 @@ module.exports = (sequelize, DataTypes) => {
     })
 
   };
+
+  Wiki.prototype.getCollaboratorFor = function(userId){
+    return this.collaborators.find((collaborator) => {return collaborator.userId == userId });
+  };
 /*
   Wiki.addScope ("lastFiveFor", (userId) => {
     return {
