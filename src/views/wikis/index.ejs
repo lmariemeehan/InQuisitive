@@ -7,45 +7,36 @@
     <main class="container">
       <% include ../static/partials/navbar.ejs %>
 
-      <h1>Wikis</h1>
+        <h1>Public Wikis</h1>
 
-      <% if(currentUser) { %>
-          <a href="/wikis/new" class="btn btn-success">Create New Wiki</a>
-      <% } %>
+        <% if (currentUser) { %>
+          <a href="/wikis/new" class="btn btn-success">Create New Public Wiki</a>
+        <% } %>
 
-      <% if (currentUser && currentUser.role !== 0) { %>
-        <ul class="list-group">
+        <ol class="list-group">
           <% wikis.forEach((wiki) => { %>
             <% if (wiki.private == false) { %>
               <li class="list-group-item">
                 <a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a>
               </li>
+
             <% } else if (wiki.private == true) { %>
-              <% if (currentUser.id == wiki.userId || currentUser.role == 2 ) { %>
+
+            <% if (currentUser && (currentUser.id == wiki.userId || currentUser.role == 2)) { %>
+
               <li class="list-group-item">
                 <a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a>
+                  <% wiki.collaborators.forEach((collaborator) => { %>
+                <ul>
+                  <li>Associated collaborators include: <%- collaborator.User.name %></li>
+                </ul>
+                  <% }) %>
               </li>
-              <% } %>
+
+            <% } %>
             <% } %>
           <% }) %>
-        </ul>
-      <% } else if (currentUser && currentUser.role == 0) { %>
-        <ul class ="list-group">
-          <% wikis.forEach((wiki) => { %>
-          <% wiki.collaborators.forEach((collaborator) => { %>
-            <% if(wiki.private == false) { %>
-              <li class="list-group-item">
-                <a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a>
-              </li>
-              <% } else if (wiki.private == true && (wiki.userId == collaborator.userId)) { %>
-                <li class="list-group-item">
-                  <a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a>
-                </li>
-            <% } %>
-          <% }) %>
-          <% }) %>
-        </ul>
-      <% } %>
+        </ol>
 
     </main>
   </body>

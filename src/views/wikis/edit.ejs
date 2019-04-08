@@ -38,14 +38,14 @@
 
       </form>
 
-    
+      <% if ((wiki.private === true) && currentUser && (currentUser.role == 2 || (currentUser.role == 1 && currentUser.id == wiki.userId))) { %>
       <br>
-      <h2>Collaborators:</h2>
+      <h2>Edit Collaborators:</h2>
       <br>
       <% include ../collaborators/new.ejs %>
       <br>
       <% include ../collaborators/remove.ejs %>
-
+      <% } %>
 
     </main>
 

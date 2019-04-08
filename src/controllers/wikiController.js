@@ -28,7 +28,7 @@ module.exports = {
   },
 
   create(req, res, next){
-    if(req.body.private == "false"){
+    if(req.body.private == "false" || req.body.private == null){
         let newWiki = {
           title: req.body.title,
           body: req.body.body,
