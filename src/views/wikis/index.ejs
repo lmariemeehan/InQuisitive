@@ -4,28 +4,27 @@
     <% include ../static/partials/head.ejs %>
   </head>
   <body>
-    <main class="container">
-      <% include ../static/partials/navbar.ejs %>
-
-        <h1>Wikis</h1>
+    <% include ../static/partials/navbar.ejs %>
+    <% include ../static/partials/messages.ejs %>
+    
+      <main class="container">
+        <div class="row">
+          <div class="col-8"><h2>All Wikis</h2></div>
 
         <% if (currentUser) { %>
-          <a href="/wikis/new" class="btn btn-success">Create New Public Wiki</a>
+          <div class="col-4"><a href="/wikis/new" class="btn btn-success">Create New Public Wiki</a></div>
+          </div>
         <% } %>
 
-        <ol class="list-group">
+        <ul class="list-group">
           <% wikis.forEach((wiki) => { %>
             <% if (wiki.private == false) { %>
               <li class="list-group-item">
                 <a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a>
               </li>
-
-            <% } else if (wiki.private == true) { %>
-
+              <% } else if (wiki.private == true) { %>
               <% const collaborator = wiki.getCollaboratorFor(currentUser.id) %>
-
             <% if (currentUser && (currentUser.id == wiki.userId || currentUser.role == 2 || collaborator)) { %>
-
               <li class="list-group-item">
                 <a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a>
                   <% wiki.collaborators.forEach((collaborator) => { %>
@@ -33,13 +32,13 @@
                       <li>Associated collaborators include: <%- collaborator.User.name %></li>
                     </ul>
                   <% }) %>
-              </li>
-
-            <% } %>
+                </li>
+              <% } %>
             <% } %>
           <% }) %>
-        </ol>
-
+        </ul>
     </main>
+
+
   </body>
 </html>

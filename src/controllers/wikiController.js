@@ -4,12 +4,14 @@ const User = require("../db/models").User;
 const Authorizer = require("../policies/wiki");
 const Sequelize = require("sequelize");
 const markdown = require("markdown").markdown;
+const passport = require("passport");
 
 module.exports = {
 
   index(req, res, next){
     wikiQueries.getAllWikis((err, wikis) => {
       if(err){
+        req.flash("error", "You must be signed in to view Wikis.");
         res.redirect(500, "static/index");
       } else {
         res.render("wikis/index", {wikis});

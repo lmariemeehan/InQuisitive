@@ -13,7 +13,7 @@
 
               <h1>Upgrade Your Account to Premium!</h1>
               <hr>
-              <p> Enjoy creating unlimited private wikis at a low cost of only $15/month!</p>
+              <p> Enjoy creating unlimited private wikis at a low one time charge of only $15!</p>
 
             <!--Stripe credit card payment-->
               <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
@@ -33,7 +33,7 @@
 
             <h1>Blocipedia Premium</h1>
             <p>You're currently subscribed with the Blocipedia premium plan. As a premium subscriber you have the freedom to create both unlimited private and public wikis. </p>
-            <p>At any time, see <a href="/users/:id/downgrade">standard subscription</a> if you wish to downgrade.</p>
+            <p>At any time, see <a href="/users/:id/downgrade">Learn about Standard</a> if you wish to downgrade.</p>
         <% } %>
       </main>
        <%- include('../static/partials/baseScripts.ejs') -%>
