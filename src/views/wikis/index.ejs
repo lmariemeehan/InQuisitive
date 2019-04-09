@@ -7,7 +7,7 @@
     <main class="container">
       <% include ../static/partials/navbar.ejs %>
 
-        <h1>Public Wikis</h1>
+        <h1>Wikis</h1>
 
         <% if (currentUser) { %>
           <a href="/wikis/new" class="btn btn-success">Create New Public Wiki</a>
@@ -29,9 +29,9 @@
               <li class="list-group-item">
                 <a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a>
                   <% wiki.collaborators.forEach((collaborator) => { %>
-                <ul>
-                  <li>Associated collaborators include: <%- collaborator.User.name %></li>
-                </ul>
+                    <ul>
+                      <li>Associated collaborators include: <%- collaborator.User.name %></li>
+                    </ul>
                   <% }) %>
               </li>
 
