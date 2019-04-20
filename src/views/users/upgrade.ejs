@@ -11,8 +11,9 @@
           <!-- Signed in Standard user subscription page -->
           <% if(currentUser && currentUser.role === 0) { %>
 
-              <h1>Upgrade Your Account to Premium!</h1>
+              <h3>Upgrade Your Account to Premium!</h3>
               <hr>
+                <h5>This entitles you to create your own unlimited private wikis that only you and collaborators of your choice the ability to view and share. When creating a wiki, you can control who can see it by using the drop down menu and choosing either public or private. Upon choosing the private status, inputting a collaborators email will enable him/her access to view and edit the shared wiki.</h5>
               <p> Enjoy creating unlimited private wikis at a low one time charge of only $15!</p>
 
             <!--Stripe credit card payment-->
@@ -31,10 +32,12 @@
               <!-- Signed in Premium user subscription page -->
           <% } else if (currentUser && currentUser.role === 1) { %>
 
-            <h1>Blocipedia Premium</h1>
+            <h3>Blocipedia Premium</h3>
             <p>You're currently subscribed with the Blocipedia premium plan. As a premium subscriber you have the freedom to create both unlimited private and public wikis. </p>
             <p>At any time, see <a href="/users/:id/downgrade">Learn about Standard</a> if you wish to downgrade.</p>
+
         <% } %>
+
       </main>
        <%- include('../static/partials/baseScripts.ejs') -%>
      </body>
