@@ -3,7 +3,7 @@
 ## List of features:
 * Users are able to create public or private wikis depending on whether they are a premium or standard user.
 * Option to create wikis in markdown.
-* Stripe has been integrated in order to charge users to upgrade their accounts to premium for additional features.
+* Stripe has been integrated in order to charge users to upgrade their accounts from standard to premium for additional features.
 * User authentication and email sending has been implemented by using external API's including SendGrid and Passport.js.
 * Ability to collaborate with others by inputting your friend's email.
 
