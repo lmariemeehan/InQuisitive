@@ -35,14 +35,6 @@ module.exports = (sequelize, DataTypes) => {
   Wiki.prototype.getCollaboratorFor = function(userId){
     return this.collaborators.find((collaborator) => {return collaborator.userId == userId });
   };
-/*
-  Wiki.addScope ("lastFiveFor", (userId) => {
-    return {
-      where: {userId: userId},
-      limit: 5,
-      order: [["createdAt", "DESC"]]
-    }
-  });
-*/
+
   return Wiki;
 };
