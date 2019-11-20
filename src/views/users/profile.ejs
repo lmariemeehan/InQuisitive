@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../static/partials/head.ejs %>
+    </head>
+    <body>
+        <% include ../static/partials/navbar.ejs %>
+      <main class="container">
+          <% include ../static/partials/messages.ejs %>
+
+          <!-- Signed in Standard user subscription page -->
+          <% if(currentUser && currentUser.role === 0) { %>
+
+              <h1>Account details</h1>
+                <p>Current membership status: <strong>STANDARD</strong></p>
+              <hr>
+              <h3>Upgrade to Premium Membership</h3>
+                <p>This entitles you to create unlimited private wikis that only you and collaborators of your choice the ability to view and share.</p>
+              <p> Enjoy creating unlimited private wikis at a low one time charge of only $15!</p>
+
+            <!--Stripe credit card payment-->
+              <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
+                <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_y4X6knOxUBsAt7gm4uUBUXth"
+                data-amount="1500"
+                data-name="Laura Meehan"
+                data-description="Example charge"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="auto">
+              </script>
+              </form>
+
+              <!-- Signed in Premium user subscription page -->
+          <% } else if (currentUser && currentUser.role === 1) { %>
+
+            <h1>Account details</h1>
+              <p>Current membership status: <strong>PREMIUM</strong></p>
+            <hr>
+            <h3>Downgrade to Standard Membership</h3>
+              <p>Please be aware that upon reverting back to Blocipedia Standard, all wikis created under the private label will lose this status and will therefore become open to the public. If you wish to proceed, click the downgrade button below to switch to Blocipedia's free standard plan.</p>
+              <form action="/users/<%=currentUser.id%>/downgrade" method="POST">
+                  <button type="submit" class="btn btn-primary btn-lg">Downgrade to Standard Membership</button>
+              </form>
+
+        <% } %>
+
+      </main>
+       <%- include('../static/partials/baseScripts.ejs') -%>
+     </body>
+  </html>

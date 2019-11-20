@@ -6,24 +6,24 @@
     <body>
         <% include ../static/partials/navbar.ejs %>
         <main class="container">
-                <% include ../static/partials/messages.ejs %>
+          <% include ../static/partials/messages.ejs %>
 
-                <!-- Signed in Premium user subscription page -->
-                <% if(currentUser.role === 1) { %>
-                    <h1>Wish to go back to Standard?</h1>
-                    <hr>
-                    <p>Please be aware that upon reverting back to Blocipedia Standard, all wikis created under the private label will lose this status and will therefore become open to the public. If you wish to proceed, click the downgrade button below to switch to Blocipedia's free standard plan. </p>
+          <!-- Signed in Premium user subscription page -->
+          <% if(currentUser.role === 1) { %>
+              <h1>Wish to go back to Standard?</h1>
+              <hr>
+              <p>Please be aware that upon reverting back to Blocipedia Standard, all wikis created under the private label will lose this status and will therefore become open to the public. If you wish to proceed, click the downgrade button below to switch to Blocipedia's free standard plan.</p>
 
-                    <form action="/users/<%=currentUser.id%>/downgrade" method="POST">
-                        <button type="submit" class="btn btn-primary btn-lg">Downgrade</button>
-                    </form>
-                <% } else { %>
+              <form action="/users/<%=currentUser.id%>/downgrade" method="POST">
+                  <button type="submit" class="btn btn-primary btn-lg">Downgrade to Standard Membership</button>
+              </form>
+          <% } else { %>
 
-                  <!-- Signed in Standard user subscription page -->
-                    <h1>Blocipedia Standard</h1>
-                    <p>You're currently subscribed with the Blocipedia Standard plan. As a standard subscriber you can create unlimited public wikis at no cost. If you would like to create your own private wikis you can upgrade to Blocipedia Premium at any time.</p>
+            <!-- Signed in Standard user subscription page -->
+              <h1>Blocipedia Standard</h1>
+              <p>You're currently subscribed with the Blocipedia Standard plan. As a standard subscriber you can create unlimited public wikis at no cost. If you would like to create your own private wikis you can upgrade to Blocipedia Premium at any time.</p>
 
-                <% } %>
+          <% } %>
         </main>
        <%- include('../static/partials/baseScripts.ejs') -%>
     </body>
