@@ -1,3 +1,27 @@
 body {
 	padding-top: 104px;
 }
+
+#signup-link {
+
+}
+
+#signin-link {
+
+}
+
+.fa-user {
+	padding-right: 4px;
+}
+
+.fa-user-plus {
+	padding-right: 4px;
+}
+
+.fa-sign-in-alt {
+	padding-right: 5px;
+}
+
+.fa-sign-out-alt {
+	padding-right: 4px;
+}
