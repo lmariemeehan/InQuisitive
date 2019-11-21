@@ -29,7 +29,7 @@
                 <a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a>
                   <% wiki.collaborators.forEach((collaborator) => { %>
                     <ul>
-                      <li>Associated collaborators include: <%- collaborator.User.name %></li>
+                      <li>Collaborator(s): <%- collaborator.User.name %></li>
                     </ul>
                   <% }) %>
                 </li>
