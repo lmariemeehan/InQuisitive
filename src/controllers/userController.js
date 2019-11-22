@@ -121,6 +121,10 @@ module.exports = {
 					res.redirect("/");
 			}
 		});
+	},
+
+	profile(req, res, next){
+		res.render("users/profile"); //This upgrades the view where you can upgrade or downgrade the user.
 	}
 
 }

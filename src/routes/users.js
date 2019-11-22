@@ -13,5 +13,8 @@ const userController = require("../controllers/userController");
   router.post("/users/:id/upgrade", userController.upgrade);
   router.get("/users/:id/downgrade", userController.downgradeForm);
   router.post("/users/:id/downgrade", userController.downgrade);
+  router.get("/users/:id/profile", userController.profile);
+  router.post("/users/:id/profile", userController.upgrade);
+  router.post("/users/:id/profile", userController.downgrade);
 
 module.exports = router;

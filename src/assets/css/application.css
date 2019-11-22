@@ -3,10 +3,24 @@ body {
 }
 
 #signup-link {
-
+	border: 2px solid #75C5BF;
+	border-radius: 25px;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-left: 10px;
+	color: #46a7a0;
 }
 
 #signin-link {
+	border: 2px solid #E9ECEF;
+	border-radius: 25px;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-left: 10px;
+}
+
+#navbarDropdown {
+ 	color: #46a7a0;
 
 }
 

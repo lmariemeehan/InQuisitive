@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <% include ../static/partials/head.ejs %>
+      <% include ../static/partials/head.ejs %>
     </head>
     <body>
-        <% include ../static/partials/navbar.ejs %>
+      <% include ../static/partials/navbar.ejs %>
       <main class="container">
           <% include ../static/partials/messages.ejs %>
 
@@ -16,7 +16,7 @@
               <hr>
               <h3>Upgrade to Premium Membership</h3>
                 <p>This entitles you to create unlimited private wikis that only you and collaborators of your choice the ability to view and share.</p>
-              <p> Enjoy creating unlimited private wikis at a low one time charge of only $15!</p>
+                <p>Enjoy creating unlimited private wikis at a low one time charge of only $15!</p>
 
             <!--Stripe credit card payment-->
               <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
@@ -38,9 +38,9 @@
               <p>Current membership status: <strong>PREMIUM</strong></p>
             <hr>
             <h3>Downgrade to Standard Membership</h3>
-              <p>Please be aware that upon reverting back to Blocipedia Standard, all wikis created under the private label will lose this status and will therefore become open to the public. If you wish to proceed, click the downgrade button below to switch to Blocipedia's free standard plan.</p>
+              <p>Please be aware that upon reverting back to a Standard Membership, all wikis created under the private label will lose this status and will therefore become open to the public. If you wish to proceed, click the downgrade button below to switch to InQuisitive's free standard plan.</p>
               <form action="/users/<%=currentUser.id%>/downgrade" method="POST">
-                  <button type="submit" class="btn btn-primary btn-lg">Downgrade to Standard Membership</button>
+                <button type="submit" class="btn btn-primary btn-lg">Downgrade to Standard Membership</button>
               </form>
 
         <% } %>
