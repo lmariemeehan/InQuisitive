@@ -10,7 +10,8 @@
 
           <!-- Signed in Standard user subscription page -->
           <% if(currentUser && currentUser.role === 0) { %>
-            <h1>Profile</h1>
+            <h1 id="profileTitle">Account overview</h1>
+            <h2>Profile</h2>
               <form>
                 <div class="form-group row">
                   <label for="staticName" class="col-sm-2 col-form-label"><strong>Name:</strong></label>
@@ -49,7 +50,24 @@
               <!-- Signed in Premium user subscription page -->
           <% } else if (currentUser && currentUser.role === 1) { %>
 
-            <h1>Account details</h1>
+            <h1>Account overview</h1>
+            <h2>Profile</h2>
+              <form>
+                <div class="form-group row">
+                  <label for="staticName" class="col-sm-2 col-form-label"><strong>Name:</strong></label>
+                  <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="staticName" value=" <%=currentUser.name%> ">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Email:</strong></label>
+                  <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" <%=currentUser.email %> ">
+                  </div>
+                </div>
+              </form>
+            <hr>
+            <h2>Account details</h2>
               <p>Current membership status: <strong>PREMIUM</strong></p>
             <hr>
             <h3>Downgrade to Standard Membership</h3>

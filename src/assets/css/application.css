@@ -2,6 +2,7 @@ body {
 	padding-top: 104px;
 }
 
+<!--- Navbar --->
 #signup-link {
 	border: 2px solid #75C5BF;
 	border-radius: 25px;
@@ -21,7 +22,10 @@ body {
 
 #navbarDropdown {
  	color: #46a7a0;
+}
 
+#navbarDropdown:hover {
+ 	color: #2f716c;
 }
 
 .fa-user {
@@ -40,6 +44,11 @@ body {
 	padding-right: 4px;
 }
 
+<!--- Profile page --->
+
+#profileTitle {
+	color: yellow;
+}
+
 #membershipDetails {
-	margin-top: 50px;
 }

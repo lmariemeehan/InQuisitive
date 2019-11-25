@@ -18,11 +18,10 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/users/<%= currentUser.id %>/upgrade">Premium Subscription</a>
             <a class="dropdown-item" href="/users/<%= currentUser.id %>/downgrade">Standard Subscription</a>
-            <a class="dropdown-item" href="/users/<%= currentUser.id %>/profile">Profile</a>
+            <a class="dropdown-item" href="/users/<%= currentUser.id %>/profile">View Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/users/sign_out"><i class="fas fa-sign-out-alt"></i>Sign out </a>
             </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/users/sign_out"><i class="fas fa-sign-out-alt"></i>Sign out </a>
           </li>
 
       <% } else { %>
@@ -31,7 +30,7 @@
             <span class=""><a id="signup-link" class="nav-link" href="/users/sign_up"> <i class="fas fa-user-plus"></i>Sign up for free</a></span>
           </li>
           <li class="nav-item">
-            <a id="signin-link" class="nav-link" href="/users/sign_in"><i class="fas fa-sign-in-alt"></i>Sign in</a>
+            <a id="signin-link" class="nav-link" href="/users/sign_in"><i class="fas fa-sign-in-alt"></i>Log in</a>
           </li>
 
       <% }%>
