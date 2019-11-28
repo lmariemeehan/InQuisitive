@@ -12,9 +12,11 @@
 
       <!-- Signed in Standard user index page -->
       <% if(currentUser && currentUser.role === 0) { %>
+        <h1>Your Wikis:</h1>
+
         <header class="jumbotron jumbotron-fluid">
           <div class="container">
-          <h1 class="display-4">Upgrade to Premium</h1>
+          <h2 class="display-4">Upgrade to Premium</h2>
           <hr>
           <h3> Enjoy creating unlimited private wikis on all your devices. </h3>
           <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
