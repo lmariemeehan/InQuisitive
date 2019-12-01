@@ -2,6 +2,10 @@ body {
 	padding-top: 104px;
 }
 
+.container {
+	width: 100vw;
+}
+
 <!--- Navbar --->
 
 #signup-link {
@@ -57,4 +61,58 @@ body {
 <!-- New wiki -->
 #newWiki-row {
 	padding-top: 80px;
+}
+
+<!-- Main index page -->
+
+.banner {
+	display: flex;
+	height: 400px;
+	width: 100%;
+	flex-wrap: wrap;
+}
+
+.banner-info {
+	display: flex;
+	flex-direction: column;
+	margin-top: 60px;
+}
+
+.banner-title {
+	font-size: 30px;
+}
+
+.banner p {
+	font-size: 20px;
+	line-height: 3;
+}
+
+.banner a {
+	background-color: #46a7a0;
+	border: 2px solid #46a7a0;
+	border-radius: 25px;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-left: 10px;
+}
+
+.banner img {
+	width: 640px;
+	height: 320px;
+	max-width: 100%;
+}
+
+.col-sm-6 {
+	border: none;
+	min-height: 192px;
+}
+
+.fa-edit {
+	color: #46a7a0;
+	font-size: 40px;
+}
+
+.fa-lock {
+	color: #46a7a0;
+	font-size: 40px;
 }

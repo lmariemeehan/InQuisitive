@@ -15,7 +15,6 @@
         <h1>Your Wikis:</h1>
 
         <header class="jumbotron jumbotron-fluid">
-          <div class="container">
           <h2 class="display-4">Upgrade to Premium</h2>
           <hr>
           <h3> Enjoy creating unlimited private wikis on all your devices. </h3>
@@ -32,7 +31,6 @@
           </form>
           <br>
           <p>*Terms and conditions may apply</p>
-          </div>
         </header>
 
         <!-- Signed in Premium user index page -->
@@ -48,27 +46,36 @@
     <% } else { %>
 
       <!-- Either not subscribed yet or signed in user index page -->
-      <!-- Jumbotron Header -->
-      <header class="jumbotron my-4">
-        <h1 class="display-3">Welcome to InQuisitive</h1>
-        <p class="lead">Explore, collaborate, and share markdown wikis.</p>
-        <a href="/users/sign_up" class="btn btn-primary btn-lg">Sign Up</a>
-      </header>
+
+      <div class="banner">
+        <div class="banner-info">
+          <h1 class="banner-title">Welcome to InQuisitive</h1>
+          <p>Explore, collaborate, and share markdown wikis.</p>
+          <a class="btn btn-primary" href="#" role="button"><i class="fas fa-user-plus"></i>Sign up for free</a>
+        </div>
+        <img src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_320,w_640/v1575153428/pixel-3699343_1280_j1garn.png" class="ml-3" alt="Bridging the knowledge gap">
+      </div>
 
       <!-- Page Features -->
-      <section class="row text-center">
-
-        <section class="col-lg-6">
-          <h4 class="card-title">Free Plan</h4>
-          <p class="card-text">Create as many public wikis as you want!</p>
-        </section>
-
-        <section class="col-lg-6">
-          <h4 class="card-title">Premium Plan</h4>
-          <p class="card-text">Create both public and exclusive private wikis!</p>
-          <a href="/users/upgrade">Go Premium</a>
-        </section>
-
+      <section class="row">
+        <div class="col-sm-6">
+          <div class="card border-0 text-center">
+            <span><i class="far fa-edit"></i></span>
+            <div class="card-body">
+              <h4 class="card-title">Free Plan</h4>
+              <p class="card-text">Create as many public wikis as you want!</p>
+            </div>
+          </div>
+        </div>
+          <div class="col-sm-6">
+            <div class="card border-0 text-center">
+              <span><i class="fas fa-lock"></i></span>
+              <div class="card-body">
+                <h4 class="card-title">Premium Plan</h4>
+                <p class="card-text">Create both public and exclusive private wikis!</p>
+              </div>
+            </div>
+          </div>
       </section>
       <!-- /.row -->
   <% } %>
