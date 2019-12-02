@@ -2,13 +2,22 @@ body {
 	padding-top: 104px;
 }
 
-.container {
-	width: 100vw;
+<!---   Navbar   --->
+
+.fa-school {
+	padding-right: 6px;
 }
 
-<!--- Navbar --->
-
 #signup-link {
+	color: #46a7a0;
+	border: 2px solid #75C5BF;
+	border-radius: 25px;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-left: 10px;
+}
+
+#signup-link:hover {
 	color: #46a7a0;
 	border: 2px solid #75C5BF;
 	border-radius: 25px;
@@ -34,60 +43,31 @@ body {
 }
 
 .fa-user {
-	padding-right: 4px;
-}
-
-.fa-user-plus {
-	padding-right: 4px;
-}
-
-.fa-sign-in-alt {
 	padding-right: 5px;
 }
 
+.fa-user-plus {
+	padding-right: 6px;
+}
+
+.fa-sign-in-alt {
+	padding-right: 7px;
+}
+
 .fa-sign-out-alt {
-	padding-right: 4px;
+	padding-right: 6px;
 }
 
-<!--- Profile page --->
+<!---   Profile page   --->
 
-#profileTitle {
-	color: yellow;
-}
-
-#membershipDetails {
-}
 
 <!-- New wiki -->
 #newWiki-row {
 	padding-top: 80px;
 }
 
-<!-- Main index page -->
-
-.banner {
-	display: flex;
-	height: 400px;
-	width: 100%;
-	flex-wrap: wrap;
-}
-
-.banner-info {
-	display: flex;
-	flex-direction: column;
-	margin-top: 60px;
-}
-
-.banner-title {
-	font-size: 30px;
-}
-
-.banner p {
-	font-size: 20px;
-	line-height: 3;
-}
-
-.banner a {
+<!---   Main index page   --->
+#hero-signup-link {
 	background-color: #46a7a0;
 	border: 2px solid #46a7a0;
 	border-radius: 25px;
@@ -96,12 +76,18 @@ body {
 	margin-left: 10px;
 }
 
-.banner img {
+#hero-signup-link:hover {
+	background-color: #3e958f;
+	border-color: #3e958f;
+}
+
+.banner-image {
 	width: 640px;
 	height: 320px;
 	max-width: 100%;
 }
 
+<!---   Main index page features   --->
 .col-sm-6 {
 	border: none;
 	min-height: 192px;

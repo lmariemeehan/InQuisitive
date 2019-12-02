@@ -8,11 +8,11 @@
        <% include ./partials/navbar.ejs %>
 
     <!-- Page Content -->
-    <main class="container">
+    <main class="container-fluid">
 
       <!-- Signed in Standard user index page -->
       <% if(currentUser && currentUser.role === 0) { %>
-        <h1>Your Wikis:</h1>
+        <h1>My Wikis:</h1>
 
         <header class="jumbotron jumbotron-fluid">
           <h2 class="display-4">Upgrade to Premium</h2>
@@ -45,19 +45,23 @@
 
     <% } else { %>
 
-      <!-- Either not subscribed yet or signed in user index page -->
-
-      <div class="banner">
-        <div class="banner-info">
-          <h1 class="banner-title">Welcome to InQuisitive</h1>
-          <p>Explore, collaborate, and share markdown wikis.</p>
-          <a class="btn btn-primary" href="#" role="button"><i class="fas fa-user-plus"></i>Sign up for free</a>
+  <!--      Either not subscribed yet or signed in user index page      ---->
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col">
+            <h1 style="font-size: 30px;">Welcome to <span style="color:#46a7a0;">InQuisitive</span></h1>
+            <p>Explore, collaborate, and share markdown wikis.</p>
+            <a class="btn btn-primary" id="hero-signup-link" href="/users/sign_up" role="button"><i class="fas fa-user-plus"></i>Sign up for free</a>
+          </div>
+          <div class="col">
+            <img src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_320,w_640/v1575153428/pixel-3699343_1280_j1garn.png" class="max-width: 100%" id="banner-image" alt="Bridging the knowledge gap">
+          </div>
         </div>
-        <img src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_320,w_640/v1575153428/pixel-3699343_1280_j1garn.png" class="ml-3" alt="Bridging the knowledge gap">
       </div>
 
       <!-- Page Features -->
-      <section class="row">
+      <div class="container">
+      <section class="row no-gutters">
         <div class="col-sm-6">
           <div class="card border-0 text-center">
             <span><i class="far fa-edit"></i></span>
@@ -77,6 +81,7 @@
             </div>
           </div>
       </section>
+      </div>
       <!-- /.row -->
   <% } %>
     </main>
