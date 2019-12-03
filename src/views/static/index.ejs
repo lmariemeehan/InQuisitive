@@ -9,7 +9,7 @@
        <% include ./partials/navbar.ejs %>
 
     <!-- Page Content -->
-    <main class="container">
+    <main class="container-fluid">
 
       <!-- Signed in Standard user index page -->
       <% if(currentUser && currentUser.role === 0) { %>
@@ -49,7 +49,7 @@
   <!--      Either not subscribed yet or signed in user index page      ---->
     <div class="hero">
       <div class="container px-lg-5">
-        <div class="row mt-5 mx-lg-n5">
+        <div class="row mt-5 mb-5 mx-lg-n5">
           <div class="col px-lg-5">
             <h1>Welcome to <span style="color:#46a7a0;">InQuisitive</span></h1>
             <p>Explore, collaborate, and share markdown wikis.</p>

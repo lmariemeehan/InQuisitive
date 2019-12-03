@@ -1,6 +1,4 @@
 body {
-	padding-top: 104px;
-
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -9,8 +7,8 @@ body {
 	font-family: 'Lora', serif;
 }
 
-.fa-school {
-	padding-right: 6px;
+.fa-leanpub {
+	font-size: 27px;
 }
 
 #signup-link:hover {
@@ -63,6 +61,14 @@ body {
 }
 
 /*   Main index page   */
+.container-fluid {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.hero {
+	padding-top: 100px;
+}
 
 .hero span {
 	font-family: 'Lora', serif;
@@ -97,20 +103,20 @@ body {
 
 hr {
     overflow: visible; /* For IE */
-    height: 30px;
+    height: 33px;
     border-style: solid;
     border-color: #A1DBA3;
-    border-width: 1px 0 0 0;
-    border-radius: 20px;
+    border-width: 2px 0 0 0;
+    border-radius: 25px;
 		margin-top: 20px;
 }
 hr:before { /* Not really supposed to work, but does */
     display: block;
     content: "";
-    height: 30px;
-    margin-top: -31px;
+    height: 33px;
+    margin-top: -36px;
     border-style: solid;
     border-color: #A1DBA3;
-    border-width: 0 0 1px 0;
-    border-radius: 20px;
+    border-width: 0 0 2px 0;
+    border-radius: 25px;
 }
