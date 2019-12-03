@@ -8,15 +8,6 @@ body {
 	padding-right: 6px;
 }
 
-#signup-link {
-	color: #46a7a0;
-	border: 2px solid #75C5BF;
-	border-radius: 25px;
-	padding-right: 10px;
-	padding-left: 10px;
-	margin-left: 10px;
-}
-
 #signup-link:hover {
 	color: #46a7a0;
 	border: 2px solid #75C5BF;
@@ -67,7 +58,7 @@ body {
 }
 
 <!---   Main index page   --->
-#hero-signup-link {
+.btn-info {
 	background-color: #46a7a0;
 	border: 2px solid #46a7a0;
 	border-radius: 25px;
@@ -79,12 +70,6 @@ body {
 #hero-signup-link:hover {
 	background-color: #3e958f;
 	border-color: #3e958f;
-}
-
-.banner-image {
-	width: 640px;
-	height: 320px;
-	max-width: 100%;
 }
 
 <!---   Main index page features   --->
