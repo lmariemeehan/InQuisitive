@@ -9,7 +9,7 @@
        <% include ./partials/navbar.ejs %>
 
     <!-- Page Content -->
-    <main class="container-fluid">
+    <main class="container">
 
       <!-- Signed in Standard user index page -->
       <% if(currentUser && currentUser.role === 0) { %>
@@ -48,25 +48,23 @@
 
   <!--      Either not subscribed yet or signed in user index page      ---->
     <div class="hero">
-      <div class="container">
-        <div class="row no-gutters">
-          <div class="col">
-            <h1 style="font-size: 30px;">Welcome to <span style="color:#46a7a0;">InQuisitive</span></h1>
+      <div class="container px-lg-5">
+        <div class="row mt-5 mx-lg-n5">
+          <div class="col px-lg-5">
+            <h1>Welcome to <span style="color:#46a7a0;">InQuisitive</span></h1>
             <p>Explore, collaborate, and share markdown wikis.</p>
-            <a class="btn btn-info rounded-pill" href="/users/sign_up" role="button" style="background-color: #46a7a0;"><i class="fas fa-user-plus"></i>Sign up for free</a>
-          </div>
-          <div class="col">
-            <img src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_320,w_640/v1575153428/pixel-3699343_1280_j1garn.png" class="img-fluid" alt="Bridging the knowledge gap">
+            <a class="btn btn-info rounded-pill text-center" href="/users/sign_up" role="button" style="background-color: #46a7a0;"><i class="fas fa-user-plus"></i>Sign up for free</a>
+            <img src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_320,w_640/v1575153428/pixel-3699343_1280_j1garn.png" class="img-fluid float-right" alt="Bridging the knowledge gap">
           </div>
         </div>
       </div>
     </div>
-
+      <hr>
       <!-- Page Features -->
       <div class="container">
-      <section class="row no-gutters">
+      <section class="row no-gutters mt-5">
         <div class="col-sm-6">
-          <div class="card border-0 text-center">
+          <div class="card border-0 text-center pt-5">
             <span><i class="far fa-edit"></i></span>
             <div class="card-body">
               <h4 class="card-title">Free Plan</h4>
@@ -75,7 +73,7 @@
           </div>
         </div>
           <div class="col-sm-6">
-            <div class="card border-0 text-center">
+            <div class="card border-0 text-center pt-5">
               <span><i class="fas fa-lock"></i></span>
               <div class="card-body">
                 <h4 class="card-title">Premium Plan</h4>

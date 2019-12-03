@@ -1,8 +1,13 @@
 body {
 	padding-top: 104px;
+
+	font-family: 'Open Sans', sans-serif;
 }
 
-<!---   Navbar   --->
+/*   Navbar   */
+.navbar-brand {
+	font-family: 'Lora', serif;
+}
 
 .fa-school {
 	padding-right: 6px;
@@ -49,30 +54,32 @@ body {
 	padding-right: 6px;
 }
 
-<!---   Profile page   --->
+/*   Profile page   */
 
 
-<!-- New wiki -->
+/*   New wiki       */
 #newWiki-row {
 	padding-top: 80px;
 }
 
-<!---   Main index page   --->
+/*   Main index page   */
+
+.hero span {
+	font-family: 'Lora', serif;
+}
+
 .btn-info {
 	background-color: #46a7a0;
 	border: 2px solid #46a7a0;
-	border-radius: 25px;
-	padding-right: 10px;
-	padding-left: 10px;
-	margin-left: 10px;
+	padding: 8px 10px;
 }
 
-#hero-signup-link:hover {
+.hero .btn-info:hover {
 	background-color: #3e958f;
 	border-color: #3e958f;
 }
 
-<!---   Main index page features   --->
+/*   Main index page features   */
 .col-sm-6 {
 	border: none;
 	min-height: 192px;
@@ -86,4 +93,24 @@ body {
 .fa-lock {
 	color: #46a7a0;
 	font-size: 40px;
+}
+
+hr {
+    overflow: visible; /* For IE */
+    height: 30px;
+    border-style: solid;
+    border-color: #A1DBA3;
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+		margin-top: 20px;
+}
+hr:before { /* Not really supposed to work, but does */
+    display: block;
+    content: "";
+    height: 30px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: #A1DBA3;
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
 }
