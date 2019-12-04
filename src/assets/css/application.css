@@ -11,13 +11,16 @@ body {
 	font-size: 27px;
 }
 
-#signup-link:hover {
-	color: #46a7a0;
-	border: 2px solid #75C5BF;
-	border-radius: 25px;
-	padding-right: 10px;
-	padding-left: 10px;
+.top-navbar .btn-outline-info {
+	border: 2px solid #46a7a0;
+	padding: 8px 10px;
 	margin-left: 10px;
+}
+
+.top-navbar .btn-outline-info:hover {
+	color: #fff !important;
+	background-color: #3e958f;
+	border-color: #3e958f;
 }
 
 #signin-link {
@@ -55,11 +58,6 @@ body {
 /*   Profile page   */
 
 
-/*   New wiki       */
-#newWiki-row {
-	padding-top: 80px;
-}
-
 /*   Main index page   */
 .container-fluid {
 	padding-left: 0px;
@@ -68,6 +66,7 @@ body {
 
 .hero {
 	padding-top: 100px;
+	height: 620px;
 }
 
 .hero span {
@@ -80,12 +79,12 @@ body {
 	padding: 8px 10px;
 }
 
-.hero .btn-info:hover {
+.btn-info:hover {
 	background-color: #3e958f;
 	border-color: #3e958f;
 }
 
-/*   Main index page features   */
+/*   Main index page - features section  */
 .col-sm-6 {
 	border: none;
 	min-height: 192px;
@@ -102,21 +101,56 @@ body {
 }
 
 hr {
-    overflow: visible; /* For IE */
-    height: 33px;
+    overflow: visible;
+    height: 30px;
     border-style: solid;
     border-color: #A1DBA3;
     border-width: 2px 0 0 0;
     border-radius: 25px;
 		margin-top: 20px;
 }
-hr:before { /* Not really supposed to work, but does */
+hr:before {
     display: block;
     content: "";
-    height: 33px;
-    margin-top: -36px;
+    height: 30px;
+    margin-top: -31px;
     border-style: solid;
     border-color: #A1DBA3;
     border-width: 0 0 2px 0;
     border-radius: 25px;
+}
+
+/*  Sign_up Page  */
+.sign-up-header {
+	padding: 100px 0px 30px;
+}
+
+.sign-up-page .btn-primary {
+	background-color: #46a7a0;
+	border-color: #46a7a0;
+	padding: 8px 20px;
+}
+
+.sign-up-page .btn-primary:hover {
+	background-color: #3E958F;
+}
+
+/*  Sign_in Page  */
+.sign-in-header {
+	padding: 100px 0px 30px;
+}
+
+.sign-in-page .btn-primary {
+	background-color: #46a7a0;
+	border-color: #46a7a0;
+	padding: 8px 20px;
+}
+
+.sign-in-page .btn-primary:hover {
+	background-color: #3E958F;
+}
+
+/*   New wiki    */
+#newWiki-row {
+	padding-top: 100px;
 }
