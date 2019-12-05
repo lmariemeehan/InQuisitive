@@ -9,6 +9,7 @@
        <% include ./partials/navbar.ejs %>
 
     <!-- Page Content -->
+    <div class="main-index-page">
     <main class="container">
 
       <!-- Signed in Standard user index page -->
@@ -49,7 +50,7 @@
 
   <!--      Either not subscribed yet or signed in user index page      ---->
     <div class="hero">
-      <div class="container px-lg-5">
+      <div class="container-fluid px-lg-5">
         <div class="row mt-5 mb-5 mx-lg-n5">
           <div class="col px-lg-5">
             <h1>Welcome to <span style="color:#46a7a0;">InQuisitive</span></h1>
@@ -61,10 +62,8 @@
       </div>
     </div>
 
-    <hr>
-
       <!-- Page Features -->
-      <div class="container">
+      <div class="container-fluid">
       <section class="row no-gutters mt-5">
         <div class="col-sm-6">
           <div class="card border-0 text-center pt-5">
@@ -89,6 +88,7 @@
       <!-- /.row -->
   <% } %>
     </main>
+    </div>
     <!-- /.container -->
     <% include ./partials/baseScripts.ejs %>
 

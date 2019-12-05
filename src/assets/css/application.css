@@ -1,5 +1,7 @@
 body {
 	font-family: 'Open Sans', sans-serif;
+	background-color: #F4F5F8;
+
 }
 
 /*   Navbar   */
@@ -65,9 +67,10 @@ body {
 
 
 /*  User not logged in index page  */
-.container-fluid {
-	padding-left: 0px;
-	padding-right: 0px;
+.main-index-page .container {
+	background-color: #fff;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	height: 100%;
 }
 
 .hero {
@@ -106,6 +109,7 @@ body {
 	font-size: 40px;
 }
 
+/* took out hr tag from index page for now  */
 hr {
     overflow: visible;
     height: 30px;
