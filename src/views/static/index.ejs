@@ -9,30 +9,31 @@
        <% include ./partials/navbar.ejs %>
 
     <!-- Page Content -->
-    <main class="container-fluid">
+    <main class="container">
 
       <!-- Signed in Standard user index page -->
       <% if(currentUser && currentUser.role === 0) { %>
-        <h1>My Wikis:</h1>
 
-        <header class="jumbotron jumbotron-fluid">
-          <h2 class="display-4">Upgrade to Premium</h2>
-          <hr>
-          <h3> Enjoy creating unlimited private wikis on all your devices. </h3>
-          <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
-            <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="pk_test_y4X6knOxUBsAt7gm4uUBUXth"
-            data-amount="1500"
-            data-name="Laura Meehan"
-            data-description="Example charge"
-            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-            data-locale="auto">
-          </script>
-          </form>
-          <br>
-          <p>*Terms and conditions may apply</p>
-        </header>
+        <div class="signedinUser-index">
+          <h1>My Wikis:</h1>
+          <header class="jumbotron jumbotron-fluid">
+            <h2 class="display-4">Upgrade to Premium</h2>
+            <h3> Enjoy creating unlimited private wikis on all your devices. </h3>
+            <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
+              <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="pk_test_y4X6knOxUBsAt7gm4uUBUXth"
+              data-amount="1500"
+              data-name="Laura Meehan"
+              data-description="Example charge"
+              data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+              data-locale="auto">
+            </script>
+            </form>
+            <br>
+            <p>*Terms and conditions may apply</p>
+          </header>
+        </div>
 
         <!-- Signed in Premium user index page -->
       <% } else if (currentUser && currentUser.role === 1) { %>
@@ -61,7 +62,7 @@
     </div>
 
     <hr>
-    
+
       <!-- Page Features -->
       <div class="container">
       <section class="row no-gutters mt-5">

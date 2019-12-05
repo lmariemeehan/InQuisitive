@@ -7,15 +7,22 @@
     <% include ../static/partials/navbar.ejs %>
     <% include ../static/partials/messages.ejs %>
 
-      <main class="container">
-        <div class="row">
-          <div><h2 style="text-align: center;">All Wikis</h2></div>
-
-        <% if (currentUser) { %>
-          <div><a href="/wikis/new" class="btn btn-success">Create New Wiki</a></div>
+    <main class="container">
+      <div class="allwikis-index">
+        <div class="allwikis-header-row">
+          <div class="row">
+            <div class="col">
+              <h1>All Wikis</h1>
+            </div>
+          <% if (currentUser) { %>
+            <div class="col">
+              <a href="/wikis/new" class="btn btn-success">Create New Wiki</a>
+            </div>
           </div>
+        </div>
         <% } %>
 
+      <div class="allwikis-list">
         <ul class="list-group">
           <% wikis.forEach((wiki) => { %>
             <% if (wiki.private == false) { %>
@@ -37,8 +44,9 @@
             <% } %>
           <% }) %>
         </ul>
+      </div>
+      </div>
     </main>
-
 
   </body>
 </html>

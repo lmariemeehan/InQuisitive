@@ -55,10 +55,16 @@ body {
 	padding-right: 6px;
 }
 
-/*   Profile page   */
+/*   Standard User Profile page   */
+.standardUser-profile h1 {
+	padding-top: 100px;
+}
+
+/*   Premium User Profile page  */
 
 
-/*   Main index page   */
+
+/*  User not logged in index page  */
 .container-fluid {
 	padding-left: 0px;
 	padding-right: 0px;
@@ -120,6 +126,12 @@ hr:before {
     border-radius: 25px;
 }
 
+/*  Standard User Index Page  */
+
+.signedinUser-index h1 {
+	padding-top: 100px;
+}
+
 /*  Sign_up Page  */
 .sign-up-header {
 	padding: 100px 0px 30px;
@@ -152,5 +164,10 @@ hr:before {
 
 /*   New wiki    */
 #newWiki-row {
+	padding-top: 100px;
+}
+
+/*  All Wikis Index Page  */
+.allwikis-header-row {
 	padding-top: 100px;
 }
