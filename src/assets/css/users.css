@@ -1,0 +1,38 @@
+
+/*   Standard User Profile page   */
+.standardUser-profile h1 {
+	padding-top: 100px;
+}
+
+/*   Premium User Profile page  */
+
+
+/*  Sign_up Page  */
+.sign-up-header {
+	padding: 100px 0px 30px;
+}
+
+.sign-up-page .btn-primary {
+	background-color: #46a7a0;
+	border-color: #46a7a0;
+	padding: 8px 20px;
+}
+
+.sign-up-page .btn-primary:hover {
+	background-color: #3E958F;
+}
+
+/*  Sign_in Page  */
+.sign-in-header {
+	padding: 100px 0px 30px;
+}
+
+.sign-in-page .btn-primary {
+	background-color: #46a7a0;
+	border-color: #46a7a0;
+	padding: 8px 20px;
+}
+
+.sign-in-page .btn-primary:hover {
+	background-color: #3E958F;
+}

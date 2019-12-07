@@ -4,73 +4,13 @@ body {
 
 }
 
-/*   Navbar   */
-.navbar-brand {
-	font-family: 'Lora', serif;
-}
-
-.fa-leanpub {
-	font-size: 27px;
-}
-
-.top-navbar .btn-outline-info {
-	border: 2px solid #46a7a0;
-	padding: 8px 10px;
-	margin-left: 10px;
-}
-
-.top-navbar .btn-outline-info:hover {
-	color: #fff !important;
-	background-color: #3e958f;
-	border-color: #3e958f;
-}
-
-#signin-link {
-	border: 2px solid #E9ECEF;
-	border-radius: 25px;
-	padding-right: 10px;
-	padding-left: 10px;
-	margin-left: 10px;
-}
-
-#navbarDropdown {
- 	color: #46a7a0;
-}
-
-#navbarDropdown:hover {
- 	color: #2f716c;
-}
-
-.fa-user {
-	padding-right: 5px;
-}
-
-.fa-user-plus {
-	padding-right: 6px;
-}
-
-.fa-sign-in-alt {
-	padding-right: 7px;
-}
-
-.fa-sign-out-alt {
-	padding-right: 6px;
-}
-
-/*   Standard User Profile page   */
-.standardUser-profile h1 {
-	padding-top: 100px;
-}
-
-/*   Premium User Profile page  */
-
-
-
 /*  User not logged in index page  */
 .main-index-page .container {
 	background-color: #fff;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	height: 100%;
+	padding: 10px 100px;
+
 }
 
 .hero {
@@ -93,10 +33,11 @@ body {
 	border-color: #3e958f;
 }
 
-/*   Main index page - features section  */
+/*  User not logged in main index page - features section  */
 .col-sm-6 {
 	border: none;
 	min-height: 192px;
+	padding-bottom: 100px;
 }
 
 .fa-edit {
@@ -109,8 +50,18 @@ body {
 	font-size: 40px;
 }
 
-/* took out hr tag from index page for now  */
+.gray-box {
+	color: #ccc;
+	height: 500px;
+	width: 500px;
+}
+
+/* took out hr tag from index page for now
 hr {
+
+background-color: linear-gradient(to right, #ccc, #f5f5f5);
+
+
     overflow: visible;
     height: 30px;
     border-style: solid;
@@ -129,41 +80,12 @@ hr:before {
     border-width: 0 0 2px 0;
     border-radius: 25px;
 }
+*/
 
 /*  Standard User Index Page  */
 
 .signedinUser-index h1 {
 	padding-top: 100px;
-}
-
-/*  Sign_up Page  */
-.sign-up-header {
-	padding: 100px 0px 30px;
-}
-
-.sign-up-page .btn-primary {
-	background-color: #46a7a0;
-	border-color: #46a7a0;
-	padding: 8px 20px;
-}
-
-.sign-up-page .btn-primary:hover {
-	background-color: #3E958F;
-}
-
-/*  Sign_in Page  */
-.sign-in-header {
-	padding: 100px 0px 30px;
-}
-
-.sign-in-page .btn-primary {
-	background-color: #46a7a0;
-	border-color: #46a7a0;
-	padding: 8px 20px;
-}
-
-.sign-in-page .btn-primary:hover {
-	background-color: #3E958F;
 }
 
 /*   New wiki    */

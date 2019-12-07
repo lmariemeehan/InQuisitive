@@ -1,0 +1,53 @@
+
+/*   Navbar   */
+.navbar-brand {
+	font-family: 'Lora', serif;
+}
+
+.fa-leanpub {
+	font-size: 27px;
+}
+
+.top-navbar .btn-outline-info {
+	border: 2px solid #46a7a0;
+	padding: 8px 10px;
+	margin-left: 10px;
+}
+
+.top-navbar .btn-outline-info:hover {
+	color: #fff !important;
+	background-color: #3e958f;
+	border-color: #3e958f;
+}
+
+#signin-link {
+	border: 2px solid #E9ECEF;
+	border-radius: 25px;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-left: 10px;
+}
+
+#navbarDropdown {
+ 	color: #46a7a0;
+}
+
+#navbarDropdown:hover {
+ 	color: #2f716c;
+}
+
+.fa-user {
+	padding-right: 5px;
+}
+
+.fa-user-plus {
+	padding-right: 6px;
+}
+
+.fa-sign-in-alt {
+	padding-right: 7px;
+}
+
+.fa-sign-out-alt {
+	padding-right: 6px;
+}
