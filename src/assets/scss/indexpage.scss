@@ -1,0 +1,24 @@
+$primary-color: #46a7a0;
+
+/* Main index page - User not signed in */
+
+.main-index-page {
+  padding-top: 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.page-features {
+  .row  {
+    padding-bottom: 40px;
+  }
+
+  i {
+    color: $primary-color;
+    font-size: 40px;
+  }
+}
+
+#freeplan-feature{
+  animation:slide-right .5s cubic-bezier(.25,.46,.45,.94) both;
+}
