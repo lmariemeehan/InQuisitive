@@ -1,11 +1,26 @@
 $primary-color: #46a7a0;
+$primary-font-family: 'Open Sans', sans-serif;
 
 /* Main index page - User not signed in */
+body {
+  font-family: $primary-font-family;
+}
 
 .main-index-page {
   padding-top: 100px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+}
+
+.hero {
+  span {
+    color: $primary-color;
+    font-family: 'Lora', serif;
+    font-weight: 900;
+  }
+  img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 }
 
 .page-features {
@@ -19,6 +34,16 @@ $primary-color: #46a7a0;
   }
 }
 
-#freeplan-feature{
-  animation:slide-right .5s cubic-bezier(.25,.46,.45,.94) both;
+.page-features{
+  .img-fluid {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+.fa-edit {
+  margin: 0px 20px;
+}
+
+.fa-lock {
+  padding: 0px 20px;
 }

@@ -1,6 +1,20 @@
+@import "indexpage";
 
 .sign-in-page {
   .container {
     padding-top: 150px;
+  }
+}
+
+.card {
+  .card-header {
+    font-family: 'Lora', serif;
+  }
+  button {
+    border: 2px solid $primary-color;
+    &:hover {
+      background-color: $primary-color;
+      color: #fff;
+    }
   }
 }
