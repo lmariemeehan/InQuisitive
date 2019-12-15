@@ -16,10 +16,13 @@
       <% if(currentUser && currentUser.role === 0) { %>
 
         <div class="signedinUser-index">
-          <h1>My Wikis:</h1>
-          <header class="jumbotron jumbotron-fluid">
-            <h2 class="display-4">Upgrade to Premium</h2>
-            <h3> Enjoy creating unlimited private wikis on all your devices. </h3>
+          <h1 class="text-center">My Wikis:</h1>
+          <div class="card text-center w-50 mx-auto">
+            <div class="card-body mb-2">
+            <h2 class="card-title">Upgrade to Premium</h2>
+            <h4 class="card-subtitle mb-2 text-muted"> For only $15 </h4>
+            <p>You can enjoy creating unlimited private wikis on all your devices.</p>
+
             <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
               <script
               src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -32,25 +35,25 @@
             </script>
             </form>
             <br>
-            <p>*Terms and conditions may apply</p>
-          </header>
+            </div>
+          </div>
         </div>
 
         <!-- Signed in Premium user index page -->
       <% } else if (currentUser && currentUser.role === 1) { %>
-        <header class="jumbotron jumbotron-fluid">
-          <div class="container">
+        <div class="card text-center w-50 mx-auto">
+          <div class="card-body">
           <h1 class="display-4">Thank you for being a premium user!</h1>
           <p>What would you like to do?</p>
           <a href="/wikis/new" class="btn btn-success">Create a New Wiki</a>
           </div>
-        </header>
+        </div>
 
     <% } else { %>
 
   <!--      Either not subscribed yet or signed in user index page      ---->
     <div class="hero">
-      <div class="container-fluid px-lg-5">
+
         <div class="row mt-5 mb-5 mx-lg-n5">
           <div class="col px-lg-5">
             <h1>Welcome to <span >InQuisitive</span></h1>
@@ -59,56 +62,51 @@
             <img src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_320,w_640/v1575153428/pixel-3699343_1280_j1garn.png" class="img-fluid float-right" alt="Bridging the knowledge gap">
           </div>
         </div>
-      </div>
+
     </div>
 
       <!-- Page Features -->
 
-    <section class="page-features">
-      <div id="freeplan-feature">
-      <div class="row">
-      <div class="container">
-      <section class="row no-gutters mt-5">
-        <div class="col-sm-6">
-          <img src="https://res.cloudinary.com/laurameehan/image/upload/v1575618263/break-3947908_1280_dyuslg.png" class="img-fluid border rounded" alt="Responsive image">
-        </div>
-        <div class="col-sm-6">
-          <div class="card border-0 text-center pt-5">
-            <span><i class="far fa-edit"></i></span>
-            <div class="card-body">
-              <h4 class="card-title">Free Plan</h4>
-              <p class="card-text">Create as many public wikis as you want!</p>
-            </div>
-          </div>
-        </div>
-        </section>
-      </div>
-      </div>
-      </div>
+    <div class="page-features">
 
-      <div class="row">
-      <div class="container">
-      <section class="row mt-5">
+      <div id="freeplan-feature">
+        <div class="row no-gutters mt-5">
+          <div class="col-sm-6">
+            <img src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_687,w_960/v1575618263/break-3947908_1280_dyuslg.png" class="img-fluid border border-dark rounded" alt="Responsive image">
+          </div>
           <div class="col-sm-6">
             <div class="card border-0 text-center pt-5">
-              <span><i class="fas fa-lock"></i></span>
+              <span><i class="far fa-edit"></i></span>
               <div class="card-body">
-                <h4 class="card-title">Premium Plan</h4>
-                <p class="card-text">Create both public and exclusive private wikis!</p>
+                <h4 class="card-title">Free Plan</h4>
+                <p class="card-text">Create as many public wikis as you want!</p>
               </div>
             </div>
           </div>
-          <div class="col-sm-6">
-            <img src="https://res.cloudinary.com/laurameehan/image/upload/v1575617883/pixel-cells-3976295_1280_rsimxt.png" class="img-fluid border rounded" alt="Picture of having a great idea">
+        </div>
+      </div>
+
+      <div class="premiumplan-feature">
+        <div class="row mt-5">
+            <div class="col-sm-6">
+              <div class="card border-0 text-center pt-5">
+                <span><i class="fas fa-lock"></i></span>
+                <div class="card-body">
+                  <h4 class="card-title">Premium Plan</h4>
+                  <p class="card-text">Create both public and exclusive private wikis!</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <img src="https://res.cloudinary.com/laurameehan/image/upload/v1575617883/pixel-cells-3976295_1280_rsimxt.png" class="img-fluid border border-dark rounded" alt="Picture of having a great idea">
+            </div>
           </div>
-        </section>
-      </div>
       </div>
 
-    </section>
+    </div>
 
-      <!-- /.row -->
   <% } %>
+
     </main>
     </div>
     <!-- /.container -->

@@ -1,0 +1,50 @@
+@import "indexpage";
+
+.top-navbar {
+
+  .navbar-brand {
+  	font-family: $accent-font-family;
+  }
+
+  .fa-leanpub {
+  	font-size: 30px;
+  }
+
+#signup-link {
+	border: 2px solid $primary-color;
+	border-radius: 25px;
+	padding: 8px 10px;
+	margin-left: 10px;
+}
+
+#signin-link {
+	border: 2px solid #E9ECEF;
+	border-radius: 25px;
+	padding-right: 10px;
+	padding-left: 10px;
+	margin-left: 10px;
+}
+
+#navbarDropdown {
+ 	color: $primary-color;
+  &:hover {
+    color: #0f6674;
+  }
+}
+
+}
+
+/* Sign up for free icon */
+.fa-user-plus {
+	padding-right: 6px;
+}
+
+/* Log in icon */
+.fa-sign-in-alt {
+	padding-right: 7px;
+}
+
+/* Log in icon */
+.fa-sign-out-alt {
+	padding-right: 6px;
+}

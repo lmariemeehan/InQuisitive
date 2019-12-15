@@ -1,0 +1,58 @@
+$primary-color: #17a2b8;
+$primary-font-family: 'Open Sans', sans-serif;
+$accent-font-family: 'Lora', serif;
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $primary-font-family;
+}
+
+.main-index-page {
+  padding-top: 100px;
+}
+
+/*     Main index page - User not signed in     */
+.hero {
+  span {
+    color: $primary-color;
+    font-family: $accent-font-family;
+    font-weight: 900;
+  }
+  img {
+    padding: 30px;
+  }
+}
+
+.page-features {
+  i {
+    color: $primary-color;
+    font-size: 40px;
+  }
+
+  .border {
+    border: 3px solid black;
+  }
+}
+
+/* page features free plan icon */
+.fa-edit {
+  margin: 0px 20px;
+}
+
+/* page features premium plan icon */
+.fa-lock {
+  padding: 0px 20px;
+}
+
+/*     Main index page - Signed in user    */
+.signedinUser-index {
+  h1 {
+    font-family: $accent-font-family;
+
+  }
+}
