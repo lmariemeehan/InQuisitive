@@ -5,50 +5,61 @@
   </head>
   <body>
     <% include ../static/partials/navbar.ejs %>
-    <main class="container">
-      <% include ../static/partials/messages.ejs %>
+    <% include ../static/partials/messages.ejs %>
 
-        <!-- Signed in Standard user subscription page -->
+    <main class="container">
+
+      <!-- Signed in Standard user subscription page -->
         <% if(currentUser && currentUser.role === 0) { %>
           <div class="standardUser-profile">
-          <h1 id="profileTitle">Account overview</h1>
-          <h2>Profile</h2>
-            <form>
-              <div class="form-group row">
-                <label for="staticName" class="col-sm-2 col-form-label"><strong>Name:</strong></label>
-                <div class="col-sm-10">
-                  <input type="text" readonly class="form-control-plaintext" id="staticName" value=" <%=currentUser.name%> ">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Email:</strong></label>
-                <div class="col-sm-10">
-                  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" <%=currentUser.email %> ">
-                </div>
-              </div>
-            </form>
-          <hr>
-          <h2 id="membershipDetails">Account details</h2>
-            <p>Current membership status: <strong>STANDARD</strong></p>
-            <hr>
-            <h3>Upgrade to Premium Membership</h3>
-              <p>This entitles you to create unlimited private wikis that only you and collaborators of your choice the ability to view and share.</p>
-              <p>Enjoy creating unlimited private wikis at a low one time charge of only $15!</p>
+            <div class="row">
+              <div class="col">
+                <div class="card w-75 mx-auto border-0">
+                  <div class="card-header bg-white">
+                    <h1 id="profileTitle">Account overview</h1>
+                  </div>
+                  <div class="card-body">
+                    <h3 class="text-muted mt-3"> Profile </h3>
+                      <form>
+                        <div class="form-group row">
+                          <label for="staticName" class="col-sm-2 col-form-label"><strong>Name:</strong></label>
+                          <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticName" value=" <%=currentUser.name%> ">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Email:</strong></label>
+                          <div class="col-sm-10">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" <%=currentUser.email %> ">
+                          </div>
+                        </div>
+                      </form>
+                        <hr>
+                        <h3 class="text-muted mt-3"> Account details </h3>
+                          <p>Current membership status: <strong>STANDARD</strong></p>
+                          <hr>
+                          <h3 class="text-muted mt-3"> Upgrade to Premium Membership </h3>
+                            <p>This entitles you to create unlimited private wikis that only you and collaborators of your choice the ability to view and share.</p>
+                            <p>Enjoy creating unlimited private wikis at a low one time charge of only $15!</p>
 
-          <!--Stripe credit card payment-->
-            <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
-              <script
-              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="pk_test_y4X6knOxUBsAt7gm4uUBUXth"
-              data-amount="1500"
-              data-name="Laura Meehan"
-              data-description="Example charge"
-              data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-              data-locale="auto">
-            </script>
-            </form>
-          </div>
-            <!-- Signed in Premium user subscription page -->
+                    <!--Stripe credit card payment-->
+                      <form class="text-center" action="/users/<%= currentUser.id %>/upgrade" method="POST">
+                        <script
+                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                        data-key="pk_test_y4X6knOxUBsAt7gm4uUBUXth"
+                        data-amount="1500"
+                        data-name="Laura Meehan"
+                        data-description="Example charge"
+                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                        data-locale="auto">
+                      </script>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- Signed in Premium user subscription page -->
         <% } else if (currentUser && currentUser.role === 1) { %>
 
           <h1>Account overview</h1>

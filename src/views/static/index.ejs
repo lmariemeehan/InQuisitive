@@ -6,7 +6,7 @@
 
   <body>
     <!-- Navigation -->
-       <% include ./partials/navbar.ejs %>
+    <% include ./partials/navbar.ejs %>
 
     <!-- Page Content -->
     <div class="main-index-page">
@@ -16,7 +16,6 @@
       <% if(currentUser && currentUser.role === 0) { %>
 
         <div class="signedinUser-index">
-          <h1 class="text-center">Wiki Index</h1>
 
           <div class="card text-center w-50 mx-auto">
             <div class="card-body mb-2">
@@ -39,6 +38,7 @@
             </div>
           </div>
         </div>
+
 
         <!-- Signed in Premium user index page -->
       <% } else if (currentUser && currentUser.role === 1) { %>
