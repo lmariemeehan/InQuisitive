@@ -6,13 +6,19 @@
   <body>
     <% include ../static/partials/navbar.ejs %>
 
+    <div class="show-wiki-page">
     <main class="container">
 
-      <div class="card">
-        <h3 class="card-header"> <%- wiki.title %> </h3>
+      <h1 class="text-center"> <%- wiki.title %> </h1>
 
-        <div class="card-body">
-          <p><%- wiki.body %></p>
+        <div class="row">
+          <div class="col text-center">
+            <p><%- wiki.body %></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-center">
           <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-warning">Edit</a>
 
           <form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
@@ -22,7 +28,7 @@
       </div>
 
     </main>
-
+    </div>
     <% include ../static/partials/baseScripts.ejs %>
 
   </body>

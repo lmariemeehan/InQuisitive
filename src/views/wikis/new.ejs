@@ -5,6 +5,7 @@
   </head>
   <body>
     <% include ../static/partials/navbar.ejs %>
+    <div class="new-wiki-page">
     <main class="container">
 
         <h1 class="text-center">New Wiki</h1>
@@ -20,7 +21,7 @@
          <p>* Italic text</p>
          <p>** Bold text</p>
          <p>~~text~~ Strikethrough text</p>
-         <a href="https://guides.github.com/features/mastering-markdown/" class="btn btn-info mb-5" target="_blank">Markdown cheatsheet</a>
+         <a href="https://guides.github.com/features/mastering-markdown/" class="btn btn-success mb-5" target="_blank">Markdown cheatsheet</a>
         </div>
 
       <!-- New wiki creation -->
@@ -47,14 +48,16 @@
                  </select>
                </div>
          <% } %>
-             <button type="submit" class="btn btn-primary">Submit</button>
+             <button type="submit" class="btn btn-info rounded-pill">Submit</button>
            </form>
          </div>
       </div>
 
     </main>
+  </div>
 
     <% include ../static/partials/baseScripts.ejs %>
 
   </body>
+
 </html>

@@ -6,8 +6,9 @@
   <body>
     <% include ../static/partials/navbar.ejs %>
 
-    <main class="container">
+    <div class="edit-wiki-page">
 
+    <main class="container">
       <h1>Edit Wiki</h1>
 
       <form action="/wikis/<%= wiki.id %>/update" method="post">
@@ -48,7 +49,7 @@
       <% } %>
 
     </main>
-
+    </div>
     <% include ../static/partials/baseScripts.ejs %>
 
   </body>
