@@ -18,11 +18,11 @@
 
         <div class="row">
           <div class="col text-center">
-          <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-warning rounded-pill mr-2" role="button">Edit</a>
 
-          <form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
-            <button type="submit" class="btn btn-danger">Delete</button>
-          </form>
+            <form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
+              <button type="submit" class="btn btn-danger rounded-pill">Delete</button>
+            </form>
         </div>
       </div>
 

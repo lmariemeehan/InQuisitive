@@ -9,12 +9,53 @@
     <div class="edit-wiki-page">
 
     <main class="container">
-      <h1>Edit Wiki</h1>
+      <h1 class="text-center">Edit Wiki</h1>
 
+      <div class="row">
+    <!--Markdown guide-->
+      <div class="col-3 border bg-light text-center">
+        <h4 class="mt-4"> Markdown Guide </h4>
+        <p class="text-muted">Learn markdown syntax. Used for styling and formatting text.</p>
+        <p>Example: ###I'm a smaller header!</p>
+        <span>Becomes:</span><h3 class="mb-4">###I'm a smaller header!</h3>
+        <ul class="list-group list-group-flush mb-5">
+          <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
+            <span>Syntax</span>
+            Creates:
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>#</span>
+            Largest header
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>##</span>
+            Medium header
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>###</span>
+            Smaller header
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>*</span>
+            Italic text
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>**</span>
+            Bold text
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <span>~~text~~</span>
+            Strikethrough text
+          </li>
+        </ul>
+
+        <a class="btn btn-success rounded-pill mb-4" href="https://guides.github.com/features/mastering-markdown/"  target="_blank">Markdown cheatsheet</a>
+      </div>
+
+      <div class="col">
       <form action="/wikis/<%= wiki.id %>/update" method="post">
-
         <div class="form-group">
-          <label for="title">Wiki title</label>
+          <label for="title">Title</label>
           <input value="<%= wiki.title %>" type="text" class="form-control" name="title" aria-describedby="titleHelp" placeholder="Enter Title">
         </div>
 
@@ -35,7 +76,7 @@
 
       <% } %>
 
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary rounded-pill">Update</button>
 
       </form>
 
@@ -47,6 +88,7 @@
       <br>
       <% include ../collaborators/remove.ejs %>
       <% } %>
+      </div>
 
     </main>
     </div>

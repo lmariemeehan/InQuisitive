@@ -11,7 +11,7 @@ module.exports = {
   index(req, res, next){
     wikiQueries.getAllWikis((err, wikis) => {
       if(err){
-        req.flash("error", "You must be signed in to view Wikis.");
+        req.flash("error", "Error:");
         res.redirect(500, "static/index");
       } else {
         res.render("wikis/index", {wikis});
