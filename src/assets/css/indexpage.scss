@@ -1,8 +1,9 @@
 $primary-color: #17a2b8;
 $secondary-green-color: #7BC290;
-#secondary-yellow-color: #F0E400;
+$secondary-yellow-color: #F0E400;
 $primary-font-family: 'Open Sans', sans-serif;
 $accent-font-family: 'Lora', serif;
+$top-padding: 100px;
 
 html, body {
   height: 100%;
@@ -14,11 +15,16 @@ body {
   font-family: $primary-font-family;
 }
 
+.alert-messages {
+  padding-top: 100px;
+}
+
+/*     Main static index page - User not signed in     */
+
 .main-index-page {
   padding-top: 100px;
 }
 
-/*     Main index page - User not signed in     */
 .hero {
   span {
     color: $primary-color;
@@ -55,20 +61,5 @@ body {
 .signedinUser-index {
   h1 {
     font-family: $accent-font-family;
-
   }
-}
-
-.allwikis-index {
-  padding-top: 100px;
-
-  h1 {
-    font-family: $accent-font-family;
-  }
-
-}
-
-/* New Wiki Page */
-.new-wiki-page {
-  padding-top: 100px;
 }

@@ -13,52 +13,79 @@
 
           <% if (currentUser) { %>
 
-        <h1 class="text-center">Wiki Index</h1>
+            <div class="mywikis-list">
+            <h1 class="text-center">My Activity</h1>
+              <table class="table table-hover mt-4 mb-4 w-75 mx-auto">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th scope="col">Wiki</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <% wikis.forEach((wiki) => { %>
+                  <% if (currentUser.id == wiki.userId) { %>
+                    <tr>
+                      <td></td>
+                      <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
+                      <td>Edit</td>
+                      <td>Delete</td>
+                    </tr>
+                  <% } %>
+                <% }) %>
+                </tbody>
+              </table>
 
-        <div class="allwikis-list">
-          <table class="table table-hover mt-4 w-75 mx-auto">
-            <thead>
-              <tr>
-                <th></th>
-                <th scope="col">Wiki</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-            <% wikis.forEach((wiki) => { %>
-              <% if (wiki.private == false) { %>
-                <tr>
-                  <td></td>
-                  <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
-                  <td>Edit</td>
-                  <td>Delete</td>
-                </tr>
-                <% } else if (wiki.private == true) { %>
-                <% const collaborator = wiki.getCollaboratorFor(currentUser.id) %>
-              <% if (currentUser && (currentUser.id == wiki.userId || currentUser.role == 2 || collaborator)) { %>
-                <tr>
-                  <td class="text-center"><i class="fas fa-lock"></i></td>
-                  <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
-                  <td>Edit</td>
-                  <td>Delete</td>
-                </tr>
-                <% } %>
-              <% } %>
-            <% }) %>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="create-wiki-button">
-        <div class="container mt-5">
-          <div class="row">
-            <div class="col text-center">
-              <a class="btn btn-info rounded-pill" href="/wikis/new" role="button">New</a>
+            <div class="create-wiki-button">
+            <div class="container mt-5">
+              <div class="row">
+                <div class="col">
+                  <a class="btn btn-info rounded-pill" href="/wikis/new" role="button"><i class="fas fa-plus"></i></a>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
-        </div>
-        </div>
+
+            <div class="allwikis-list">
+            <h1 class="text-center mt-5">Browse All Wikis</h1>
+              <table class="table table-hover mt-4 w-75 mx-auto">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th scope="col">Wiki</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <% wikis.forEach((wiki) => { %>
+                  <% if (wiki.private == false) { %>
+                    <tr>
+                      <td></td>
+                      <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
+                      <td>Edit</td>
+                      <td>Delete</td>
+                    </tr>
+                    <% } else if (wiki.private == true) { %>
+                    <% const collaborator = wiki.getCollaboratorFor(currentUser.id) %>
+                  <% if (currentUser && (currentUser.id == wiki.userId || currentUser.role == 2 || collaborator)) { %>
+                    <tr>
+                      <td class="text-center"><i class="fas fa-lock"></i></td>
+                      <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
+                      <td>Edit</td>
+                      <td>Delete</td>
+                    </tr>
+                    <% } %>
+                  <% } %>
+                <% }) %>
+                </tbody>
+              </table>
+            </div>
+
+
 
       <% } %>
 

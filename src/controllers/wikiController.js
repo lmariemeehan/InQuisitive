@@ -24,7 +24,7 @@ module.exports = {
       if(authorized) {
         res.render("wikis/new");
       } else {
-        req.flash("notice", "You are not authorized to do that.");
+        req.flash("notice", "You need to be signed in to create a wiki.");
         res.redirect("/wikis");
       }
   },

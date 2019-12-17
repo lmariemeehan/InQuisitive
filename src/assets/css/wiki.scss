@@ -1,8 +1,36 @@
+@import 'indexpage';
 
-.edit-wiki-page {
-  padding-top: 100px;
+/* Wiki Index Page */
+.allwikis-index {
+
+  h1 {
+    font-family: $accent-font-family;
+  }
+
+  .create-wiki-button {
+
+  }
+
+  .fa-plus {
+    font-size: 40px;
+  }
 }
 
+.allwikis-list {
+  padding-top: 75px;
+}
+
+/* New Wiki Page */
+.new-wiki-page {
+  padding-top: $top-padding;
+}
+
+/* Edit Wiki Page */
+.edit-wiki-page {
+  padding-top: $top-padding;
+}
+
+/* Show Wiki Page */
 .show-wiki-page {
-  padding-top: 100px;
+  padding-top: $top-padding;
 }
