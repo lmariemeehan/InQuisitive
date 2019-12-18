@@ -9,7 +9,6 @@
     <div class="edit-wiki-page">
 
     <main class="container">
-      <h1 class="text-center">Edit Wiki</h1>
 
       <div class="row">
     <!--Markdown guide-->
@@ -18,7 +17,7 @@
         <p class="text-muted">Learn markdown syntax. Used for styling and formatting text.</p>
         <p>Example: ###I'm a smaller header!</p>
         <span>Becomes:</span><h3 class="mb-4">###I'm a smaller header!</h3>
-        <ul class="list-group list-group-flush mb-5">
+        <ul class="list-group list-group-flush mb-4">
           <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
             <span>Syntax</span>
             Creates:
@@ -53,6 +52,9 @@
       </div>
 
       <div class="col">
+
+      <h1 class="text-center">Edit Wiki</h1>
+
       <form action="/wikis/<%= wiki.id %>/update" method="post">
         <div class="form-group">
           <label for="title">Title</label>

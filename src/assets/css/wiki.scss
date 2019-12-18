@@ -2,32 +2,38 @@
 
 /* Wiki Index Page */
 .allwikis-index {
-
   h1 {
     font-family: $accent-font-family;
   }
-
-  .create-wiki-button {
-
-  }
-
   .fa-plus {
     font-size: 40px;
   }
 }
 
 .allwikis-list {
-  padding-top: 75px;
+  padding-bottom: 75px;
 }
 
 /* New Wiki Page */
 .new-wiki-page {
   padding-top: $top-padding;
+  .col-3 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  li {
+    padding: 6px 20px;
+  }
 }
 
 /* Edit Wiki Page */
 .edit-wiki-page {
   padding-top: $top-padding;
+  .col-3 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  li {
+    padding: 6px 20px;
+  }
 }
 
 /* Show Wiki Page */

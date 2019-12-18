@@ -6,30 +6,36 @@
   }
 }
 
-.card {
-  .card-header {
-    font-family: $accent-font-family;
-  }
-
-}
-
 .sign-up-page {
   .container {
     padding-top: 100px;
   }
 }
 
+.user-profile-page {
+  strong {
+    color: $primary-color;
+  }
+}
+
 .card {
   .card-header {
     font-family: $accent-font-family;
   }
+
 }
 
-.user-profile-page {
-  padding-top: 100px;
+/*  Sign_up Page  */
+.sign-up-header {
+	padding: 100px 0px 30px;
+}
 
-  strong {
-    color: $primary-color;
-  }
+.sign-up-page .btn-primary {
+	background-color: #46a7a0;
+	border-color: #46a7a0;
+	padding: 8px 20px;
+}
 
+.sign-up-page .btn-primary:hover {
+	background-color: #3E958F;
 }
