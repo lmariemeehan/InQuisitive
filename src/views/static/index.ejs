@@ -65,7 +65,7 @@
 
         <div class="signedinUser-index">
 
-          <div class="hero">
+        <div class="hero">
               <div class="row my-5 mx-lg-n5">
                 <div class="col px-lg-5">
                   <h1>Welcome <span ><%= currentUser.name %></span></h1>
@@ -75,33 +75,31 @@
               </div>
           </div>
 
+        <div class="card mb-3 border-0">
           <div class="row">
-            <div class="col-sm-6">
-              <img src="https://res.cloudinary.com/laurameehan/image/upload/v1575617883/pixel-cells-3976295_1280_rsimxt.png" class="img-fluid border border-dark rounded" alt="Picture of having a great idea">
+            <div class="col-md-4">
+              <img class="img-fluid border border-dark rounded"  src="https://res.cloudinary.com/laurameehan/image/upload/v1575617883/pixel-cells-3976295_1280_rsimxt.png" alt="Picture of having a great idea">
             </div>
-            <div class="col">
-              <div class="card text-center w-50 mx-auto border-0">
-                <div class="card-body mb-2">
-                <h2 class="card-title">Upgrade to Premium</h2>
-                <h4 class="card-subtitle mb-2 text-muted"> For only $15 </h4>
-                <p>You can enjoy creating unlimited private wikis on all your devices.</p>
+            <div class="col-md-8 pl-5">
+              <h2 class="card-title">Upgrade to Premium</h2>
+              <h4 class="card-subtitle mb-2 text-muted"> For only $15 </h4>
+              <p>You can enjoy creating unlimited private wikis on all your devices.</p>
 
-                <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
-                  <script
-                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="pk_test_y4X6knOxUBsAt7gm4uUBUXth"
-                  data-amount="1500"
-                  data-name="Laura Meehan"
-                  data-description="Example charge"
-                  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                  data-locale="auto">
-                </script>
-                </form>
-                <br>
-                </div>
-              </div>
+              <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
+                <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_y4X6knOxUBsAt7gm4uUBUXth"
+                data-amount="1500"
+                data-name="Laura Meehan"
+                data-description="Example charge"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="auto">
+              </script>
+              </form>
+              <br>
             </div>
           </div>
+        </div>
 
         </div>
 
