@@ -4,16 +4,15 @@
     <% include ../static/partials/head.ejs %>
   </head>
   <body>
-    <% include ../static/partials/navbar.ejs %>
-    <% include ../static/partials/messages.ejs %>
-
-    <main class="container">
+    <main class="container shadow vh-100">
       <div class="user-profile-page align-middle">
+      <% include ../static/partials/navbar.ejs %>
+      <% include ../static/partials/messages.ejs %>
 
       <!-- Signed in Standard user subscription page -->
         <% if(currentUser && currentUser.role === 0) { %>
           <div class="standardUser-profile">
-            <div class="row">
+            <div class="row pt-5">
               <div class="col">
                 <div class="card w-75 mx-auto border-0">
                   <div class="card-header bg-white">

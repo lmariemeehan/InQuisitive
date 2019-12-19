@@ -1,7 +1,7 @@
 <div class="top-navbar">
-  <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top">
+  <nav class="navbar navbar-expand-md navbar-light bg-transparent fixed-top">
     <div class="container">
-        <a class="navbar-brand text-info" href="/">
+        <a class="navbar-brand text-info pl-5" href="/">
           <i class="fab fa-leanpub"></i>
             InQuisitive
         </a>
@@ -17,7 +17,7 @@
 
         <% if(currentUser) { %>
 
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown pr-5">
               <a class="nav-link dropdown-toggle" href="/users/<%= currentUser.id %>/profile" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= currentUser.name %></a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/users/<%= currentUser.id %>/profile"> View Profile </a>
@@ -33,7 +33,7 @@
                 <i class="fas fa-user-plus"></i> Sign up for free
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item pr-5">
               <a class="btn btn-outline-secondary" href="/users/sign_in" id="signin-link">
                 <i class="fas fa-sign-in-alt"></i> Log in
               </a>

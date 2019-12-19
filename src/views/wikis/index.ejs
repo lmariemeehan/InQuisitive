@@ -5,11 +5,10 @@
   </head>
 
   <body>
-    <% include ../static/partials/navbar.ejs %>
-    <% include ../static/partials/messages.ejs %>
-
     <div class="allwikis-index">
-      <main class="container">
+      <main class="container shadow">
+      <% include ../static/partials/navbar.ejs %>
+      <% include ../static/partials/messages.ejs %>
 
           <% if (currentUser) { %>
 
@@ -42,7 +41,7 @@
             <div class="container mt-5">
               <div class="row">
                 <div class="col">
-                  <a class="btn btn-info rounded-pill" href="/wikis/new" role="button"><i class="fas fa-plus"></i></a>
+                  <a class="btn btn-info rounded-pill shadow-lg" href="/wikis/new" role="button"><i class="fas fa-plus"></i></a>
                 </div>
               </div>
             </div>

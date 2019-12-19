@@ -4,10 +4,10 @@
     <% include ../static/partials/head.ejs %>
   </head>
   <body>
-    <% include ../static/partials/navbar.ejs %>
 
-    <div class="show-wiki-page">
-    <main class="container">
+    <main class="container vh-100 shadow">
+      <% include ../static/partials/navbar.ejs %>
+      <div class="show-wiki-page">
 
         <div class="row">
           <div class="col text-center">
@@ -16,18 +16,18 @@
           </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-5">
           <div class="col text-center">
-            <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-warning rounded-pill mr-2" role="button">Edit</a>
+            <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-warning rounded-pill mr-2 shadow-sm" role="button">Edit</a>
 
             <form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
-              <button type="submit" class="btn btn-dark rounded-pill">Delete</button>
+              <button type="submit" class="btn btn-dark rounded-pill shadow-sm">Delete</button>
             </form>
         </div>
       </div>
 
+      </div>
     </main>
-    </div>
     <% include ../static/partials/baseScripts.ejs %>
 
   </body>
