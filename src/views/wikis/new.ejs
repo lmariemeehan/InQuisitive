@@ -10,44 +10,7 @@
       <% include ../static/partials/navbar.ejs %>
 
       <div class="row mx-5" id="newWiki-row">
-      <!--Markdown guide-->
-      <div class="col-md-4 border bg-light text-center shadow-sm">
-        <h4 class="mt-4"> Markdown Guide </h4>
-        <p class="text-muted">Learn markdown syntax. Used for styling and formatting text.</p>
-        <p>Example: ###I'm a smaller header!</p>
-        <span>Becomes:</span><h3 class="mb-4">I'm a smaller header!</h3>
-        <ul class="list-group list-group-flush mb-4">
-          <li class="list-group-item list-group-item-secondary">
-            <span>Quick Syntax Guide:</span>
-          </li>
-          <li class="list-group-item bg-light">
-            <span>#</span>
-            Largest header
-          </li>
-          <li class="list-group-item">
-            <span>##</span>
-            Medium header
-          </li>
-          <li class="list-group-item">
-            <span>###</span>
-            Smaller header
-          </li>
-          <li class="list-group-item">
-            <span>*</span>
-            Italic text
-          </li>
-          <li class="list-group-item">
-            <span>**</span>
-            Bold text
-          </li>
-          <li class="list-group-item">
-            <span>~~text~~</span>
-            Strikethrough text
-          </li>
-        </ul>
 
-        <a class="btn btn-info rounded-pill mb-4 shadow-sm" href="https://guides.github.com/features/mastering-markdown/"  target="_blank">Markdown cheatsheet</a>
-      </div>
 
       <!-- New wiki creation -->
         <div class="col-md-8 vh-100">
@@ -79,10 +42,51 @@
            </form>
 
          </div>
+
+
+      <!--Markdown guide-->
+      <div class="col-md-4 order-first border bg-light text-center shadow-sm">
+        <h4 class="mt-4"> Markdown Guide </h4>
+        <p class="text-muted">Learn markdown syntax. Used for styling and formatting text.</p>
+        <p>Example: ###I'm a smaller header!</p>
+        <span>Becomes:</span><h3 class="mb-4">I'm a smaller header!</h3>
+        <ul class="list-group list-group-flush mb-4">
+          <li class="list-group-item list-group-item-secondary">
+            <span>Quick Syntax Guide:</span>
+          </li>
+          <li class="list-group-item">
+            <span>#</span>
+            Largest header
+          </li>
+          <li class="list-group-item">
+            <span>##</span>
+            Medium header
+          </li>
+          <li class="list-group-item">
+            <span>###</span>
+            Smaller header
+          </li>
+          <li class="list-group-item">
+            <span>*</span>
+            Italic text
+          </li>
+          <li class="list-group-item">
+            <span>**</span>
+            Bold text
+          </li>
+          <li class="list-group-item">
+            <span>~~text~~</span>
+            Strikethrough text
+          </li>
+        </ul>
+
+        <a class="btn btn-info rounded-pill mb-4 shadow-sm" href="https://guides.github.com/features/mastering-markdown/"  target="_blank">Markdown cheatsheet</a>
       </div>
 
+      </div>
+
+    </div>
     </main>
-  </div>
 
     <% include ../static/partials/baseScripts.ejs %>
 
