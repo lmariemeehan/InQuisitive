@@ -62,6 +62,7 @@
                   </tr>
                 </thead>
                 <tbody>
+
                 <% wikis.forEach((wiki) => { %>
                   <% if (wiki.private == false) { %>
                     <tr>
@@ -72,6 +73,7 @@
                         <button type="submit" class="btn btn-outline-dark rounded-pill shadow-sm">Delete</button>
                       </form></td>
                     </tr>
+                    
                     <% } else if (wiki.private == true) { %>
                     <% const collaborator = wiki.getCollaboratorFor(currentUser.id) %>
                   <% if (currentUser && (currentUser.id == wiki.userId || currentUser.role == 2 || collaborator)) { %>

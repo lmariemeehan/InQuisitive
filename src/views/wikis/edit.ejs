@@ -5,45 +5,43 @@
   </head>
   <body>
 
-    <main class="container vh-100 shadow">
+    <main class="container shadow">
     <% include ../static/partials/navbar.ejs %>
 
     <div class="edit-wiki-page">
 
-
-      <div class="row mx-5">
+      <div class="row mx-5 ">
     <!--Markdown guide-->
-      <div class="col-3 border bg-light text-center shadow-sm mx-4">
+      <div class="col-md-3 border bg-light text-center shadow-sm">
         <h4 class="mt-4"> Markdown Guide </h4>
         <p class="text-muted">Learn markdown syntax. Used for styling and formatting text.</p>
         <p>Example: ###I'm a smaller header!</p>
-        <span>Becomes:</span><h3 class="mb-4">###I'm a smaller header!</h3>
+        <span>Becomes:</span><h3 class="mb-4">I'm a smaller header!</h3>
         <ul class="list-group list-group-flush mb-4">
-          <li class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
-            <span>Syntax</span>
-            Creates:
+          <li class="list-group-item list-group-item-secondary">
+            <span>Quick Syntax Guide:</span>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <li class="list-group-item">
             <span>#</span>
             Largest header
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <li class="list-group-item">
             <span>##</span>
             Medium header
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <li class="list-group-item">
             <span>###</span>
             Smaller header
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <li class="list-group-item">
             <span>*</span>
             Italic text
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <li class="list-group-item">
             <span>**</span>
             Bold text
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
+          <li class="list-group-item">
             <span>~~text~~</span>
             Strikethrough text
           </li>
@@ -52,7 +50,7 @@
         <a class="btn btn-info rounded-pill mb-4 shadow-sm" href="https://guides.github.com/features/mastering-markdown/"  target="_blank">Markdown cheatsheet</a>
       </div>
 
-      <div class="col">
+      <div class="col-md-9 vh-100">
 
       <h1 class="text-center">Edit Wiki</h1>
 
