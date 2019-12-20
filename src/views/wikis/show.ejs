@@ -9,7 +9,7 @@
       <% include ../static/partials/navbar.ejs %>
       <div class="show-wiki-page">
 
-        <div class="row">
+        <div class="row mx-5 mt-2">
           <div class="col text-center">
             <h1 class="text-center"> <%- wiki.title %> </h1>
             <p class="mt-5"><%- wiki.body %></p>
@@ -18,7 +18,7 @@
 
         <div class="row mt-5">
           <div class="col text-center">
-            <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-warning rounded-pill mr-2 shadow-sm" role="button">Edit</a>
+            <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-info rounded-pill mr-2 shadow-sm" role="button">Edit Wiki</a>
 
             <form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
               <button type="submit" class="btn btn-dark rounded-pill shadow-sm">Delete</button>

@@ -5,11 +5,12 @@
   </head>
   <body>
 
+    <main class="container shadow vh-100">
+
       <% include ../static/partials/navbar.ejs %>
       <% include ../static/partials/messages.ejs %>
+
       <div class="sign-in-page">
-      <main class="container">
-        
       <div class="row">
       <div class="col">
       <div class="card mx-auto w-50 border-0">
@@ -33,11 +34,13 @@
             <button type="submit" class="btn btn-outline-info rounded-pill btn-lg btn-block">Log in</button>
           </form>
         </div>
+
       </div>
       </div>
       </div>
-    </main>
     </div>
+
+    </main>
     <% include ../static/partials/baseScripts.ejs %>
 
   </body>

@@ -6,7 +6,7 @@
 
   <body>
     <div class="allwikis-index">
-      <main class="container shadow">
+      <main class="container vh-100 shadow">
       <% include ../static/partials/navbar.ejs %>
       <% include ../static/partials/messages.ejs %>
 
@@ -29,8 +29,10 @@
                     <tr>
                       <td></td>
                       <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
-                      <td>Edit</td>
-                      <td>Delete</td>
+                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-info rounded-pill mr-2 shadow-sm" role="button">Edit </a></td>
+                      <td><form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
+                        <button type="submit" class="btn btn-outline-dark rounded-pill shadow-sm">Delete</button>
+                      </form></td>
                     </tr>
                   <% } %>
                 <% }) %>
@@ -65,8 +67,10 @@
                     <tr>
                       <td></td>
                       <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
-                      <td>Edit</td>
-                      <td>Delete</td>
+                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-info rounded-pill mr-2 shadow-sm" role="button">Edit </a></td>
+                      <td><form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
+                        <button type="submit" class="btn btn-outline-dark rounded-pill shadow-sm">Delete</button>
+                      </form></td>
                     </tr>
                     <% } else if (wiki.private == true) { %>
                     <% const collaborator = wiki.getCollaboratorFor(currentUser.id) %>
@@ -74,8 +78,10 @@
                     <tr>
                       <td class="text-center"><i class="fas fa-lock"></i></td>
                       <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
-                      <td>Edit</td>
-                      <td>Delete</td>
+                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-info rounded-pill mr-2 shadow-sm" role="button">Edit </a></td>
+                      <td><form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
+                        <button type="submit" class="btn btn-outline-dark rounded-pill shadow-sm">Delete</button>
+                      </form></td>
                     </tr>
                     <% } %>
                   <% } %>
