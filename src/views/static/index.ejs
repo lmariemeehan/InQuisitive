@@ -5,7 +5,7 @@
   </head>
 
   <body>
-    <main class="container vh-100">
+    <main class="container">
     <!-- Navigation -->
     <% include ./partials/navbar.ejs %>
 
@@ -35,7 +35,6 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <span><i class="far fa-edit"></i></span>
                     <h4 class="card-title">Free Plan</h4>
                     <p class="card-text">Create as many public wikis as you want!</p>
                   </div>
@@ -48,7 +47,6 @@
               <div class="card mb-3 mx-5 border-0">
                 <div class="row">
                   <div class="col-md-8 text-right">
-                    <span><i class="fas fa-lock"></i></span>
                     <h4 class="card-title">Premium Plan</h4>
                     <p class="card-text mb-3">Create both public and exclusive private wikis!</p>
                   </div>
@@ -69,7 +67,7 @@
               <div class="row my-5 mx-lg-n5">
                 <div class="col px-lg-5">
                   <h1><span >Hello <%= currentUser.name %>!</span></h1>
-                  <a class="btn btn-info rounded-pill text-center mt-2" href="/wikis/new" role="button" ><i class="fas fa-plus"></i>Create new wiki</a>
+                  <a class="btn btn-info rounded-pill text-center mt-2" href="/wikis/new" role="button" ><i class="fas fa-plus mr-1"></i>Create new wiki</a>
                   <img src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_320,w_640/v1575153428/pixel-3699343_1280_j1garn.png" class="img-fluid float-right" alt="Bridging the knowledge gap">
                 </div>
               </div>

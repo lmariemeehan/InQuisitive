@@ -3,7 +3,7 @@ $secondary-green-color: #7BC290;
 $secondary-yellow-color: #F0E400;
 $primary-font-family: 'Open Sans', sans-serif;
 $accent-font-family: 'Lora', serif;
-$top-padding: 100px;
+$top-padding: 6rem;
 
 html, body {
   font-family: $primary-font-family;
@@ -14,15 +14,12 @@ html, body {
 }
 
 /*     Main static index page - User not signed in     */
-.main-index-page {
-  padding: 100px 30px 50px;
-}
 
 .hero {
   span {
-    color: $primary-color;
+    color: $secondary-yellow-color;
     font-family: $accent-font-family;
-    font-weight: 900;
+    font-weight: 200;
   }
   img {
     padding: 30px;

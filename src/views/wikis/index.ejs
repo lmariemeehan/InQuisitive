@@ -6,7 +6,7 @@
 
   <body>
     <div class="allwikis-index">
-      <main class="container vh-100 shadow">
+      <main class="container">
       <% include ../static/partials/navbar.ejs %>
       <% include ../static/partials/messages.ejs %>
 
@@ -73,7 +73,7 @@
                         <button type="submit" class="btn btn-outline-dark rounded-pill shadow-sm">Delete</button>
                       </form></td>
                     </tr>
-                    
+
                     <% } else if (wiki.private == true) { %>
                     <% const collaborator = wiki.getCollaboratorFor(currentUser.id) %>
                   <% if (currentUser && (currentUser.id == wiki.userId || currentUser.role == 2 || collaborator)) { %>

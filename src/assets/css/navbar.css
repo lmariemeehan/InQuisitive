@@ -1,0 +1,69 @@
+html, body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.alert-messages {
+  padding-top: 80px;
+}
+
+/*     Main static index page - User not signed in     */
+.hero span {
+  color: #17a2b8;
+  font-family: "Lora", serif;
+  font-weight: 200;
+}
+
+.hero img {
+  padding: 30px;
+}
+
+.hero .fa-plus {
+  padding-right: 35px;
+}
+
+.page-features i {
+  color: #17a2b8;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.page-features .border {
+  border: 3px solid black;
+}
+
+/*     Main index page - Signed in user    */
+.signedinUser-index h1 {
+  font-family: "Lora", serif;
+}
+
+.top-navbar .navbar-brand {
+  font-family: "Lora", serif;
+}
+
+.top-navbar .fa-leanpub {
+  font-size: 30px;
+}
+
+.top-navbar #navbarDropdown {
+  color: #17a2b8;
+}
+
+.top-navbar #navbarDropdown:hover {
+  color: #0f6674;
+}
+
+/* Sign up for free icon */
+.fa-user-plus {
+  padding-right: 6px;
+}
+
+/* Log in icon */
+.fa-sign-in-alt {
+  padding-right: 7px;
+}
+
+/* Log in icon */
+.fa-sign-out-alt {
+  padding-right: 6px;
+}
+/*# sourceMappingURL=navbar.css.map */
