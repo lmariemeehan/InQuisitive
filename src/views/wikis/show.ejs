@@ -8,11 +8,20 @@
     <main class="container vh-100 shadow">
       <% include ../static/partials/navbar.ejs %>
       <div class="show-wiki-page">
-
+        <h1 class="text-center mt-5">Created on: <%= wiki.createdAt %> </h1>
         <div class="row mx-5 mt-2">
-          <div class="col text-center">
-            <h1 class="text-center"> <%- wiki.title %> </h1>
-            <p class="mt-5"><%- wiki.body %></p>
+          <div class="col">
+            <p class="my-5 text-muted">Last updated: <%= wiki.updatedAt %> </p>
+            <form action="wikis/create" method="post">
+              <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" name="title" aria-describedby="titleHelp" value="<%- wiki.title %>" readonly>
+              </div>
+              <div class="form-group">
+                <label for="body">Body</label>
+                <textarea rows="4" class="form-control" name="body" readonly><%- wiki.body %></textarea>
+              </div>
+            </form>
           </div>
         </div>
 
