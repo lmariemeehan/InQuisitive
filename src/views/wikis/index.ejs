@@ -6,7 +6,7 @@
 
   <body>
     <div class="allwikis-index">
-      <main class="container">
+      <main class="container vh-100 shadow">
       <% include ../static/partials/navbar.ejs %>
       <% include ../static/partials/messages.ejs %>
 
@@ -14,6 +14,8 @@
 
             <div class="mywikis-list">
             <h1 class="text-center mt-5 mb-3">My Activity</h1>
+            <hr class="divider">
+
               <table class="table table-hover my-4 w-75 mx-auto">
                 <thead>
                   <tr>
@@ -29,9 +31,9 @@
                     <tr>
                       <td></td>
                       <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
-                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-info rounded-pill mr-2 shadow-sm" role="button">Edit </a></td>
+                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-primary rounded-pill mr-2 shadow-sm" role="button">Edit </a></td>
                       <td><form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
-                        <button type="submit" class="btn btn-outline-dark rounded-pill shadow-sm">Delete</button>
+                        <button type="submit" class="btn btn-outline-primary rounded-pill shadow-sm">Delete</button>
                       </form></td>
                     </tr>
                   <% } %>
@@ -50,8 +52,11 @@
             </div>
           </div>
 
+          <hr>
+
             <div class="allwikis-list">
             <h1 class="text-center mt-5">Browse All Wikis</h1>
+            <hr class="divider">
               <table class="table table-hover mt-4 w-75 mx-auto">
                 <thead>
                   <tr>
@@ -68,9 +73,9 @@
                     <tr>
                       <td></td>
                       <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
-                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-info rounded-pill mr-2 shadow-sm" role="button">Edit </a></td>
+                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-primary rounded-pill mr-2 shadow-sm" role="button">Edit </a></td>
                       <td><form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
-                        <button type="submit" class="btn btn-outline-dark rounded-pill shadow-sm">Delete</button>
+                        <button type="submit" class="btn btn-outline-primary rounded-pill shadow-sm">Delete</button>
                       </form></td>
                     </tr>
 
@@ -80,9 +85,9 @@
                     <tr>
                       <td class="text-center"><i class="fas fa-lock"></i></td>
                       <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
-                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-info rounded-pill mr-2 shadow-sm" role="button">Edit </a></td>
+                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-primary rounded-pill mr-2 shadow-sm" role="button">Edit </a></td>
                       <td><form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
-                        <button type="submit" class="btn btn-outline-dark rounded-pill shadow-sm">Delete</button>
+                        <button type="submit" class="btn btn-outline-primary rounded-pill shadow-sm">Delete</button>
                       </form></td>
                     </tr>
                     <% } %>

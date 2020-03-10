@@ -94,14 +94,14 @@
 
             <div class="row bg-light">
               <div class="col">
-                <div class="card border-0 bg-secondary text-center p-5 my-5 w-50 mx-auto shadow">
-                  <img class="img-fluid bg-white border border-dark rounded"  
+                <div class="card border-0 bg-secondary text-center my-5 w-50 mx-auto shadow">
+                  <img class="card-img-top bg-white"  
                       src="https://res.cloudinary.com/laurameehan/image/upload/v1575617883/pixel-cells-3976295_1280_rsimxt.png" 
                       alt="Picture of having a great idea">
-                  <div class="card-body text-center">
-                    <h2 class="card-title text-white mb-2">Upgrade to Premium</h2>
-                    <h4 class="card-subtitle mb-2 text-white"> For only $15 </h4>
-                    <p class="text-white">You can enjoy creating unlimited private wikis on all your devices.</p>
+                  <div class="card-body text-white">
+                    <h3 class="card-title text-uppercase">Upgrade to Premium</h3>
+                    <h5 class="card-subtitle mb-2"> For only $15 </h5>
+                    <p class="card-text">You can enjoy creating unlimited private wikis on all your devices.</p>
                     <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
                       <script
                       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
