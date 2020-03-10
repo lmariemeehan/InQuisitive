@@ -85,6 +85,7 @@
             <div class="row">
               <div class="col text-center">
                 <h1 class="my-4"> Hello <%= currentUser.name %>!</h1>
+                <hr class="divider">
                 <a class="btn btn-info rounded-pill mt-2 mb-5" href="/wikis/new" role="button">
                   <i class="fas fa-plus mr-1"></i> Create new wiki
                 </a>
@@ -92,15 +93,15 @@
             </div>
 
             <div class="row bg-light">
-              <div class="col d-flex justify-content-center">
-                <div class="card border-0 p-5 my-5 w-50 shadow">
-                  <img class="img-fluid border border-dark rounded"  
+              <div class="col">
+                <div class="card border-0 bg-secondary text-center p-5 my-5 w-50 mx-auto shadow">
+                  <img class="img-fluid bg-white border border-dark rounded"  
                       src="https://res.cloudinary.com/laurameehan/image/upload/v1575617883/pixel-cells-3976295_1280_rsimxt.png" 
                       alt="Picture of having a great idea">
                   <div class="card-body text-center">
-                    <h2 class="card-title text-secondary">Upgrade to Premium</h2>
-                    <h4 class="card-subtitle mb-2 text-muted"> For only $15 </h4>
-                    <p>You can enjoy creating unlimited private wikis on all your devices.</p>
+                    <h2 class="card-title text-white mb-2">Upgrade to Premium</h2>
+                    <h4 class="card-subtitle mb-2 text-white"> For only $15 </h4>
+                    <p class="text-white">You can enjoy creating unlimited private wikis on all your devices.</p>
                     <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
                       <script
                       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
