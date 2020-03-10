@@ -9,99 +9,110 @@
     <% include ./partials/navbar.ejs %>
 
     <!-- Page Content -->
-    <main class="container">
+    <main class="container-fluid mt-5 p-0">
     <div class="main-index-page">
 
       <% if(!currentUser) { %>
 
-      <div class="hero mx-5">
+        <div class="hero container">
           <div class="row my-5 mx-lg-n5">
             <div class="col px-lg-5">
-              <h1>Welcome to <span >InQuisitive</span></h1>
+              <h1 class="my-4">Welcome to InQuisitive</h1>
               <p>Explore, collaborate, and share markdown wikis.</p>
-              <a class="btn btn-info rounded-pill text-center shadow-sm" href="/users/sign_up" role="button" ><i class="fas fa-user-plus pr-2"></i>Sign up for free</a>
-              <img class="img-fluid float-right p-5"  src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_320,w_640/v1575153428/pixel-3699343_1280_j1garn.png" alt="Bridging the knowledge gap">
+              <a class="btn btn-info rounded-pill text-center shadow-sm mt-2" href="/users/sign_up" role="button">
+                <i class="fas fa-user-plus pr-2"></i> Sign up for free
+              </a>
+              <img class="img-fluid float-right"  
+                    src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_320,w_640/v1575153428/pixel-3699343_1280_j1garn.png" 
+                    alt="Bridging the knowledge gap">
             </div>
           </div>
-      </div>
+        </div>
+
+        <hr>
 
         <!-- Page Features -->
         <div class="page-features">
-          <div id="freeplan-feature">
-            <div class="card mb-3 mx-5 border-0">
-              <div class="row">
-                <div class="col-md-4">
-                  <img src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_340,w_480/v1575618263/break-3947908_1280_dyuslg.png" class="card-img border border-dark" alt="...">
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h4 class="card-title">Free Plan</h4>
-                    <p class="card-text">Create as many public wikis as you want!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="container mb-5">
+            <h2 class="text-center mt-5">Options</h2>
 
-            <div class="premiumplan-feature">
-              <div class="card mb-3 mx-5 border-0">
-                <div class="row">
-                  <div class="col-md-8 text-right">
-                    <h4 class="card-title">Premium Plan</h4>
-                    <p class="card-text mb-3">Create both public and exclusive private wikis!</p>
-                  </div>
-                  <div class="col-md-4">
-                    <img class="img-fluid float-right border border-dark rounded" src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_340,w_480/v1575617883/pixel-cells-3976295_1280_rsimxt.png" alt="Picture of having a great idea">
+            <div class="row pt-5">
+              <div class="col" id="freeplan-feature">
+                <div class="card mb-3 mx-5 border-0">
+                  <div class="row">
+                    <div class="col">
+                      <img src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_340,w_480/v1575618263/break-3947908_1280_dyuslg.png" 
+                           class="card-img border border-dark" alt="Free is relaxing and carefree">
+                    </div>
+                    <div class="col-6">
+                      <div class="card-body">
+                        <h4 class="card-title text-secondary">Free Plan</h4>
+                        <p class="card-text">Create as many public wikis as you want!</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
+                <div class="col" id="premiumplan-feature">
+                  <div class="card mb-3 mx-5 border-0">
+                    <div class="row">
+                      <div class="col-6 text-right">
+                        <div class="card-body">
+                         <h4 class="card-title text-secondary">Premium Plan</h4>
+                         <p class="card-text mb-3">Create both public and exclusive private wikis!</p>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <img class="img-fluid float-right border border-dark rounded" 
+                             src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_340,w_480/v1575617883/pixel-cells-3976295_1280_rsimxt.png" 
+                             alt="Picture of having a great idea">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+             </div>
             </div>
           </div>
 
       <!--   Signed in Standard user index page   -->
       <% } else if(currentUser && currentUser.role === 0) { %>
+        <div class="container-fluid">
 
-        <div class="signedinUser-index">
+            <div class="row">
+              <div class="col text-center">
+                <h1 class="my-4"> Hello <%= currentUser.name %>!</h1>
+                <a class="btn btn-info rounded-pill mt-2 mb-5" href="/wikis/new" role="button">
+                  <i class="fas fa-plus mr-1"></i> Create new wiki
+                </a>
+              </div>
+            </div>
 
-        <div class="hero">
-              <div class="row">
-                <div class="col">
-                  <h1><span >Hello <%= currentUser.name %>!</span></h1>
-                  <a class="btn btn-info rounded-pill text-center mt-2" href="/wikis/new" role="button">
-                    <i class="fas fa-plus mr-1"></i> Create new wiki
-                  </a>
-                  <img src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_320,w_640/v1575153428/pixel-3699343_1280_j1garn.png" 
-                    class="img-fluid float-right" alt="Bridging the knowledge gap">
+            <div class="row bg-light">
+              <div class="col d-flex justify-content-center">
+                <div class="card border-0 p-5 mt-5 w-50 shadow">
+                  <img class="img-fluid border border-dark rounded"  
+                      src="https://res.cloudinary.com/laurameehan/image/upload/v1575617883/pixel-cells-3976295_1280_rsimxt.png" 
+                      alt="Picture of having a great idea">
+                  <div class="card-body text-center">
+                    <h2 class="card-title text-secondary">Upgrade to Premium</h2>
+                    <h4 class="card-subtitle mb-2 text-muted"> For only $15 </h4>
+                    <p>You can enjoy creating unlimited private wikis on all your devices.</p>
+                    <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
+                      <script
+                      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-key="pk_test_y4X6knOxUBsAt7gm4uUBUXth"
+                      data-amount="1500"
+                      data-name="Laura Meehan"
+                      data-description="Example charge"
+                      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                      data-locale="auto">
+                    </script>
+                    </form>
+                  </div>
                 </div>
               </div>
-          </div>
-
-        <div class="card mb-3 border-0 ml-3 w-auto">
-          <div class="row">
-            <div class="col-md-4">
-              <img class="img-fluid border border-dark rounded"  src="https://res.cloudinary.com/laurameehan/image/upload/v1575617883/pixel-cells-3976295_1280_rsimxt.png" alt="Picture of having a great idea">
             </div>
-            <div class="col-md-8 pl-5">
-              <h2 class="card-title">Upgrade to Premium</h2>
-              <h4 class="card-subtitle mb-2 text-muted"> For only $15 </h4>
-              <p>You can enjoy creating unlimited private wikis on all your devices.</p>
-
-              <form action="/users/<%= currentUser.id %>/upgrade" method="POST">
-                <script
-                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="pk_test_y4X6knOxUBsAt7gm4uUBUXth"
-                data-amount="1500"
-                data-name="Laura Meehan"
-                data-description="Example charge"
-                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                data-locale="auto">
-              </script>
-              </form>
-              <br>
-            </div>
-          </div>
-        </div>
-
         </div>
 
         <!-- Signed in Premium user index page -->
