@@ -5,10 +5,10 @@
   </head>
   <body>
 
-    <main class="container vh-100 shadow">
+    <main class="container min-vh-100 shadow">
       <% include ../static/partials/navbar.ejs %>
       <div class="show-wiki-page">
-        <h1 class="text-center mt-5">Created on: <%= wiki.createdAt %> </h1>
+        <h3 class="text-center mt-5">Created on: <%= wiki.createdAt %> </h3>
         <div class="row mx-5 mt-2">
           <div class="col">
             <p class="my-5 text-muted">Last updated: <%= wiki.updatedAt %> </p>
@@ -25,18 +25,19 @@
           </div>
         </div>
 
-        <div class="row mt-5">
+        <div class="row mt-5 pb-5">
           <div class="col text-center">
-            <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-info rounded-pill mr-2 shadow-sm" role="button">Edit Wiki</a>
-
+            <a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-info mr-2 shadow-sm" role="button">Edit Wiki</a>
             <form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
-              <button type="submit" class="btn btn-outline-dark rounded-pill shadow-sm">Delete</button>
+              <button type="submit" class="btn btn-outline-dark shadow-sm">Delete</button>
             </form>
         </div>
       </div>
 
+
       </div>
     </main>
+
     <% include ../static/partials/baseScripts.ejs %>
 
   </body>

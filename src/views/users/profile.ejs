@@ -4,7 +4,7 @@
     <% include ../static/partials/head.ejs %>
   </head>
   <body>
-    <main class="container shadow vh-100">
+    <main class="container min-vh-100 shadow">
 
       <% include ../static/partials/navbar.ejs %>
       <% include ../static/partials/messages.ejs %>
@@ -12,49 +12,49 @@
       <!-- Signed in Standard user subscription page -->
         <% if(currentUser && currentUser.role === 0) { %>
           <div class="standardUser-profile">
-            <div class="row mt-5">
+            <div class="row mt-4">
               <div class="col">
                 <div class="card w-75 mx-auto border-0">
                   <div class="card-header bg-white">
                     <h1 class="mt-5" id="profileTitle">Account overview</h1>
                   </div>
-                  <div class="card-body">
-                    <h5 class="text-muted mt-3"> Profile </h5>
-                      <form>
-                        <div class="row">
-                          <label for="staticName" class="col-sm-2 col-form-label"><strong>Name:</strong></label>
-                          <div class="col-sm-10">
-                            <input type="text" readonly class="form-control-plaintext" id="staticName" value=" <%= currentUser.name %> ">
-                          </div>
+                <div class="card-body">
+                  <h5 class="text-muted mt-3"> Profile </h5>
+                    <form>
+                      <div class="row">
+                        <label for="staticName" class="col-sm-2 col-form-label"><strong>Name:</strong></label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly class="form-control-plaintext" id="staticName" value=" <%= currentUser.name %> ">
                         </div>
-                        <div class="form-group row">
-                          <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Email:</strong></label>
-                          <div class="col-sm-10">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" <%= currentUser.email %> ">
-                          </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Email:</strong></label>
+                        <div class="col-sm-10">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value=" <%= currentUser.email %> ">
                         </div>
-                      </form>
+                      </div>
+                    </form>
+                    <hr>
+                      <h5 class="text-muted mt-3 mb-3"> Account details </h5>
+                        <p>Current membership status: <strong>STANDARD</strong></p>
                         <hr>
-                        <h5 class="text-muted mt-3 mb-3"> Account details </h5>
-                          <p>Current membership status: <strong>STANDARD</strong></p>
-                          <hr>
-                          <h5 class="text-muted mt-3 mb-3"> Upgrade to Premium Membership </h5>
-                            <p>This entitles you to create unlimited private wikis that only you and collaborators of your choice the ability to view and share.</p>
-                            <p>Enjoy creating unlimited private wikis at a low one time charge of only $15!</p>
+                        <h5 class="text-muted mt-3 mb-3"> Upgrade to Premium Membership </h5>
+                          <p>This entitles you to create unlimited private wikis that only you and collaborators of your choice the ability to view and share.</p>
+                          <p>Enjoy creating unlimited private wikis at a low one time charge of only $15!</p>
 
                     <!--Stripe credit card payment-->
 
-                      <form class="text-center" action="/users/<%= currentUser.id %>/upgrade" method="POST">
-                        <script
-                        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                        data-key="pk_test_y4X6knOxUBsAt7gm4uUBUXth"
-                        data-amount="1500"
-                        data-name="Laura Meehan"
-                        data-description="Example charge"
-                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                        data-locale="auto">
-                      </script>
-                      </form>
+                    <form class="text-center pb-3" action="/users/<%= currentUser.id %>/upgrade" method="POST">
+                      <script
+                      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-key="pk_test_y4X6knOxUBsAt7gm4uUBUXth"
+                      data-amount="1500"
+                      data-name="Laura Meehan"
+                      data-description="Example charge"
+                      data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                      data-locale="auto">
+                    </script>
+                    </form>
                     </div>
                   </div>
                 </div>
@@ -95,7 +95,7 @@
                   <p>Please be aware that upon reverting back to a Standard Membership, all wikis created under the private label will lose this status and will therefore become open to the public. If you wish to proceed, click the downgrade button below to switch to InQuisitive's free standard plan.</p>
 
                   <form class="text-center mt-5" action="/users/<%= currentUser.id %>/downgrade" method="POST">
-                    <button type="submit" class="btn btn-dark rounded-pill">Cancel Premium Membership</button>
+                    <button type="submit" class="btn btn-dark">Cancel Premium Membership</button>
                   </form>
                   </div>
                 </div>

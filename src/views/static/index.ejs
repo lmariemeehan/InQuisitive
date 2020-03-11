@@ -19,7 +19,7 @@
             <div class="col px-lg-5">
               <h1 class="my-4">Welcome to InQuisitive</h1>
               <p>Explore, collaborate, and share markdown wikis. Your team's favorite tool for bridging the knowledge gap.</p>
-              <a class="btn btn-info rounded-pill text-center shadow-sm mt-2" href="/users/sign_up" role="button">
+              <a class="btn btn-info text-center shadow-sm mt-2" href="/users/sign_up" role="button">
                 <i class="fas fa-user-plus pr-2"></i> Sign up for free
               </a>
               <img class="img-fluid float-right"  
@@ -86,7 +86,7 @@
               <div class="col text-center">
                 <h1 class="my-4"> Hello <%= currentUser.name %>!</h1>
                 <hr class="divider">
-                <a class="btn btn-info rounded-pill mt-2 mb-5" href="/wikis/new" role="button">
+                <a class="btn btn-info mt-2 mb-5" href="/wikis/new" role="button">
                   <i class="fas fa-plus mr-1"></i> Create new wiki
                 </a>
               </div>
@@ -128,13 +128,15 @@
               <h1 class="text-center"> Welcome <span><%= currentUser.name %> !</span></h1>
               <img src="https://res.cloudinary.com/laurameehan/image/upload/c_scale,h_320,w_640/v1575153428/pixel-3699343_1280_j1garn.png" 
                    class="img-fluid mt-4" alt="Bridging the knowledge gap">
-              <a class="btn btn-info rounded-pill mt-5" 
+              <a class="btn btn-info mt-5 w-50 mx-auto" 
                   href="/wikis/new" role="button"><i class="fas fa-plus mr-2"></i>
                   Create new wiki
               </a>
             </div>
           </div>
         </div>
+
+        <footer class="text-center bg-light text-muted p-5 fixed-bottom"><a href="https://github.com/lmariemeehan/InQuisitive" target="_blank">InQuisitive</a></footer>
 
       <% } %>
       </div>

@@ -1,21 +1,23 @@
 
 <% if(wiki.collaborators) { %>
-<br>
-
   <div class="card">
     <div class="card-body text-center">
-      <h5>Collaborators:</h5>
+      <ul class="list-group list-group-flush">
+        <% wiki.collaborators.forEach((collaborator) => { %>
+          <li class="list-group-item">
+             <%= collaborator.name %>
+          </li>
+        <% }) %>
+      </ul>
     </div>
   </div>
 
-<br>
+<% } else { %>
 
-  <ul class="list-group list-group-flush">
-    <% wiki.collaborators.forEach((collaborator) => { %>
-      <li class="list-group-item">
-         <%- collaborator.name%> see if this shows up in wiki/show.ejs
-      </li>
-    <% }) %>
-  </ul>
-
+  <div class="card">
+    <div class="card-body">
+      No collaborators have been added to this wiki.
+    </div>
+  </div>
+  
 <% } %>

@@ -6,13 +6,12 @@
 
   <body>
     <div class="allwikis-index">
-      <main class="container vh-100 shadow">
+      <main class="container min-vh-100 p-3 shadow">
       <% include ../static/partials/navbar.ejs %>
       <% include ../static/partials/messages.ejs %>
 
           <% if (currentUser) { %>
-
-            <div class="mywikis-list">
+            <section class="mywikis-list">
             <h1 class="text-center mt-5 mb-3">My Activity</h1>
             <hr class="divider">
 
@@ -31,9 +30,9 @@
                     <tr>
                       <td></td>
                       <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
-                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-primary rounded-pill shadow-sm" role="button"><i class="fas fa-edit"></i> Edit </a></td>
+                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-primary shadow-sm" role="button"><i class="fas fa-edit"></i></a></td>
                       <td><form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
-                        <button type="submit" class="btn btn-outline-primary rounded-pill shadow-sm"><i class="fas fa-trash-alt"></i> Delete </button>
+                        <button type="submit" class="btn btn-primary shadow-sm"><i class="fas fa-trash-alt"></i></button>
                       </form></td>
                     </tr>
                   <% } %>
@@ -45,16 +44,16 @@
             <div class="container my-5">
               <div class="row">
                 <div class="col text-center">
-                  <a class="btn btn-info btn-lg rounded-pill shadow-lg" href="/wikis/new" role="button"><i class="fas fa-plus"></i> New </a>
+                  <a class="btn btn-info btn-lg shadow" href="/wikis/new" role="button"><i class="fas fa-plus mr-2"></i>Create new wiki</a>
                 </div>
               </div>
             </div>
             </div>
-          </div>
+          </section>
 
           <hr>
 
-            <div class="allwikis-list">
+            <section class="allwikis-list">
             <h1 class="text-center mt-5">Browse All Wikis</h1>
             <hr class="divider">
               <table class="table table-hover mt-4 w-75 mx-auto">
@@ -73,9 +72,9 @@
                     <tr>
                       <td></td>
                       <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
-                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-primary rounded-pill mr-2 shadow-sm" role="button"><i class="fas fa-edit"></i> Edit </a></td>
+                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-primary shadow-sm" role="button"><i class="fas fa-edit"></i></a></td>
                       <td><form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
-                        <button type="submit" class="btn btn-outline-primary rounded-pill shadow-sm"><i class="fas fa-trash-alt"></i> Delete </button>
+                        <button type="submit" class="btn btn-primary shadow-sm"><i class="fas fa-trash-alt"></i></button>
                       </form></td>
                     </tr>
 
@@ -85,9 +84,9 @@
                     <tr>
                       <td class="text-center"><i class="fas fa-lock"></i></td>
                       <td><a href="/wikis/<%= wiki.id %>"> <%= wiki.title %> </a></td>
-                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-outline-primary rounded-pill mr-2 shadow-sm" role="button"><i class="fas fa-edit"></i> Edit </a></td>
+                      <td><a href="/wikis/<%= wiki.id %>/edit" class="btn btn-primary shadow-sm" role="button"><i class="fas fa-edit"></i></a></td>
                       <td><form style="display:initial" action="/wikis/<%= wiki.id %>/destroy" method="post">
-                        <button type="submit" class="btn btn-outline-primary rounded-pill shadow-sm"><i class="fas fa-trash-alt"></i> Delete</button>
+                        <button type="submit" class="btn btn-primary shadow-sm"><i class="fas fa-trash-alt"></i></button>
                       </form></td>
                     </tr>
                     <% } %>
@@ -95,8 +94,7 @@
                 <% }) %>
                 </tbody>
               </table>
-            </div>
-
+            </section>
       <% } %>
 
     </main>

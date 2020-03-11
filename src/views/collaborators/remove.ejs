@@ -1,12 +1,23 @@
-  <ul class ="list-group">
+  
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scopt="col">Remove</th>
+      </tr>
+    </thead>
+    <tbody>
     <% wiki.collaborators.forEach((collaborator) => { %>
-      <li class="list-group-item">
-
-        <%= collaborator.User.name %>
-
-          <form action="/wikis/<%= wiki.id %>/collaborators/<%= collaborator.id %>/destroy" method="post">
-            <button type="submit" class="btn btn-danger float-right">Remove Collaborator</button>
+      <tr>
+        <td><%= collaborator.User.name %></td> 
+        <td><%= collaborator.User.email %></td>
+        <td>
+          <form style="display:initial" action="/wikis/<%= wiki.id %>/collaborators/<%= collaborator.id %>/destroy" method="post">
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
           </form>
-        </li>
+        </td>
+      </tr>
     <% }) %>
-  </ul>
+    </tbody>
+  </table>
